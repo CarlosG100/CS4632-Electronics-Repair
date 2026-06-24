@@ -1,0 +1,429 @@
+production_job_id,source,arrival_date,part_number,basic_failure,location,service_time_minutes
+PROD00001,Production Failure,2026-06-22 00:00:00,538-4950,Can't plug USB cable into J13,Benchmark,30
+PROD00002,Production Failure,2026-06-19 00:00:00,538-3066,J3 Reversed,Chihuahua,30
+PROD00003,Production Failure,2026-06-19 00:00:00,538-3066,J4 reversed,Chihuahua,30
+PROD00004,Production Failure,2026-06-18 00:00:00,538-3030,Not communicating with HHT,Prime,30
+PROD00005,Production Failure,2026-06-18 00:00:00,538-4950,MAC Address not programmed/RTC failure,Benchmark,30
+PROD00006,Production Failure,2026-06-18 00:00:00,376-0006,No Display,Hantronix,30
+PROD00007,Production Failure,2026-06-18 00:00:00,538-3061,No comm on HHT,Chihuahua,30
+PROD00008,Production Failure,2026-06-15 00:00:00,538-4950,Won't program,Benchmark,30
+PROD00009,Production Failure,2026-06-15 00:00:00,538-4950,Intermittent display,Benchmark,30
+PROD00010,Production Failure,2026-06-11 00:00:00,538-3061,Fails Watchdog test on test fixture,Benchmark,30
+PROD00011,Production Failure,2026-06-11 00:00:00,318-3180,Locked up,Chihuahua,30
+PROD00012,Production Failure,2026-06-11 00:00:00,318-3180,Will not read USB port,Chihuahua,30
+PROD00013,Production Failure,2026-06-11 00:00:00,318-3180,Locked up,Chihuahua,30
+PROD00014,Production Failure,2026-06-11 00:00:00,318-3180,Locked up,Chihuahua,30
+PROD00015,Production Failure,2026-06-10 00:00:00,538-4901,Not Communicating on Ethernet port,Benchmark,30
+PROD00016,Production Failure,2026-06-10 00:00:00,538-4901,Not communicating with processor board,Benchmark,30
+PROD00017,Production Failure,2026-06-10 00:00:00,538-4950,MAC address not programmed,Benchmark,30
+PROD00018,Production Failure,2026-06-10 00:00:00,538-4950,MAC address not programmed,Benchmark,30
+PROD00019,Production Failure,2026-06-10 00:00:00,538-3066,J8 Reversed,Chihuahua,30
+PROD00020,Production Failure,2026-06-08 00:00:00,538-3061,Not communicating with HHT,Chihuahua,30
+PROD00021,Production Failure,2026-06-04 00:00:00,538-4901,Reversed Connector,Benchmark,30
+PROD00022,Production Failure,2026-06-03 00:00:00,538-3066,Reveresed Connector,Chihuahua,30
+PROD00023,Production Failure,2026-06-03 00:00:00,538-3061,No Comm,Chihuahua,30
+PROD00024,Production Failure,2026-06-03 00:00:00,538-3061,No Communication,Chihuahua,30
+PROD00025,Production Failure,2026-06-03 00:00:00,538-3199,Capacitor vented,Prime,30
+PROD00026,Production Failure,2026-06-03 00:00:00,318-3180,No Power,Chihuahua,30
+PROD00027,Production Failure,2026-06-03 00:00:00,318-3180,Locks up when USB inserted,Chihuahua,30
+PROD00028,Production Failure,2026-06-01 00:00:00,537-3500,Won't Program,Prime,30
+PROD00029,Production Failure,2026-06-01 00:00:00,537-3500,Won't Program,Prime,30
+PROD00030,Production Failure,2026-06-01 00:00:00,537-3500,Won't Program,Prime,30
+PROD00031,Production Failure,2026-06-01 00:00:00,537-3500,Won't Program,Prime,30
+PROD00032,Production Failure,2026-05-29 00:00:00,538-3061,TB5 reversed,Chihuahua,30
+PROD00033,Production Failure,2026-05-27 00:00:00,318-3180,Won't boot up,Belluno,30
+PROD00034,Production Failure,2026-05-27 00:00:00,318-3180,Not Communicating on Ethernet ports,Belluno,30
+PROD00035,Production Failure,2026-05-26 00:00:00,376-0006,Blank Display,Hantronix,30
+PROD00036,Production Failure,2026-05-26 00:00:00,538-4950,No image on display,Benchmark,30
+PROD00037,Production Failure,2026-05-22 00:00:00,318-3180,Not Communicating on Ethernet ports,Chihuahua,30
+PROD00038,Production Failure,2026-05-22 00:00:00,318-3180,Not Communicating on Ethernet ports,Chihuahua,30
+PROD00039,Production Failure,2026-05-22 00:00:00,318-3180,Won't boot up,Chihuahua,30
+PROD00040,Production Failure,2026-05-22 00:00:00,318-3180,Won't boot up,Belluno,30
+PROD00041,Production Failure,2026-05-22 00:00:00,538-3061,Not communicating with HHT,Chihuahua,30
+PROD00042,Production Failure,2026-05-22 00:00:00,538-3061,Not communicating with HHT,Benchmark,30
+PROD00043,Production Failure,2026-05-21 00:00:00,538-3061,TB1 Reversed,Chihuahua,30
+PROD00044,Production Failure,2026-05-21 00:00:00,538-4901,No Power,Benchmark,30
+PROD00045,Production Failure,2026-05-19 00:00:00,538-3061,-3.3V supply failed,Chihuahua,30
+PROD00046,Production Failure,2026-05-19 00:00:00,538-3062,J4 not seated properly,Benchmark,30
+PROD00047,Production Failure,2026-05-15 00:00:00,538-3061,TB1 Reversed,Chihuahua,30
+PROD00048,Production Failure,2026-05-15 00:00:00,538-3061,TB1 Reversed,Chihuahua,30
+PROD00049,Production Failure,2026-05-15 00:00:00,380-0003,Won't boot up,Advantech,30
+PROD00050,Production Failure,2026-05-14 00:00:00,376-0006,Causes processor board to lock up,Hantronix,30
+PROD00051,Production Failure,2026-05-14 00:00:00,538-4950,MAC address not programmed,Benchmark,30
+PROD00052,Production Failure,2026-05-14 00:00:00,538-3061,TB3 Reversed,Chihuahua,30
+PROD00053,Production Failure,2026-05-14 00:00:00,538-3061,TB3 Reversed,Chihuahua,30
+PROD00054,Production Failure,2026-05-13 00:00:00,538-4901,J15 Reversed,Benchmark,30
+PROD00055,Production Failure,2026-05-13 00:00:00,210-1600,Display Failure,M2S,30
+PROD00056,Production Failure,2026-05-13 00:00:00,318-6029,No Power,Belluno,30
+PROD00057,Production Failure,2026-05-13 00:00:00,537-3500,Will not program,Prime,30
+PROD00058,Production Failure,2026-05-13 00:00:00,538-3061,Communication Failure,Chihuahua,30
+PROD00059,Production Failure,2026-05-13 00:00:00,538-3061,Communication Failure,Prime,30
+PROD00060,Production Failure,2026-05-12 00:00:00,538-3066,J1,Benchmark,30
+PROD00061,Production Failure,2026-05-07 00:00:00,318-9004,No Power,Belluno,30
+PROD00062,Production Failure,2026-05-06 00:00:00,538-3061,Communication Failure,Chihuahua,30
+PROD00063,Production Failure,2026-05-06 00:00:00,538-3061,Communication Failure,Chihuahua,30
+PROD00064,Production Failure,2026-05-06 00:00:00,538-3061,Board burned when powered on.,Chihuahua,30
+PROD00065,Production Failure,2026-05-06 00:00:00,538-3061,Board burned when powered on.,Chihuahua,30
+PROD00066,Production Failure,2026-05-01 00:00:00,318-3180,Won't boot up,Belluno,30
+PROD00067,Production Failure,2026-05-01 00:00:00,376-0006,Touchscreen failure,Hantronix,30
+PROD00068,Production Failure,2026-05-01 00:00:00,538-3061,LED D6 not working,Benchmark,30
+PROD00069,Production Failure,2026-05-01 00:00:00,538-3062,Communication Failure,Benchmark,30
+PROD00070,Production Failure,2026-05-01 00:00:00,538-3199,"Capacitors C69, C71 vented",Benchmark,30
+PROD00071,Production Failure,2026-04-29 00:00:00,810-3013,Communication Failure,Benchmark,30
+PROD00072,Production Failure,2026-04-29 00:00:00,318-3180,Won't boot up,Belluno,30
+PROD00073,Production Failure,2026-04-29 00:00:00,318-3180,Won't boot up,Belluno,30
+PROD00074,Production Failure,2026-04-29 00:00:00,318-3180,Won't boot up,Belluno,30
+PROD00075,Production Failure,2026-04-29 00:00:00,318-3180,Won't boot up,Belluno,30
+PROD00076,Production Failure,2026-04-23 00:00:00,318-3180,LED 1 is red instead of yellow,Belluno,30
+PROD00077,Production Failure,2026-04-20 00:00:00,376-0006,Display locks up,Hantronix,30
+PROD00078,Production Failure,2026-04-20 00:00:00,538-4901,J38 Missing,Benchmark,30
+PROD00079,Production Failure,2026-04-20 00:00:00,376-0006,Display Failure,Hantronix,30
+PROD00080,Production Failure,2026-04-17 00:00:00,538-4901,J34 Reversed,Benchmark,30
+PROD00081,Production Failure,2026-04-17 00:00:00,538-1126,Relays not activating load,Prime,30
+PROD00082,Production Failure,2026-04-17 00:00:00,538-1126,Relays not activating load,Prime,30
+PROD00083,Production Failure,2026-04-16 00:00:00,538-3061,Not communicating with HHT,Chihuahua,30
+PROD00084,Production Failure,2026-04-16 00:00:00,538-3061,Not communicating with HHT,Chihuahua,30
+PROD00085,Production Failure,2026-04-15 00:00:00,538-3063,Not communicating with HHT,Chihuahua,30
+PROD00086,Production Failure,2026-04-14 00:00:00,318-3180,Won't boot up,Belluno,30
+PROD00087,Production Failure,2026-04-13 00:00:00,538-4901,"J15, J19 Reversed",Benchmark,30
+PROD00088,Production Failure,2026-04-13 00:00:00,538-4901,J15 Reversed,Benchmark,30
+PROD00089,Production Failure,2026-04-10 00:00:00,538-3006,Not communicating with HHT,Benchmark,30
+PROD00090,Production Failure,2026-04-10 00:00:00,538-3030,Will not communicate with HHT,Prime,30
+PROD00091,Production Failure,2026-04-09 00:00:00,318-3180,Won't boot up,Belluno,30
+PROD00092,Production Failure,2026-04-07 00:00:00,538-4950,Won't boot up,Benchmark,30
+PROD00093,Production Failure,2026-04-07 00:00:00,538-4950,Won't boot up,Benchmark,30
+PROD00094,Production Failure,2026-04-07 00:00:00,538-4950,MAC address not programmed,Benchmark,30
+PROD00095,Production Failure,2026-04-07 00:00:00,538-4950,MAC address not programmed,Benchmark,30
+PROD00096,Production Failure,2026-04-07 00:00:00,538-4950,MAC address not programmed,Benchmark,30
+PROD00097,Production Failure,2026-04-07 00:00:00,538-3006,"LEDs not turning on, not communicating with HHT",Chihuahua,30
+PROD00098,Production Failure,2026-04-07 00:00:00,538-3061,Not communicating with HHT,Chihuahua,30
+PROD00099,Production Failure,2026-04-06 00:00:00,538-4820,Keypad not responding,Prime,30
+PROD00100,Production Failure,2026-04-06 00:00:00,538-4820,Keypad not responding,Prime,30
+PROD00101,Production Failure,2026-04-03 00:00:00,537-3500,Not communicating with HHT,Prime,30
+PROD00102,Production Failure,2026-04-03 00:00:00,538-3061,Fails RS485,Chihuahua,30
+PROD00103,Production Failure,2026-04-03 00:00:00,538-3061,Fails RS485,Chihuahua,30
+PROD00104,Production Failure,2026-04-03 00:00:00,538-3061,Fails RS485,Chihuahua,30
+PROD00105,Production Failure,2026-04-03 00:00:00,538-3061,Fails RS485,Chihuahua,30
+PROD00106,Production Failure,2026-04-03 00:00:00,538-3061,Fails RS485,Chihuahua,30
+PROD00107,Production Failure,2026-04-03 00:00:00,538-3061,Fails RS485,Chihuahua,30
+PROD00108,Production Failure,2026-04-03 00:00:00,538-3061,Fails RS485,Chihuahua,30
+PROD00109,Production Failure,2026-04-03 00:00:00,538-3061,Fails RS485,Chihuahua,30
+PROD00110,Production Failure,2026-04-03 00:00:00,538-3061,Fails RS485,Chihuahua,30
+PROD00111,Production Failure,2026-04-02 00:00:00,538-3061,SN on label does not match programmed SN,Chihuahua,30
+PROD00112,Production Failure,2026-04-02 00:00:00,538-3061,SN on label does not match programmed SN,Chihuahua,30
+PROD00113,Production Failure,2026-04-02 00:00:00,538-3061,Label issue,Chihuahua,30
+PROD00114,Production Failure,2026-04-02 00:00:00,538-3061,SN on label does not match programmed SN,Chihuahua,30
+PROD00115,Production Failure,2026-04-02 00:00:00,538-3061,SN on label does not match programmed SN,Chihuahua,30
+PROD00116,Production Failure,2026-04-02 00:00:00,538-3061,SN on label does not match programmed SN,Chihuahua,30
+PROD00117,Production Failure,2026-04-02 00:00:00,538-3061,Fails RS485,Chihuahua,30
+PROD00118,Production Failure,2026-04-02 00:00:00,538-3061,Fails RS485,Chihuahua,30
+PROD00119,Production Failure,2026-04-02 00:00:00,538-3061,Fails RS485,Chihuahua,30
+PROD00120,Production Failure,2026-04-02 00:00:00,538-3061,Fails RS485,Chihuahua,30
+PROD00121,Production Failure,2026-04-02 00:00:00,538-3061,Fails RS485,Chihuahua,30
+PROD00122,Production Failure,2026-04-02 00:00:00,538-3061,Fails RS485,Chihuahua,30
+PROD00123,Production Failure,2026-04-02 00:00:00,538-3061,Fails RS485,Chihuahua,30
+PROD00124,Production Failure,2026-04-02 00:00:00,538-3061,Fails RS485,Chihuahua,30
+PROD00125,Production Failure,2026-04-02 00:00:00,538-3061,Fails RS485,Chihuahua,30
+PROD00126,Production Failure,2026-04-02 00:00:00,538-3061,Fails RS485,Chihuahua,30
+PROD00127,Production Failure,2026-04-02 00:00:00,538-3061,Fails RS485,Chihuahua,30
+PROD00128,Production Failure,2026-04-02 00:00:00,538-3061,SN on label does not match programmed SN,Chihuahua,30
+PROD00129,Production Failure,2026-03-30 00:00:00,538-4901,No Power,Benchmark,30
+PROD00130,Production Failure,2026-03-27 00:00:00,538-3061,Fails RS485,Chihuahua,30
+PROD00131,Production Failure,2026-03-26 00:00:00,538-3066,J5 reversed,Chihuahua,30
+PROD00132,Production Failure,2026-03-24 00:00:00,538-3061,TB1 Reversed,Chihuahua,30
+PROD00133,Production Failure,2026-03-20 00:00:00,318-0080,Will not update from SD card,Belluno,30
+PROD00134,Production Failure,2026-03-19 00:00:00,538-3063,Not communicating with HHT,Chihuahua,30
+PROD00135,Production Failure,2026-03-13 00:00:00,810-3180,Will not boot up,Belluno,30
+PROD00136,Production Failure,2026-03-11 00:00:00,538-4901,J34 Reversed,Benchmark,30
+PROD00137,Production Failure,2026-03-09 00:00:00,538-4950,MAC address not programmed/Battery dead,Benchmark,30
+PROD00138,Production Failure,2026-03-09 00:00:00,538-4950,MAC address not programmed,Benchmark,30
+PROD00139,Production Failure,2026-03-05 00:00:00,210-1600,Board screws missing,M2S,30
+PROD00140,Production Failure,2026-03-05 00:00:00,537-3500,Not communicating with HHT,Prime,30
+PROD00141,Production Failure,2026-03-05 00:00:00,210-1600,No Power,M2S,30
+PROD00142,Production Failure,2026-03-04 00:00:00,538-4950,MAC address not programmed,Benchmark,30
+PROD00143,Production Failure,2026-03-04 00:00:00,210-1600,No Display,M2S,30
+PROD00144,Production Failure,2026-03-02 00:00:00,538-3006,Board would not boot up,Benchmark,30
+PROD00145,Production Failure,2026-02-25 00:00:00,538-3006,Board would not boot up,Benchmark,30
+PROD00146,Production Failure,2026-02-25 00:00:00,538-3006,All relay LEDs off when powered up on @50 units,Benchmark,30
+PROD00147,Production Failure,2026-02-24 00:00:00,538-3063,Board would not boot up,Benchmark,30
+PROD00148,Production Failure,2026-02-24 00:00:00,538-3066,J7 reversed,Benchmark,30
+PROD00149,Production Failure,2026-02-24 00:00:00,538-3063,SN on label does not match programmed SN,Benchmark,30
+PROD00150,Production Failure,2026-02-24 00:00:00,538-3061,Board not programmed,Benchmark,30
+PROD00151,Production Failure,2026-02-20 00:00:00,538-4901,Fails on test fixture,Benchmark,30
+PROD00152,Production Failure,2026-02-20 00:00:00,318-3180,"Board bent, Plastic cracked",Belluno,30
+PROD00153,Production Failure,2026-02-20 00:00:00,538-3061,TB1 Reversed,Chihuahua,30
+PROD00154,Production Failure,2026-02-20 00:00:00,538-3061,TB1 Reversed,Chihuahua,30
+PROD00155,Production Failure,2026-02-19 00:00:00,538-3061,Missing TB1 Connector,Chihuahua,30
+PROD00156,Production Failure,2026-02-13 00:00:00,538-3199,Will not boot up,Benchmark,30
+PROD00157,Production Failure,2026-02-13 00:00:00,538-4950,Wrong MAC Address,Benchmark,30
+PROD00158,Production Failure,2026-02-13 00:00:00,538-3061,Relay Out 3 Failed,Benchmark,30
+PROD00159,Production Failure,2026-02-12 00:00:00,318-3180,Will not boot up,Belluno,30
+PROD00160,Production Failure,2026-02-12 00:00:00,538-3061,Board not programmed,Chihuahua,30
+PROD00161,Production Failure,2026-02-09 00:00:00,538-4901,Unprogrammed PIB,Benchmark,30
+PROD00162,Production Failure,2026-02-09 00:00:00,810-3006,"Missing D2, D3, D4",Chihuahua,30
+PROD00163,Production Failure,2026-02-06 00:00:00,318-0080,Will not boot up,Belluno,30
+PROD00164,Production Failure,2026-02-06 00:00:00,538-3061,TB2 reversed,Chihuahua,30
+PROD00165,Production Failure,2026-02-06 00:00:00,538-3199,TB1 Reversed,Benchmark,30
+PROD00166,Production Failure,2026-02-04 00:00:00,538-3066,J7 reversed,Chihuahua,30
+PROD00167,Production Failure,2026-02-04 00:00:00,538-3066,J8 Missing,Chihuahua,30
+PROD00168,Production Failure,2026-02-04 00:00:00,538-3061,SN on label does not match programmed SN,Chihuahua,30
+PROD00169,Production Failure,2026-02-03 00:00:00,538-3061,TB2 reversed,Chihuahua,30
+PROD00170,Production Failure,2026-02-03 00:00:00,538-3066,LED L3 not lighting up,Chihuahua,30
+PROD00171,Production Failure,2026-02-03 00:00:00,538-3061,TB5 reversed,Chihuahua,30
+PROD00172,Production Failure,2026-02-03 00:00:00,538-3061,TB2 reversed,Chihuahua,30
+PROD00173,Production Failure,2026-02-02 00:00:00,538-3061,TB1 Reversed,Chihuahua,30
+PROD00174,Production Failure,2026-01-30 00:00:00,318-7205,Screen doesn't light up,Belluno,30
+PROD00175,Production Failure,2026-01-30 00:00:00,376-0006,Vertical Line on screen,Hantronix,30
+PROD00176,Production Failure,2026-01-29 00:00:00,538-4901,Not communicating with processor board,Benchmark,30
+PROD00177,Production Failure,2026-01-29 00:00:00,538-4950,Not communicating with PIB,Benchmark,30
+PROD00178,Production Failure,2026-01-29 00:00:00,538-3061,Board not programmed,Chihuahua,30
+PROD00179,Production Failure,2026-01-29 00:00:00,538-3061,Board not programmed,Chihuahua,30
+PROD00180,Production Failure,2026-01-28 00:00:00,538-4950,Not communicating on ETH2,Benchmark,30
+PROD00181,Production Failure,2026-01-28 00:00:00,538-4950,Will not boot up,Benchmark,30
+PROD00182,Production Failure,2026-01-28 00:00:00,538-4950,Will not boot up,Benchmark,30
+PROD00183,Production Failure,2026-01-28 00:00:00,538-4901,No Communication,Benchmark,30
+PROD00184,Production Failure,2026-01-27 00:00:00,538-4901,No Communication,Benchmark,30
+PROD00185,Production Failure,2026-01-27 00:00:00,538-4901,No Communication,Benchmark,30
+PROD00186,Production Failure,2026-01-26 00:00:00,318-9004,Won't load firmware,Belluno,30
+PROD00187,Production Failure,2026-01-26 00:00:00,538-3061,No Communication,Chihuahua,30
+PROD00188,Production Failure,2026-01-26 00:00:00,538-3061,No Communication,Chihuahua,30
+PROD00189,Production Failure,2026-01-26 00:00:00,538-3061,No Communication,Chihuahua,30
+PROD00190,Production Failure,2026-01-26 00:00:00,538-3061,No Communication,Chihuahua,30
+PROD00191,Production Failure,2026-01-26 00:00:00,538-3061,No Communication,Chihuahua,30
+PROD00192,Production Failure,2026-01-26 00:00:00,538-3061,No Communication,Chihuahua,30
+PROD00193,Production Failure,2026-01-26 00:00:00,538-3061,No Communication,Chihuahua,30
+PROD00194,Production Failure,2026-01-26 00:00:00,538-3061,No Communication,Chihuahua,30
+PROD00195,Production Failure,2026-01-26 00:00:00,538-3061,No Communication,Chihuahua,30
+PROD00196,Production Failure,2026-01-26 00:00:00,538-3061,No Communication,Chihuahua,30
+PROD00197,Production Failure,2026-01-26 00:00:00,538-3061,TB1 Reversed,Chihuahua,30
+PROD00198,Production Failure,2026-01-23 00:00:00,538-3061,Unprogrammed : Solid Code B,Benchmark,30
+PROD00199,Production Failure,2026-01-23 00:00:00,538-3061,Blinking  Code A,Chihuahua,30
+PROD00200,Production Failure,2026-01-22 00:00:00,538-3066,J1 through J8 all backwards,Chihuahua,30
+PROD00201,Production Failure,2026-01-22 00:00:00,538-4901,Not programmed,Benchmark,30
+PROD00202,Production Failure,2026-01-22 00:00:00,538-4901,Not programmed,Benchmark,30
+PROD00203,Production Failure,2026-01-22 00:00:00,538-3061,TB2,Chihuahua,30
+PROD00204,Production Failure,2026-01-21 00:00:00,538-3066,LED L8 not on.,Chihuahua,30
+PROD00205,Production Failure,2026-01-20 00:00:00,538-4950,MAC address not programmed,Benchmark,30
+PROD00206,Production Failure,2026-01-20 00:00:00,537-1100,"LED turns on, but doesn't communicate with FSD",Prime,30
+PROD00207,Production Failure,2026-01-20 00:00:00,538-4901,J34 Reversed,Benchmark,30
+PROD00208,Production Failure,2026-01-19 09:00:00,538-3061,No Communication,Chihuahua,30
+PROD00209,Production Failure,2026-01-19 09:00:00,538-3061,No Communication,Chihuahua,30
+PROD00210,Production Failure,2026-01-19 00:00:00,538-3061,TB1 Reversed,Chihuahua,30
+PROD00211,Production Failure,2026-01-19 00:00:00,538-4820,J2 Improperly installed,Prime,30
+PROD00212,Production Failure,2026-01-19 00:00:00,538-4820,J2 Bad,Prime,30
+PROD00213,Production Failure,2026-01-16 00:00:00,538-3066,Relay not properly soldered,Chihuahua,30
+PROD00214,Production Failure,2026-01-15 09:00:00,538-4950,MAC Address not programmed/RTC failure,Benchmark,30
+PROD00215,Production Failure,2026-01-15 09:00:00,318-3180,No Communication,Belluno,30
+PROD00216,Production Failure,2026-01-14 09:00:00,318-9900,Will not program,Chihuahua,30
+PROD00217,Production Failure,2026-01-13 09:00:00,538-3066,J1 reversed,Chihuahua,30
+PROD00218,Production Failure,2026-01-12 09:00:00,538-4950,MAC address not programmed,Benchmark,30
+PROD00219,Production Failure,2026-01-12 09:00:00,538-4950,MAC address not programmed,Benchmark,30
+PROD00220,Production Failure,2026-01-12 09:00:00,538-4950,MAC address not programmed/Cleanout switch fail,Benchmark,30
+PROD00221,Production Failure,2026-01-12 09:00:00,538-3066,Relay 5 failed,Chihuahua,30
+PROD00222,Production Failure,2026-01-09 09:00:00,538-3063,No Power,Benchmark,30
+PROD00223,Production Failure,2026-01-09 09:00:00,538-3061,Analog input 9 fails on test fixture,Chihuahua,30
+PROD00224,Production Failure,2026-01-09 09:00:00,538-3061,TB3 Reversed,Chihuahua,30
+PROD00225,Production Failure,2026-01-08 00:00:00,538-3199,Burnt,Benchmark,30
+PROD00226,Production Failure,2026-01-07 00:00:00,538-3061,No comm on HHT,Benchmark,30
+PROD00227,Production Failure,2026-01-07 00:00:00,538-3061,SN on label does not match programmed SN,Chihuahua,30
+PROD00228,Production Failure,2026-01-07 00:00:00,538-3061,SN on label does not match programmed SN,Chihuahua,30
+PROD00229,Production Failure,2026-01-07 00:00:00,538-3061,SN on label does not match programmed SN,Chihuahua,30
+PROD00230,Production Failure,2026-01-07 00:00:00,538-3061,SN on label does not match programmed SN,Chihuahua,30
+PROD00231,Production Failure,2026-01-07 00:00:00,538-3061,SN on label does not match programmed SN,Chihuahua,30
+PROD00232,Production Failure,2026-01-07 00:00:00,538-3061,SN on label does not match programmed SN,Chihuahua,30
+PROD00233,Production Failure,2026-01-07 00:00:00,538-3061,SN on label does not match programmed SN,Chihuahua,30
+PROD00234,Production Failure,2026-01-07 00:00:00,538-3061,SN on label does not match programmed SN,Chihuahua,30
+PROD00235,Production Failure,2026-01-07 00:00:00,538-3061,SN on label does not match programmed SN,Chihuahua,30
+PROD00236,Production Failure,2026-01-07 00:00:00,538-3061,SN on label does not match programmed SN,Chihuahua,30
+PROD00237,Production Failure,2026-01-07 00:00:00,538-3061,SN on label does not match programmed SN,Chihuahua,30
+PROD00238,Production Failure,2026-01-07 00:00:00,538-3061,SN on label does not match programmed SN,Chihuahua,30
+PROD00239,Production Failure,2026-01-07 00:00:00,538-3061,SN on label does not match programmed SN,Chihuahua,30
+PROD00240,Production Failure,2026-01-07 00:00:00,538-3061,Label issue,Chihuahua,30
+PROD00241,Production Failure,2026-01-07 00:00:00,538-3061,SN on label does not match programmed SN,Chihuahua,30
+PROD00242,Production Failure,2026-01-07 00:00:00,538-3061,SN on label does not match programmed SN,Chihuahua,30
+PROD00243,Production Failure,2026-01-07 00:00:00,538-3061,SN on label does not match programmed SN,Chihuahua,30
+PROD00244,Production Failure,2026-01-07 00:00:00,538-3061,Incorrect Diodes installed D31-D34,Chihuahua,30
+PROD00245,Production Failure,2026-01-07 00:00:00,538-3061,RS485 fail/Will not program,Chihuahua,30
+PROD00246,Production Failure,2026-01-07 00:00:00,538-3061,RS485 fail/Will not program,Chihuahua,30
+PROD00247,Production Failure,2025-12-23 00:00:00,538-3061,No communication,Chihuahua,30
+PROD00248,Production Failure,2025-12-23 00:00:00,538-3061,Dipswitch fail on test fixture,Chihuahua,30
+PROD00249,Production Failure,2025-12-23 00:00:00,538-3061,"Board getting hot, fails relay out on fixture",Chihuahua,30
+PROD00250,Production Failure,2025-12-16 00:00:00,538-4901,J34 reversed,Benchmark,30
+PROD00251,Production Failure,2025-12-16 00:00:00,538-3066,J2 Reversed,Benchmark,30
+PROD00252,Production Failure,2025-12-16 00:00:00,538-3061,No communication,Chihuahua,30
+PROD00253,Production Failure,2025-12-15 00:00:00,538-3061,TB1 Reversed,Chihuahua,30
+PROD00254,Production Failure,2025-12-12 00:00:00,538-3062,No communication,Chihuahua,30
+PROD00255,Production Failure,2025-12-12 00:00:00,538-3061,No SN label/No communication,Chihuahua,30
+PROD00256,Production Failure,2025-12-12 00:00:00,538-3061,No SN label/No communication,Chihuahua,30
+PROD00257,Production Failure,2025-12-12 00:00:00,538-3061,No SN label/No communication,Chihuahua,30
+PROD00258,Production Failure,2025-12-12 00:00:00,538-3061,No SN label/No communication,Chihuahua,30
+PROD00259,Production Failure,2025-12-12 00:00:00,538-3061,No Power,Chihuahua,30
+PROD00260,Production Failure,2025-12-10 00:00:00,538-3061,No comm on HHT,Benchmark,30
+PROD00261,Production Failure,2025-12-09 00:00:00,538-3061,No communication,Chihuahua,30
+PROD00262,Production Failure,2025-12-09 00:00:00,538-3061,J4 improperly installed,Chihuahua,30
+PROD00263,Production Failure,2025-12-09 00:00:00,538-3062,J1 damaged,Benchmark,30
+PROD00264,Production Failure,2025-12-08 00:00:00,538-3030,J1 reversed,Chihuahua,30
+PROD00265,Production Failure,2025-12-05 00:00:00,538-3061,No communication,Chihuahua,30
+PROD00266,Production Failure,2025-12-05 00:00:00,538-3061,No communication,Chihuahua,30
+PROD00267,Production Failure,2025-12-05 00:00:00,538-3061,No communication,Chihuahua,30
+PROD00268,Production Failure,2025-12-01 00:00:00,538-3061,No Power,Chihuahua,30
+PROD00269,Production Failure,2025-04-23 00:00:00,538-3061,Board not programmed,Chihuahua,30
+PROD00270,Production Failure,2025-04-23 00:00:00,538-3066,J4 reversed,Chihuahua,30
+PROD00271,Production Failure,2025-04-23 00:00:00,538-3066,J5 reversed,Chihuahua,30
+PROD00272,Production Failure,2025-04-23 00:00:00,538-3066,J5 reversed,Chihuahua,30
+PROD00273,Production Failure,2025-04-23 00:00:00,538-3066,J5 reversed,Chihuahua,30
+PROD00274,Production Failure,2025-04-23 00:00:00,538-3066,"J4, J7 reversed",Chihuahua,30
+PROD00275,Production Failure,2025-04-23 00:00:00,538-3066,J5 reversed,Chihuahua,30
+PROD00276,Production Failure,2025-04-22 00:00:00,538-3061,Board not powering up,Chihuahua,30
+PROD00277,Production Failure,2025-04-22 00:00:00,538-3061,Board not programmed,Chihuahua,30
+PROD00278,Production Failure,2025-04-18 00:00:00,538-3061,TB3 & TB6 reversed,Chihuahua,30
+PROD00279,Production Failure,2025-04-18 00:00:00,538-3061,Board won't power up,Chihuahua,30
+PROD00280,Production Failure,2025-04-18 00:00:00,538-3061,Board won't power up,Chihuahua,30
+PROD00281,Production Failure,2025-04-18 00:00:00,538-3061,Board not programmed,Chihuahua,30
+PROD00282,Production Failure,2025-04-18 00:00:00,538-3061,Board not programmed,Chihuahua,30
+PROD00283,Production Failure,2025-04-17 00:00:00,538-3061,Board won't power up,Chihuahua,30
+PROD00284,Production Failure,2025-04-17 00:00:00,538-3061,Board not programmed,Chihuahua,30
+PROD00285,Production Failure,2025-04-17 00:00:00,538-3061,Board not programmed,Chihuahua,30
+PROD00286,Production Failure,2025-04-16 00:00:00,538-3062,TB2 reversed,Benchmark,30
+PROD00287,Production Failure,2025-04-16 00:00:00,538-3066,J1 reversed,Chihuahua,30
+PROD00288,Production Failure,2025-04-16 00:00:00,538-3062,Board not programmed,Benchmark,30
+PROD00289,Production Failure,2025-04-16 00:00:00,538-3062,Board not programmed,Benchmark,30
+PROD00290,Production Failure,2025-04-16 00:00:00,538-3061,Board not programmed,Chihuahua,30
+PROD00291,Production Failure,2025-04-15 00:00:00,538-3030,No communication,Chihuahua,30
+PROD00292,Production Failure,2025-04-15 00:00:00,538-3030,No communication,Chihuahua,30
+PROD00293,Production Failure,2025-04-14 00:00:00,538-3063,TB1 Reversed,Benchmark,30
+PROD00294,Production Failure,2025-04-14 00:00:00,538-3062,TB2 reversed,Benchmark,30
+PROD00295,Production Failure,2025-04-14 00:00:00,538-3062,Board not programmed,Benchmark,30
+PROD00296,Production Failure,2025-04-14 00:00:00,538-3063,Board not programmed,Benchmark,30
+PROD00297,Production Failure,2025-04-14 00:00:00,538-3063,Board not programmed,Benchmark,30
+PROD00298,Production Failure,2025-04-14 00:00:00,538-3062,Board not programmed,Benchmark,30
+PROD00299,Production Failure,2025-04-11 00:00:00,538-3062,No communication,Benchmark,30
+PROD00300,Production Failure,2025-04-11 00:00:00,538-3062,No communication,Benchmark,30
+PROD00301,Production Failure,2025-04-11 00:00:00,538-3062,No communication,Benchmark,30
+PROD00302,Production Failure,2025-04-10 00:00:00,538-4810,Capacitor C4 installed backwards,Benchmark,30
+PROD00303,Production Failure,2025-04-10 00:00:00,538-3066,Solder blob inside J8,Chihuahua,30
+PROD00304,Production Failure,2025-04-10 00:00:00,538-3066,J5 reversed,Chihuahua,30
+PROD00305,Production Failure,2025-04-10 00:00:00,538-3061,TB7reversed,Benchmark,30
+PROD00306,Production Failure,2025-04-10 00:00:00,538-3061,TB4 reversed,Benchmark,30
+PROD00307,Production Failure,2025-04-08 00:00:00,538-3061,Board will not power up,Benchmark,30
+PROD00308,Production Failure,2025-04-08 00:00:00,538-3061,Board will not power up,Benchmark,30
+PROD00309,Production Failure,2025-04-07 00:00:00,538-3061,TB5 has 3 pin instead of 4 pin connector,Chihuahua,30
+PROD00310,Production Failure,2025-04-07 00:00:00,538-3062,Not communicating with HHT,Chihuahua,30
+PROD00311,Production Failure,2025-04-03 00:00:00,538-3061,Connector J4 damaged,Benchmark,30
+PROD00312,Production Failure,2025-04-03 00:00:00,538-3066,Connector J10 improperly installed,Benchmark,30
+PROD00313,Production Failure,2025-04-03 00:00:00,538-3062,Board will not power up,Benchmark,30
+PROD00314,Production Failure,2025-03-21 00:00:00,538-3061,TB2 reversed,Benchmark,30
+PROD00315,Production Failure,2025-03-21 00:00:00,538-3061,Board not programmed,Chihuahua,30
+PROD00316,Production Failure,2025-03-21 00:00:00,538-3061,Board will not power up,Chihuahua,30
+PROD00317,Production Failure,2025-03-20 00:00:00,538-3062,Won't Power Up,Benchmark,30
+PROD00318,Production Failure,2025-03-18 00:00:00,538-3066,S1 installed upside down,Chihuahua,30
+PROD00319,Production Failure,2025-03-12 00:00:00,538-3066,J5 reversed,Benchmark,30
+PROD00320,Production Failure,2025-02-24 00:00:00,538-3006,J4 reversed,Chihuahua,30
+PROD00321,Production Failure,2025-02-24 00:00:00,538-3066,J7 reversed,Chihuahua,30
+PROD00322,Production Failure,2025-02-24 00:00:00,538-3066,J6 reversed,Chihuahua,30
+PROD00323,Production Failure,2025-02-20 00:00:00,538-3066,LED D6 missing,Chihuahua,30
+PROD00324,Production Failure,2025-02-20 00:00:00,538-3066,LED D4 bad,Chihuahua,30
+PROD00325,Production Failure,2025-02-14 00:00:00,538-3061,Board not programmed,Benchmark,30
+PROD00326,Production Failure,2025-02-13 00:00:00,538-3066,J4 reversed,Chihuahua,30
+PROD00327,Production Failure,2025-02-13 00:00:00,538-3061,Bad solder joint/ Board not programmed,Chihuahua,30
+PROD00328,Production Failure,2025-02-13 00:00:00,538-3066,LEDs intermittently lighting up,Chihuahua,30
+PROD00329,Production Failure,2025-02-12 00:00:00,538-3061,Board not programmed,Chihuahua,30
+PROD00330,Production Failure,2025-02-07 00:00:00,538-3061,Board not programmed,Chihuahua,30
+PROD00331,Production Failure,2025-02-06 00:00:00,538-3061,Board not programmed,Chihuahua,30
+PROD00332,Production Failure,2025-02-06 00:00:00,538-3061,J4 improperly installed,Chihuahua,30
+PROD00333,Production Failure,2025-02-06 00:00:00,538-3061,Capacitor C88 damaged,Chihuahua,30
+PROD00334,Production Failure,2025-02-06 00:00:00,538-4950,Board not programmed,Benchmark,30
+PROD00335,Production Failure,2025-02-06 00:00:00,538-4950,Board not programmed,Benchmark,30
+PROD00336,Production Failure,2025-02-03 00:00:00,538-3061,Would not power up,Chihuahua,30
+PROD00337,Production Failure,2025-02-03 00:00:00,538-3061,Board not programmed,Chihuahua,30
+PROD00338,Production Failure,2025-02-03 00:00:00,538-3061,Board not programmed,Chihuahua,30
+PROD00339,Production Failure,2025-02-03 00:00:00,538-4950,Board would not hold our program,Benchmark,30
+PROD00340,Production Failure,2025-01-31 00:00:00,538-3066,Connector J8 reversed,Chihuahua,30
+PROD00341,Production Failure,2025-01-30 00:00:00,538-3030,Board not programmed,Chihuahua,30
+PROD00342,Production Failure,2025-01-30 00:00:00,538-3030,Board not programmed,Chihuahua,30
+PROD00343,Production Failure,2025-01-23 00:00:00,538-3061,TB4 reversed,Chihuahua,30
+PROD00344,Production Failure,2025-01-23 00:00:00,538-3061,Board not programmed,Chihuahua,30
+PROD00345,Production Failure,2025-01-23 00:00:00,538-3061,LED L2 wrong color,Chihuahua,30
+PROD00346,Production Failure,2025-01-23 00:00:00,538-3061,Board not programmed,Chihuahua,30
+PROD00347,Production Failure,2025-01-23 00:00:00,538-3061,Board not programmed,Chihuahua,30
+PROD00348,Production Failure,2025-01-23 00:00:00,538-3061,Board not programmed,Chihuahua,30
+PROD00349,Production Failure,2025-01-22 00:00:00,538-3062,Will not communicate with HHT,Benchmark,30
+PROD00350,Production Failure,2025-01-22 00:00:00,538-3061,Board not programmed,Chihuahua,30
+PROD00351,Production Failure,2025-01-22 00:00:00,538-3061,Board not programmed,Chihuahua,30
+PROD00352,Production Failure,2025-01-22 00:00:00,538-3061,Board not programmed,Chihuahua,30
+PROD00353,Production Failure,2025-01-22 00:00:00,538-3061,Board not programmed,Chihuahua,30
+PROD00354,Production Failure,2025-01-22 00:00:00,538-3061,Board not programmed,Chihuahua,30
+PROD00355,Production Failure,2025-01-22 00:00:00,538-3061,Board not programmed,Chihuahua,30
+PROD00356,Production Failure,2025-01-22 00:00:00,538-3061,Board not programmed,Chihuahua,30
+PROD00357,Production Failure,2025-01-07 00:00:00,538-3199,Board not powering up,Benchmark,30
+PROD00358,Production Failure,2025-01-02 00:00:00,538-3062,L5 on relay board not lighting up,Benchmark,30
+PROD00359,Production Failure,2024-12-20 00:00:00,538-3066,No LEDS lit when board powered up.,Chihuahua,30
+PROD00360,Production Failure,2024-12-20 00:00:00,538-3061,Board not programmed,Benchmark,30
+PROD00361,Production Failure,2024-12-19 00:00:00,538-3199,Board smoked on power up,Benchmark,30
+PROD00362,Production Failure,2024-12-18 00:00:00,538-3061,Component RN3 missing,Chihuahua,30
+PROD00363,Production Failure,2024-12-18 00:00:00,538-3066,J6 reversed,Chihuahua,30
+PROD00364,Production Failure,2024-12-06 00:00:00,538-3061,Board not programmed,Chihuahua,30
+PROD00365,Production Failure,2024-12-06 00:00:00,538-3061,Board not programmed,Chihuahua,30
+PROD00366,Production Failure,2024-12-03 00:00:00,538-3061,Board not programmed,Chihuahua,30
+PROD00367,Production Failure,2024-12-03 00:00:00,538-3061,Board not programmed,Chihuahua,30
+PROD00368,Production Failure,2024-11-18 00:00:00,538-3066,J1 reversed,Chihuahua,30
+PROD00369,Production Failure,2024-11-14 00:00:00,538-3006,D9 wrong part,Benchmark,30
+PROD00370,Production Failure,2024-11-14 00:00:00,538-3061,R186 wrong part,Benchmark,30
+PROD00371,Production Failure,2024-11-13 00:00:00,538-3061,Board not programmed,Chihuahua,30
+PROD00372,Production Failure,2024-11-07 00:00:00,538-3061,Missing Pin (Pin 18) on 38 Pin Header (J4),Chihuahua,30
+PROD00373,Production Failure,2024-11-07 00:00:00,538-3061,Board not programmed,Chihuahua,30
+PROD00374,Production Failure,2024-11-07 00:00:00,538-3061,Board not programmed,Chihuahua,30
+PROD00375,Production Failure,2024-11-07 00:00:00,538-3061,Board not programmed,Chihuahua,30
+PROD00376,Production Failure,2024-11-07 00:00:00,538-3061,TB1 Reversed,Chihuahua,30
+PROD00377,Production Failure,2024-10-30 00:00:00,538-3066,Solder Splatter on J8,Chihuahua,30
+PROD00378,Production Failure,2024-10-29 00:00:00,538-3063,C80 knocked off,Benchmark,30
+PROD00379,Production Failure,2024-10-21 00:00:00,538-3061,No communication,Chihuahua,30
+PROD00380,Production Failure,2024-10-21 00:00:00,538-3061,No communication,Chihuahua,30
+PROD00381,Production Failure,2024-10-21 00:00:00,538-3061,No communication,Chihuahua,30
+PROD00382,Production Failure,2024-10-21 00:00:00,538-3061,No communication,Chihuahua,30
+PROD00383,Production Failure,2024-10-21 00:00:00,538-3066,J6 reversed,Chihuahua,30
+PROD00384,Production Failure,2024-10-18 00:00:00,538-3066,J8 Reversed,Benchmark,30
+PROD00385,Production Failure,2024-10-18 00:00:00,538-3061,No communication,Chihuahua,30
+PROD00386,Production Failure,2024-10-17 00:00:00,538-3061,D6 wrong part,Benchmark,30
+PROD00387,Production Failure,2024-10-15 00:00:00,538-3199,D36 D37 D45 all burnt,Benchmark,30
+PROD00388,Production Failure,2024-10-11 00:00:00,538-3066,J7 reversed,Chihuahua,30
+PROD00389,Production Failure,2024-10-11 00:00:00,538-3061,C78 burnt,Benchmark,30
+PROD00390,Production Failure,2024-10-11 00:00:00,538-3061,C78 burnt,Benchmark,30
+PROD00391,Production Failure,2024-10-11 00:00:00,538-3061,TB1 Reversed,Chihuahua,30
+PROD00392,Production Failure,2024-10-09 00:00:00,538-3066,J10 reversed,Chihuahua,30
+PROD00393,Production Failure,2024-10-08 00:00:00,538-3063,No comm with HHT/ Not Programmed,Benchmark,30
+PROD00394,Production Failure,2024-10-08 00:00:00,538-3061,Address will not change,Benchmark,30
+PROD00395,Production Failure,2024-10-08 00:00:00,538-3066,J10 reversed,Chihuahua,30
+PROD00396,Production Failure,2024-10-08 00:00:00,538-3030,No communication,Prime,30
+PROD00397,Production Failure,2024-10-08 00:00:00,538-3030,No communication,Prime,30
+PROD00398,Production Failure,2024-10-08 00:00:00,538-3030,J6 reversed,Prime,30
+PROD00399,Production Failure,2024-09-26 00:00:00,538-3062,No comm with HHT/ Not Programmed,Benchmark,30
+PROD00400,Production Failure,2024-09-25 00:00:00,538-3066,J8 Reversed,Benchmark,30
+PROD00401,Production Failure,2024-09-25 00:00:00,538-3066,J8 Reversed,Chihuahua,30
+PROD00402,Production Failure,2024-09-23 00:00:00,538-3061,TB1 Reversed,,30
+PROD00403,Production Failure,2024-09-20 00:00:00,538-3066,J1 reversed,,30
+PROD00404,Production Failure,2024-09-20 00:00:00,538-3061,Solder bridge between 2 vias,Chihuahua,30
+PROD00405,Production Failure,2024-09-20 00:00:00,538-3061,No communication,,30
+PROD00406,Production Failure,2024-09-20 00:00:00,538-3061,No communication,,30
+PROD00407,Production Failure,2024-09-19 00:00:00,538-3066,Solder Splatter on J5,,30
+PROD00408,Production Failure,2024-09-16 00:00:00,538-3061,No communication,Chihuahua,30
+PROD00409,Production Failure,2024-09-16 00:00:00,538-3061,No communication,Chihuahua,30
+PROD00410,Production Failure,2024-09-16 00:00:00,538-3061,No communication,Chihuahua,30
+PROD00411,Production Failure,2024-09-16 00:00:00,538-3061,No communication,Chihuahua,30
+PROD00412,Production Failure,2024-09-16 00:00:00,538-3061,No communication,Chihuahua,30
+PROD00413,Production Failure,2024-09-04 00:00:00,538-3061,TB5 reversed,,30
+PROD00414,Production Failure,2024-09-03 00:00:00,538-3062,L1 not turning on,,30
+PROD00415,Production Failure,2024-09-03 00:00:00,538-3066,J8 Reversed,,30
+PROD00416,Production Failure,2024-09-03 00:00:00,538-3061,L2 not turning on,,30
+PROD00417,Production Failure,2024-09-03 00:00:00,538-3066,J10 reversed,,30
+PROD00418,Production Failure,2024-08-26 00:00:00,538-3061,No power,Chihuahua,30
+PROD00419,Production Failure,2024-08-23 00:00:00,538-3006,LED D6 not working,,30
+PROD00420,Production Failure,2024-08-22 00:00:00,538-3061,No communication,,30
+PROD00421,Production Failure,2024-08-22 00:00:00,538-3061,No communication,,30
+PROD00422,Production Failure,2024-08-19 00:00:00,538-3061,TB1 Reversed,,30
+PROD00423,Production Failure,2024-08-16 00:00:00,538-3066,J2 reversed,,30
+PROD00424,Production Failure,2024-08-16 00:00:00,538-3066,J10 reversed,,30
+PROD00425,Production Failure,2024-08-16 00:00:00,538-3066,J6 reversed,,30
+PROD00426,Production Failure,2024-08-16 00:00:00,538-3061,No communication,,30
+PROD00427,Production Failure,2024-08-16 00:00:00,538-3062,No communication,,30
+PROD00428,Production Failure,2024-08-16 to 2026-06-22,,,,30

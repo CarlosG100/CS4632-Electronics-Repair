@@ -1,0 +1,945 @@
+anon_rma_id,board_status,priority,analysis_required,rma_type,rma_status,request_date,received_date,close_date,days_open,days_since_request
+OPEN_RMA00001,open,Normal,No,Repair & Return,Awaiting Parts,6/23/2026 0:00,,,,1
+OPEN_RMA00002,open,Normal,Yes,Repair & Return,Awaiting Parts,6/22/2026 0:00,,,,2
+OPEN_RMA00003,open,Normal,No,Return - Credit,Awaiting Parts,6/22/2026 0:00,,,,2
+OPEN_RMA00004,open,Critical,No,AdvEx,Awaiting Parts,6/19/2026 0:00,,,,5
+OPEN_RMA00005,open,Normal,No,Return - Credit,Pending Credit,5/5/2026 0:00,5/19/2026 0:00,,36,0
+OPEN_RMA00006,open,Normal,No,Return - Credit,Awaiting Parts,6/19/2026 0:00,,,,5
+OPEN_RMA00007,open,Normal,No,Repair & Return,Awaiting Parts,6/18/2026 0:00,,,,6
+OPEN_RMA00008,open,Normal,No,Return - Credit,Pending Credit,5/8/2026 0:00,5/15/2026 0:00,,40,0
+OPEN_RMA00009,open,Normal,Yes,Return - Credit,RMA Received,6/11/2026 0:00,6/16/2026 0:00,,8,0
+OPEN_RMA00010,open,Normal,Yes,Return - Credit,RMA Received,6/11/2026 0:00,6/16/2026 0:00,,8,0
+OPEN_RMA00011,open,Normal,No,Return - Credit,Awaiting Parts,6/11/2026 0:00,,,,13
+OPEN_RMA00012,open,Normal,No,Return - Credit,Awaiting Parts,6/11/2026 0:00,,,,13
+OPEN_RMA00013,open,Normal,Yes,Repair & Return,RMA Received,6/11/2026 0:00,6/16/2026 0:00,,8,0
+OPEN_RMA00014,open,Normal,Yes,Repair & Return,RMA Received,6/11/2026 0:00,6/16/2026 0:00,,8,0
+OPEN_RMA00015,open,Normal,No,Repair & Return,RMA Received,6/16/2026 0:00,6/22/2026 0:00,,2,0
+OPEN_RMA00016,open,Normal,Yes,Return - Credit,Awaiting Parts,6/15/2026 0:00,,,,9
+OPEN_RMA00017,open,Critical,No,AdvEx,In-Progress,6/12/2026 0:00,,,,12
+OPEN_RMA00018,open,Critical,No,AdvEx,In-Progress,6/12/2026 0:00,,,,12
+OPEN_RMA00019,open,Normal,Yes,Repair & Return,Awaiting Parts,6/12/2026 0:00,,,,12
+OPEN_RMA00020,open,Critical,No,Return - Replacement,RMA Received,6/12/2026 0:00,6/16/2026 0:00,,8,0
+OPEN_RMA00021,open,Critical,Yes,AdvEx,Pending Replacements,6/11/2026 0:00,,,,13
+OPEN_RMA00022,open,Normal,Yes,Repair & Return,RMA Received,6/2/2026 0:00,6/11/2026 0:00,,13,0
+OPEN_RMA00023,open,Normal,Yes,Return - Credit,RMA Received,6/2/2026 0:00,6/12/2026 0:00,,12,0
+OPEN_RMA00024,open,Normal,Yes,Return - Credit,RMA Received,6/2/2026 0:00,6/12/2026 0:00,,12,0
+OPEN_RMA00025,open,Normal,No,Repair & Return,Awaiting Parts,6/2/2026 0:00,,,,22
+OPEN_RMA00026,open,Normal,Yes,Repair & Return,RMA Received,6/2/2026 0:00,6/8/2026 0:00,,16,0
+OPEN_RMA00027,open,Normal,No,Return - Credit,RMA Received,6/2/2026 0:00,6/10/2026 0:00,,14,0
+OPEN_RMA00028,open,Critical,Yes,AdvEx,Pending Replacements,6/3/2026 0:00,,,,21
+OPEN_RMA00029,open,Normal,Yes,Repair & Return,RMA Received,6/4/2026 0:00,6/16/2026 0:00,,8,0
+OPEN_RMA00030,open,Normal,No,Return - Credit,RMA Received,6/8/2026 0:00,6/22/2026 0:00,,2,0
+OPEN_RMA00031,open,Normal,No,Repair & Return,RMA Received,6/9/2026 0:00,6/18/2026 0:00,,6,0
+OPEN_RMA00032,open,Normal,No,Repair & Return,RMA Received,6/9/2026 0:00,6/12/2026 0:00,,12,0
+OPEN_RMA00033,open,Normal,Yes,Repair & Return,RMA Received,6/10/2026 0:00,6/18/2026 0:00,,6,0
+OPEN_RMA00034,open,Critical,No,AdvEx,Replacements Shipped,6/10/2026 0:00,,,,14
+OPEN_RMA00035,open,Critical,Yes,AdvEx,In-Progress,6/3/2026 0:00,,,,21
+OPEN_RMA00036,open,Critical,No,AdvEx,Replacements Shipped,6/5/2026 0:00,,,,19
+OPEN_RMA00037,open,Critical,No,Return - Credit,RMA Received,6/5/2026 0:00,6/12/2026 0:00,,12,0
+OPEN_RMA00038,open,Normal,No,Repair & Return,RMA Received,6/1/2026 0:00,6/4/2026 0:00,,20,0
+OPEN_RMA00039,open,Critical,No,AdvEx,RMA Received,6/1/2026 0:00,6/4/2026 0:00,,20,0
+OPEN_RMA00040,open,Normal,No,Repair & Return,RMA Received,6/1/2026 0:00,6/4/2026 0:00,,20,0
+OPEN_RMA00041,open,Critical,No,AdvEx,RMA Received,6/1/2026 0:00,6/4/2026 0:00,,20,0
+OPEN_RMA00042,open,Normal,No,Return - Credit,Awaiting Parts,6/1/2026 0:00,,,,23
+OPEN_RMA00043,open,Normal,No,AdvEx,RMA Received,6/1/2026 0:00,6/4/2026 0:00,,20,0
+OPEN_RMA00044,open,Normal,No,Return - Credit,Awaiting Parts,6/1/2026 0:00,,,,23
+OPEN_RMA00045,open,Normal,No,Repair & Return,RMA Received,6/1/2026 0:00,6/4/2026 0:00,,20,0
+OPEN_RMA00046,open,Critical,Yes,AdvEx,Replacements Shipped,6/4/2026 0:00,,,,20
+OPEN_RMA00047,open,Normal,Yes,Repair & Return,RMA Received,5/29/2026 0:00,6/10/2026 0:00,,14,0
+OPEN_RMA00048,open,Normal,No,Return - Credit,Awaiting Parts,5/27/2026 0:00,,,,28
+OPEN_RMA00049,open,Normal,Yes,Repair & Return,RTV OPEN,5/26/2026 0:00,5/29/2026 0:00,,26,0
+OPEN_RMA00050,open,Normal,Yes,Repair & Return,RMA Received,5/26/2026 0:00,6/3/2026 0:00,,21,0
+OPEN_RMA00051,open,Critical,No,AdvEx,RMA Received,5/29/2026 0:00,6/4/2026 0:00,,20,0
+OPEN_RMA00052,open,Critical,No,AdvEx,RMA Received,5/29/2026 0:00,6/12/2026 0:00,,12,0
+OPEN_RMA00053,open,Critical,Yes,AdvEx,RMA Received,5/28/2026 0:00,6/10/2026 0:00,,14,0
+OPEN_RMA00054,open,Normal,Yes,Return - Credit,RMA Received,5/22/2026 0:00,5/28/2026 0:00,,27,0
+OPEN_RMA00055,open,Normal,No,Return - Credit,RMA Received,5/22/2026 0:00,6/4/2026 0:00,,20,0
+OPEN_RMA00056,open,Normal,No,Return - Credit,RMA Received,5/22/2026 0:00,6/4/2026 0:00,,20,0
+OPEN_RMA00057,open,Normal,Yes,Repair & Return,Create Pick Ticket,5/21/2026 0:00,5/27/2026 0:00,,28,0
+OPEN_RMA00058,open,Normal,No,Repair & Return,Create Pick Ticket,5/19/2026 0:00,5/26/2026 0:00,,29,0
+OPEN_RMA00059,open,Critical,Yes,AdvEx,In-Progress,5/26/2026 0:00,,,,29
+OPEN_RMA00060,open,Critical,No,AdvEx,Pending Credit,5/19/2026 0:00,5/26/2026 0:00,,29,0
+OPEN_RMA00061,open,Critical,Yes,AdvEx,Pending Replacements,5/15/2026 0:00,5/21/2026 0:00,,34,0
+OPEN_RMA00062,open,Normal,No,Return - Credit,RMA Received,5/15/2026 0:00,6/12/2026 0:00,,12,0
+OPEN_RMA00063,open,Normal,Yes,Repair & Return,RMA Received,5/14/2026 0:00,5/26/2026 0:00,,29,0
+OPEN_RMA00064,open,Normal,Yes,Repair & Return,Awaiting Parts,5/13/2026 0:00,,,,42
+OPEN_RMA00065,open,Critical,No,AdvEx,In-Progress,5/12/2026 0:00,,,,43
+OPEN_RMA00066,open,Normal,No,Repair & Return,Awaiting Parts,5/12/2026 0:00,,,,43
+OPEN_RMA00067,open,Normal,No,Repair & Return,RMA Received,5/12/2026 0:00,6/3/2026 0:00,,21,0
+OPEN_RMA00068,open,Normal,No,Repair & Return,Create Pick Ticket,5/12/2026 0:00,5/14/2026 0:00,,41,0
+OPEN_RMA00069,open,Normal,No,Return - Credit,Pending Credit,5/12/2026 0:00,5/15/2026 0:00,,40,0
+OPEN_RMA00070,open,Normal,No,Return - Credit,Awaiting Parts,5/12/2026 0:00,,,,43
+OPEN_RMA00071,open,Normal,No,Repair & Return,Create Pick Ticket,5/12/2026 0:00,5/12/2026 0:00,,43,0
+OPEN_RMA00072,open,Normal,No,Return - Credit,Pending Credit,5/8/2026 0:00,5/15/2026 0:00,,40,0
+OPEN_RMA00073,open,Normal,Yes,Repair & Return,In-Progress,5/8/2026 0:00,5/15/2026 0:00,,40,0
+OPEN_RMA00074,open,Normal,No,Return - Credit,Pending Credit,5/8/2026 0:00,5/15/2026 0:00,,40,0
+OPEN_RMA00075,open,Critical,Yes,AdvEx,In-Progress,5/8/2026 0:00,,,,47
+OPEN_RMA00076,open,Critical,Yes,AdvEx,RMA Received,5/8/2026 0:00,6/11/2026 0:00,,13,0
+OPEN_RMA00077,open,Normal,Yes,Repair & Return,Create Pick Ticket,5/8/2026 0:00,5/26/2026 0:00,,29,0
+OPEN_RMA00078,open,Critical,Yes,AdvEx,RMA Received,5/12/2026 0:00,6/10/2026 0:00,,14,0
+OPEN_RMA00079,open,Critical,Yes,AdvEx,RMA Received,5/12/2026 0:00,6/11/2026 0:00,,13,0
+OPEN_RMA00080,open,Critical,Yes,AdvEx,RMA Received,5/12/2026 0:00,5/26/2026 0:00,,29,0
+OPEN_RMA00081,open,Critical,No,AdvEx,In-Progress,5/11/2026 0:00,,,,44
+OPEN_RMA00082,open,Critical,No,AdvEx,In-Progress,5/11/2026 0:00,,,,44
+OPEN_RMA00083,open,Critical,No,AdvEx,In-Progress,5/5/2026 0:00,,,,50
+OPEN_RMA00084,open,Normal,No,Repair & Return,RTV OPEN,5/5/2026 0:00,5/7/2026 0:00,,48,0
+OPEN_RMA00085,open,Critical,No,AdvEx,RTV OPEN,5/5/2026 0:00,,,,50
+OPEN_RMA00086,open,Normal,No,Repair & Return,RTV OPEN,5/5/2026 0:00,5/12/2026 0:00,,43,0
+OPEN_RMA00087,open,Critical,No,AdvEx,RMA Received,5/4/2026 0:00,5/11/2026 0:00,,44,0
+OPEN_RMA00088,open,Normal,No,Return - Credit,RTV OPEN,5/4/2026 0:00,6/11/2026 0:00,,13,0
+OPEN_RMA00089,open,Normal,No,Repair & Return,Awaiting Parts,5/4/2026 0:00,,,,51
+OPEN_RMA00090,open,Normal,No,Repair & Return,Awaiting Parts,5/1/2026 0:00,,,,54
+OPEN_RMA00091,open,Normal,No,Repair & Return,Create Pick Ticket,5/1/2026 0:00,5/5/2026 0:00,,50,0
+OPEN_RMA00092,open,Normal,No,Return - Credit,Awaiting Parts,4/30/2026 0:00,,,,55
+OPEN_RMA00093,open,Normal,No,Return - Credit,Awaiting Parts,4/30/2026 0:00,,,,55
+OPEN_RMA00094,open,Normal,Yes,Repair & Return,Awaiting Parts,4/30/2026 0:00,,,,55
+OPEN_RMA00095,open,Normal,No,Return - Credit,RMA Received,4/29/2026 0:00,5/5/2026 0:00,,50,0
+OPEN_RMA00096,open,Normal,No,AdvEx,In-Progress,4/29/2026 0:00,,,,56
+OPEN_RMA00097,open,Critical,Yes,Return - Credit,In-Progress,4/30/2026 0:00,,,,55
+OPEN_RMA00098,open,Critical,Yes,AdvEx,RMA Received,4/28/2026 0:00,5/8/2026 0:00,,47,0
+OPEN_RMA00099,open,Normal,No,Return - Credit,RTV OPEN,4/28/2026 0:00,5/7/2026 0:00,,48,0
+OPEN_RMA00100,open,Critical,No,AdvEx,In-Progress,4/24/2026 0:00,,,,61
+OPEN_RMA00101,open,Normal,No,Repair & Return,RTV OPEN,4/24/2026 0:00,5/11/2026 0:00,,44,0
+OPEN_RMA00102,open,Normal,No,Repair & Return,Awaiting Parts,4/23/2026 0:00,,,,62
+OPEN_RMA00103,open,Normal,No,Return - Credit,Pending Credit,4/22/2026 0:00,,,,63
+OPEN_RMA00104,open,Normal,No,Repair & Return,Awaiting Parts,4/22/2026 0:00,,,,63
+OPEN_RMA00105,open,Normal,Yes,Repair & Return,Pending Credit,4/27/2026 0:00,4/30/2026 0:00,,55,0
+OPEN_RMA00106,open,Normal,No,Return - Credit,Awaiting Parts,4/17/2026 0:00,,,,68
+OPEN_RMA00107,open,Normal,No,Return - Credit,RTV OPEN,4/16/2026 0:00,5/1/2026 0:00,,54,0
+OPEN_RMA00108,open,Normal,No,Return - Credit,Awaiting Parts,4/15/2026 0:00,,,,70
+OPEN_RMA00109,open,Normal,No,Return - Credit,Pending Credit,4/15/2026 0:00,5/7/2026 0:00,,48,0
+OPEN_RMA00110,open,Normal,Yes,Return - Credit,RTV OPEN,4/14/2026 0:00,4/25/2026 0:00,,60,0
+OPEN_RMA00111,open,Normal,Yes,Repair & Return,Awaiting Parts,4/14/2026 0:00,,,,71
+OPEN_RMA00112,open,Critical,No,AdvEx,Pending Credit,4/14/2026 0:00,5/18/2026 0:00,,37,0
+OPEN_RMA00113,open,Critical,No,AdvEx,RTV OPEN,4/20/2026 0:00,4/24/2026 0:00,,61,0
+OPEN_RMA00114,open,Normal,Yes,Repair & Return,RTV OPEN,4/14/2026 0:00,4/27/2026 0:00,,58,0
+OPEN_RMA00115,open,Normal,No,Return - Credit,Awaiting Parts,4/13/2026 0:00,,,,72
+OPEN_RMA00116,open,Normal,Yes,Return - Credit,Awaiting Parts,6/15/2026 0:00,,,,9
+OPEN_RMA00117,open,Normal,Yes,Repair & Return,Awaiting Parts,4/8/2026 0:00,,,,77
+OPEN_RMA00118,open,Normal,No,Return - Credit,Awaiting Parts,4/8/2026 0:00,,,,77
+OPEN_RMA00119,open,Normal,Yes,Repair & Return,RTV OPEN,4/8/2026 0:00,4/25/2026 0:00,,60,0
+OPEN_RMA00120,open,Normal,Yes,Repair & Return,In-Progress,4/8/2026 0:00,5/13/2026 0:00,,42,0
+OPEN_RMA00121,open,Normal,Yes,Repair & Return,Pending Credit,4/6/2026 0:00,4/25/2026 0:00,,60,0
+OPEN_RMA00122,open,Normal,No,Return - Credit,Pending Credit,7/2/2025 0:00,7/28/2025 0:00,,331,0
+OPEN_RMA00123,open,Normal,No,Repair & Return,Awaiting Parts,4/3/2026 0:00,,,,82
+OPEN_RMA00124,open,Normal,No,Return - Credit,Awaiting Parts,4/1/2026 0:00,,,,84
+OPEN_RMA00125,open,Critical,No,AdvEx,Replacements Shipped,3/30/2026 0:00,,,,86
+OPEN_RMA00126,open,Normal,No,Return - Credit,Awaiting Parts,3/20/2026 0:00,,,,96
+OPEN_RMA00127,open,Normal,Yes,Return - Credit,Awaiting Parts,3/20/2026 0:00,,,,96
+OPEN_RMA00128,open,Normal,No,Return - Credit,RTV OPEN,3/20/2026 0:00,,,,96
+OPEN_RMA00129,open,Critical,Yes,Repair & Return,RMA Received,4/7/2026 0:00,4/10/2026 0:00,,75,0
+OPEN_RMA00130,open,Normal,No,Return - Credit,Awaiting Parts,3/16/2026 0:00,,,,100
+OPEN_RMA00131,open,Normal,No,Repair & Return,In-Progress,3/16/2026 0:00,5/1/2026 0:00,,54,0
+OPEN_RMA00132,open,Critical,No,AdvEx,RTV OPEN,3/19/2026 0:00,4/2/2026 0:00,,83,0
+OPEN_RMA00133,open,Critical,No,AdvEx,RTV OPEN,3/12/2026 0:00,4/24/2026 0:00,,61,0
+OPEN_RMA00134,open,Normal,Yes,Return - Credit,Awaiting Parts,6/2/2026 0:00,,,,22
+OPEN_RMA00135,open,Critical,No,Repair & Return,RTV OPEN,3/9/2026 0:00,3/13/2026 0:00,,103,0
+OPEN_RMA00136,open,Critical,No,Return - Credit,RMA Received,3/6/2026 0:00,3/13/2026 0:00,,103,0
+OPEN_RMA00137,open,Normal,No,Return - Credit,Awaiting Parts,3/6/2026 0:00,,,,110
+OPEN_RMA00138,open,Normal,No,Return - Credit,Pending Credit,3/5/2026 0:00,6/9/2026 0:00,,15,0
+OPEN_RMA00139,open,Critical,No,Return - Credit,RTV OPEN,3/5/2026 0:00,3/13/2026 0:00,,103,0
+OPEN_RMA00140,open,Normal,No,Repair & Return,Awaiting Parts,2/27/2026 0:00,,,,117
+OPEN_RMA00141,open,Critical,No,Return - Credit,RTV OPEN,2/27/2026 0:00,3/12/2026 0:00,,104,0
+OPEN_RMA00142,open,Critical,No,Return - Credit,Awaiting Parts,2/25/2026 0:00,,,,119
+OPEN_RMA00143,open,Normal,No,Repair & Return,Awaiting Parts,2/23/2026 0:00,,,,121
+OPEN_RMA00144,open,Normal,Yes,Return - Credit,Awaiting Parts,2/20/2026 0:00,,,,124
+OPEN_RMA00145,open,Critical,No,Return - Credit,In-Progress,2/16/2026 0:00,3/10/2026 0:00,,106,0
+OPEN_RMA00146,open,Normal,No,Return - Credit,Awaiting Parts,2/16/2026 0:00,,,,128
+OPEN_RMA00147,open,ASAP,No,Repair & Return,RMA Received,2/16/2026 0:00,2/21/2026 0:00,,123,0
+OPEN_RMA00148,open,Normal,No,Return - Credit,Awaiting Parts,2/16/2026 0:00,,,,128
+OPEN_RMA00149,open,Normal,No,Repair & Return,Awaiting Parts,2/16/2026 0:00,,,,128
+OPEN_RMA00150,open,Critical,Yes,Return - Credit,RTV OPEN,2/13/2026 0:00,3/11/2026 0:00,,105,0
+OPEN_RMA00151,open,ASAP,No,Return - Credit,RMA Received,2/5/2026 0:00,2/18/2026 0:00,,126,0
+OPEN_RMA00152,open,Normal,No,Return - Credit,In-Progress,4/14/2025 0:00,4/14/2025 0:00,,436,0
+OPEN_RMA00153,open,Critical,Yes,AdvEx,Pending Credit,2/12/2026 0:00,4/9/2026 0:00,,76,0
+OPEN_RMA00154,open,Critical,Yes,AdvEx,RMA Received,2/12/2026 0:00,3/24/2026 0:00,,92,0
+OPEN_RMA00155,open,ASAP,Yes,Repair & Return,RTV OPEN,2/11/2026 0:00,2/21/2026 0:00,,123,0
+OPEN_RMA00156,open,Normal,No,Repair & Return,Awaiting Parts,2/11/2026 0:00,,,,133
+OPEN_RMA00157,open,Normal,No,Return - Credit,Awaiting Parts,2/10/2026 0:00,,,,134
+OPEN_RMA00158,open,Normal,No,Return - Credit,Awaiting Parts,2/10/2026 0:00,,,,134
+OPEN_RMA00159,open,Critical,No,Repair & Return,RTV OPEN,2/10/2026 0:00,3/10/2026 0:00,,106,0
+OPEN_RMA00160,open,ASAP,No,Repair & Return,RMA Received,2/10/2026 0:00,2/17/2026 0:00,,127,0
+OPEN_RMA00161,open,ASAP,Yes,Return - Credit,RTV OPEN,2/9/2026 0:00,2/19/2026 0:00,,125,0
+OPEN_RMA00162,open,Critical,No,Return - Credit,RTV OPEN,2/9/2026 0:00,3/3/2026 0:00,,113,0
+OPEN_RMA00163,open,Critical,No,Repair & Return,RTV OPEN,2/5/2026 0:00,3/13/2026 0:00,,103,0
+OPEN_RMA00164,open,ASAP,No,Repair & Return,RMA Received,2/5/2026 0:00,2/21/2026 0:00,,123,0
+OPEN_RMA00165,open,ASAP,No,Repair & Return,RMA Received,2/5/2026 0:00,2/21/2026 0:00,,123,0
+OPEN_RMA00166,open,Critical,No,Repair & Return,RTV OPEN,2/4/2026 0:00,3/13/2026 0:00,,103,0
+OPEN_RMA00167,open,Critical,No,Return - Credit,RTV OPEN,2/3/2026 0:00,3/3/2026 0:00,,113,0
+OPEN_RMA00168,open,Normal,No,Return - Credit,Awaiting Parts,12/8/2025 0:00,12/9/2025 0:00,,197,0
+OPEN_RMA00169,open,ASAP,No,Return - Credit,RTV OPEN,1/29/2026 0:00,2/3/2026 0:00,,141,0
+OPEN_RMA00170,open,Critical,No,AdvEx,Replacements Shipped,1/29/2026 0:00,,,,146
+OPEN_RMA00171,open,Critical,Yes,Repair & Return,Create Pick Ticket,1/27/2026 0:00,3/13/2026 0:00,,103,0
+OPEN_RMA00172,open,Normal,No,Return - Credit,Awaiting Parts,1/27/2026 0:00,,,,148
+OPEN_RMA00173,open,ASAP,Yes,Return - Credit,RTV OPEN,1/23/2026 0:00,2/23/2026 0:00,,121,0
+OPEN_RMA00174,open,ASAP,Yes,Return - Credit,RTV OPEN,1/23/2026 0:00,2/23/2026 0:00,,121,0
+OPEN_RMA00175,open,ASAP,Yes,Return - Credit,RTV OPEN,1/23/2026 0:00,2/23/2026 0:00,,121,0
+OPEN_RMA00176,open,ASAP,No,Return - Credit,RTV OPEN,1/21/2026 0:00,2/3/2026 0:00,,141,0
+OPEN_RMA00177,open,Critical,Yes,AdvEx,Replacements Shipped,1/20/2026 0:00,,,,155
+OPEN_RMA00178,open,Normal,No,,In-Progress,11/14/2025 0:00,11/14/2025 0:00,,222,0
+OPEN_RMA00179,open,ASAP,No,Return - Credit,RTV OPEN,1/15/2026 0:00,1/28/2026 0:00,,147,0
+OPEN_RMA00180,open,ASAP,No,Return - Credit,In-Progress,1/14/2026 0:00,1/20/2026 0:00,,155,0
+OPEN_RMA00181,open,ASAP,Yes,AdvEx,RTV OPEN,1/16/2026 0:00,1/30/2026 0:00,,145,0
+OPEN_RMA00182,open,Critical,No,AdvEx,Replacements Shipped,3/9/2026 0:00,,,,107
+OPEN_RMA00183,open,Normal,Yes,Repair & Return,RMA Received,1/15/2026 0:00,,,,160
+OPEN_RMA00184,open,Critical,No,AdvEx,Replacements Shipped,1/14/2026 0:00,,,,161
+OPEN_RMA00185,open,ASAP,Yes,Return - Credit,RTV OPEN,1/13/2026 0:00,2/6/2026 0:00,,138,0
+OPEN_RMA00186,open,Critical,No,AdvEx,Replacements Shipped,1/12/2026 0:00,,,,163
+OPEN_RMA00187,open,ASAP,No,AdvEx,In-Progress,1/12/2026 0:00,1/28/2026 0:00,,147,0
+OPEN_RMA00188,open,Normal,No,Return - Credit,Awaiting Parts,1/6/2026 0:00,,,,169
+OPEN_RMA00189,open,Normal,Yes,Repair & Return,Awaiting Parts,1/6/2026 0:00,,,,169
+OPEN_RMA00190,open,Normal,No,Return - Credit,RTV OPEN,10/17/2025 0:00,10/23/2025 0:00,,244,0
+OPEN_RMA00191,open,ASAP,Yes,Repair & Return,RTV OPEN,1/5/2026 0:00,1/10/2026 0:00,,165,0
+OPEN_RMA00192,open,Normal,No,Return - Credit,Awaiting Parts,1/5/2026 0:00,,,,170
+OPEN_RMA00193,open,Critical,No,AdvEx,Replacements Shipped,1/5/2026 0:00,,,,170
+OPEN_RMA00194,open,ASAP,No,Repair & Return,RTV OPEN,12/30/2025 0:00,2/23/2026 0:00,,121,0
+OPEN_RMA00195,open,Critical,No,AdvEx,Replacements Shipped,1/2/2026 0:00,,,,173
+OPEN_RMA00196,open,Critical,Yes,AdvEx,Replacements Shipped,12/26/2025 0:00,,,,180
+OPEN_RMA00197,open,Normal,Yes,Repair & Return,Incorrect Pick Ticket,12/26/2025 0:00,4/29/2026 0:00,,56,0
+OPEN_RMA00198,open,Normal,No,Repair & Return,Awaiting Parts,12/22/2025 0:00,,,,184
+OPEN_RMA00199,open,Normal,Yes,Return - Credit,Awaiting Parts,12/19/2025 0:00,,,,187
+OPEN_RMA00200,open,ASAP,Yes,Return - Credit,RTV OPEN,12/19/2025 0:00,1/10/2026 0:00,,165,0
+OPEN_RMA00201,open,ASAP,No,Repair & Return,RTV OPEN,12/17/2025 0:00,12/29/2025 0:00,,177,0
+OPEN_RMA00202,open,Normal,Yes,Repair & Return,Awaiting Parts,12/12/2025 0:00,,,,194
+OPEN_RMA00203,open,ASAP,Yes,Return - Credit,RTV OPEN,12/12/2025 0:00,12/22/2025 0:00,,184,0
+OPEN_RMA00204,open,Critical,No,AdvEx,Replacements Shipped,12/19/2025 0:00,,,,187
+OPEN_RMA00205,open,Critical,Yes,AdvEx,Replacements Shipped,12/10/2025 0:00,,,,196
+OPEN_RMA00206,open,Critical,No,AdvEx,Pending Replacements,12/10/2025 0:00,,,,196
+OPEN_RMA00207,open,Critical,Yes,Return - Credit,In-Progress,12/12/2025 0:00,,,,194
+OPEN_RMA00208,open,ASAP,No,Return - Credit,RMA Received,11/4/2025 0:00,12/2/2025 0:00,,204,0
+OPEN_RMA00209,open,Critical,Yes,AdvEx,Replacements Shipped,12/5/2025 0:00,,,,201
+OPEN_RMA00210,open,ASAP,Yes,Return - Credit,RTV OPEN,12/4/2025 0:00,12/18/2025 0:00,,188,0
+OPEN_RMA00211,open,Critical,Yes,AdvEx,Replacements Shipped,12/3/2025 0:00,,,,203
+OPEN_RMA00212,open,Critical,Yes,AdvEx,Awaiting Parts,12/3/2025 0:00,,,,203
+OPEN_RMA00213,open,Critical,Yes,AdvEx,Replacements Shipped,12/9/2025 0:00,,,,197
+OPEN_RMA00214,open,Normal,No,Return - Credit,RTV OPEN,6/25/2025 0:00,6/25/2025 0:00,,364,0
+OPEN_RMA00215,open,Normal,No,Return - Credit,In-Progress,4/8/2026 0:00,4/29/2026 0:00,,56,0
+OPEN_RMA00216,open,Normal,No,Return - Credit,In-Progress,11/20/2025 0:00,11/26/2025 0:00,,210,0
+OPEN_RMA00217,open,Normal,No,Return - Credit,Awaiting Parts,11/20/2025 0:00,,,,216
+OPEN_RMA00218,open,Critical,Yes,AdvEx,Replacements Shipped,11/20/2025 0:00,,,,216
+OPEN_RMA00219,open,ASAP,Yes,Return - Credit,In-Progress,11/19/2025 0:00,2/21/2026 0:00,,123,0
+OPEN_RMA00220,open,ASAP,No,Return - Credit,RTV OPEN,11/17/2025 0:00,11/20/2025 0:00,,216,0
+OPEN_RMA00221,open,ASAP,No,Return - Credit,RTV OPEN,11/17/2025 0:00,1/28/2026 0:00,,147,0
+OPEN_RMA00222,open,ASAP,No,Return - Credit,RTV OPEN,11/17/2025 0:00,1/28/2026 0:00,,147,0
+OPEN_RMA00223,open,Normal,No,Return - Credit,Awaiting Parts,11/17/2025 0:00,,,,219
+OPEN_RMA00224,open,ASAP,No,Repair & Return,RMA Received,11/19/2025 0:00,11/19/2025 0:00,,217,0
+OPEN_RMA00225,open,ASAP,Yes,Repair & Return,RTV OPEN,11/12/2025 0:00,11/19/2025 0:00,,217,0
+OPEN_RMA00226,open,Critical,No,AdvEx,In-Progress,6/16/2026 0:00,,,,8
+OPEN_RMA00227,open,ASAP,Yes,Repair & Return,RTV OPEN,11/12/2025 0:00,12/2/2025 0:00,,204,0
+OPEN_RMA00228,open,Critical,No,AdvEx,Replacements Shipped,11/13/2025 0:00,,,,223
+OPEN_RMA00229,open,ASAP,No,AdvEx,RTV OPEN,12/22/2025 0:00,1/28/2026 0:00,,147,0
+OPEN_RMA00230,open,Normal,No,Repair & Return,Awaiting Parts,11/4/2025 0:00,,,,232
+OPEN_RMA00231,open,Critical,No,AdvEx,Replacements Shipped,12/22/2025 0:00,,,,184
+OPEN_RMA00232,open,Normal,No,AdvEx,Awaiting Parts,11/3/2025 0:00,,,,233
+OPEN_RMA00233,open,Critical,No,AdvEx,Replacements Shipped,4/17/2026 0:00,,,,68
+OPEN_RMA00234,open,ASAP,No,AdvEx,Replacements Shipped,9/13/2025 0:00,9/20/2025 0:00,,277,0
+OPEN_RMA00235,open,Critical,Yes,AdvEx,RTV OPEN,2/13/2026 0:00,3/17/2026 0:00,,99,0
+OPEN_RMA00236,open,Critical,No,Return - Credit,In-Progress,2/16/2026 0:00,3/4/2026 0:00,,112,0
+OPEN_RMA00237,open,ASAP,No,Return - Credit,RMA Received,2/4/2026 0:00,2/16/2026 0:00,2/17/2026 0:00,1,0
+OPEN_RMA00238,open,Critical,Yes,Return - Credit,RTV OPEN,11/3/2025 0:00,3/12/2026 0:00,,104,0
+OPEN_RMA00239,open,Normal,No,AdvEx,Awaiting Parts,10/30/2025 0:00,,,,237
+OPEN_RMA00240,open,ASAP,Yes,Repair & Return,RMA Received,10/30/2025 0:00,11/11/2025 0:00,,225,0
+OPEN_RMA00241,open,ASAP,No,Repair & Return,In-Progress,10/30/2025 0:00,11/5/2025 0:00,,231,0
+OPEN_RMA00242,open,ASAP,Yes,Repair & Return,RTV OPEN,10/30/2025 0:00,11/6/2025 0:00,,230,0
+OPEN_RMA00243,open,Normal,No,Return - Credit,Awaiting Parts,10/30/2025 0:00,,,,237
+OPEN_RMA00244,open,Normal,No,Return - Credit,Awaiting Parts,10/29/2025 0:00,,,,238
+OPEN_RMA00245,open,Normal,No,Return - Credit,Awaiting Parts,10/29/2025 0:00,,,,238
+OPEN_RMA00246,open,ASAP,Yes,Repair & Return,RMA Received,10/28/2025 0:00,11/4/2025 0:00,,232,0
+OPEN_RMA00247,open,Normal,No,Return - Replacement,Awaiting Parts,10/27/2025 7:53,,,,240
+OPEN_RMA00248,open,Normal,No,Repair & Return,RMA Received,3/1/2025 9:00,7/28/2025 0:00,,331,0
+OPEN_RMA00249,open,ASAP,Yes,Repair & Return,RMA Received,10/23/2025 15:18,11/24/2025 0:00,,212,0
+OPEN_RMA00250,open,ASAP,Yes,Repair & Return,RMA Received,10/23/2025 14:07,11/24/2025 0:00,,212,0
+OPEN_RMA00251,open,ASAP,Yes,Repair & Return,RMA Received,10/22/2025 10:53,11/24/2025 0:00,,212,0
+OPEN_RMA00252,open,Normal,No,Return - Credit,RTV OPEN,10/22/2025 9:22,5/22/2025 0:00,,398,0
+OPEN_RMA00253,open,Normal,No,Return - Credit,Awaiting Parts,10/17/2025 16:43,,,,249
+OPEN_RMA00254,open,Normal,No,Repair & Return,Awaiting Parts,5/6/2025 15:29,,,,413
+OPEN_RMA00255,open,Normal,No,Return - Credit,Awaiting Parts,10/16/2025 14:32,,,,250
+OPEN_RMA00256,open,Normal,No,Repair & Return,Awaiting Parts,10/16/2025 12:47,,,,250
+OPEN_RMA00257,open,Normal,No,Return - Credit,RTV OPEN,10/16/2025 11:27,5/31/2025 0:00,,389,0
+OPEN_RMA00258,open,Normal,No,Return - Credit,RMA Received,10/16/2025 11:12,5/19/2025 0:00,,401,0
+OPEN_RMA00259,open,ASAP,No,Return - Credit,In-Progress,10/16/2025 7:53,10/21/2025 0:00,,246,0
+OPEN_RMA00260,open,Normal,No,Return - Replacement,Awaiting Parts,10/15/2025 15:01,,,,251
+OPEN_RMA00261,open,ASAP,No,AdvEx,Replacements Shipped,,,,,
+OPEN_RMA00262,open,Normal,No,Repair & Return,Pending Credit,,,,,
+OPEN_RMA00263,open,Normal,No,Return - Replacement,Awaiting Parts,10/9/2025 0:00,,,,258
+OPEN_RMA00264,open,Normal,No,Repair & Return,Awaiting Parts,10/9/2025 0:00,,,,258
+OPEN_RMA00265,open,Normal,No,Repair & Return,Awaiting Parts,10/9/2025 0:00,,,,258
+OPEN_RMA00266,open,Normal,No,Repair & Return,Awaiting Parts,10/9/2025 0:00,,,,258
+OPEN_RMA00267,open,Normal,No,Repair & Return,Awaiting Parts,10/9/2025 0:00,,,,258
+OPEN_RMA00268,open,ASAP,No,Repair & Return,RTV OPEN,10/9/2025 0:00,10/23/2025 0:00,,244,0
+OPEN_RMA00269,open,ASAP,No,Repair & Return,RMA Received,10/8/2025 0:00,10/14/2025 0:00,,253,0
+OPEN_RMA00270,open,ASAP,No,Repair & Return,RTV OPEN,10/8/2025 0:00,10/22/2025 0:00,,245,0
+OPEN_RMA00271,open,Normal,No,Return - Replacement,Awaiting Parts,10/7/2025 0:00,,,,260
+OPEN_RMA00272,open,Normal,No,Repair & Return,Awaiting Parts,10/3/2025 0:00,,,,264
+OPEN_RMA00273,open,Normal,No,Return - Credit,Awaiting Parts,9/30/2025 0:00,,,,267
+OPEN_RMA00274,open,Normal,No,Repair & Return,Awaiting Parts,9/30/2025 0:00,,,,267
+OPEN_RMA00275,open,ASAP,No,Return - Credit,RTV OPEN,9/30/2025 0:00,10/7/2025 0:00,,260,0
+OPEN_RMA00276,open,ASAP,No,Repair & Return,RTV OPEN,9/25/2025 0:00,10/7/2025 0:00,,260,0
+OPEN_RMA00277,open,ASAP,No,Repair & Return,RTV OPEN,9/17/2025 0:00,9/20/2025 0:00,,277,0
+OPEN_RMA00278,open,Normal,No,Return - Replacement,Awaiting Parts,7/16/2025 0:00,,,,343
+OPEN_RMA00279,open,Critical,Yes,Return - Replacement,Replacements Shipped,3/7/2025 0:00,,,,474
+OPEN_RMA00280,open,Normal,No,Return - Replacement,Awaiting Parts,3/7/2025 0:00,,,,474
+OPEN_RMA00281,open,Normal,No,Return - Replacement,Awaiting Parts,3/10/2025 0:00,,,,471
+OPEN_RMA00282,open,Normal,No,Repair & Return,Awaiting Parts,3/14/2025 0:00,,,,467
+OPEN_RMA00283,open,Normal,No,Return - Replacement,Awaiting Parts,3/18/2025 0:00,,,,463
+OPEN_RMA00284,open,Critical,Yes,Return - Replacement,RMA Received,3/18/2025 0:00,5/14/2025 0:00,,406,0
+OPEN_RMA00285,open,Normal,No,Return - Replacement,Awaiting Parts,3/20/2025 0:00,,,,461
+OPEN_RMA00286,open,Normal,No,Return - Replacement,Awaiting Parts,3/24/2025 0:00,,,,457
+OPEN_RMA00287,open,Normal,No,Return - Replacement,Awaiting Parts,7/16/2025 0:00,,,,343
+OPEN_RMA00288,open,Normal,No,Return - Replacement,Awaiting Parts,3/27/2025 0:00,,,,454
+OPEN_RMA00289,open,Normal,No,Return - Replacement,Awaiting Parts,9/4/2025 0:00,,,,293
+OPEN_RMA00290,open,ASAP,No,Return - Replacement,RMA Received,9/4/2025 0:00,9/8/2025 0:00,,289,0
+OPEN_RMA00291,open,Normal,No,Return - Replacement,Awaiting Parts,5/9/2025 0:00,,,,411
+OPEN_RMA00292,open,ASAP,No,Return - Replacement,RMA Received,9/4/2025 0:00,9/24/2025 0:00,,273,0
+OPEN_RMA00293,open,ASAP,No,Repair & Return,RMA Received,9/12/2025 0:00,9/24/2025 0:00,,273,0
+OPEN_RMA00294,open,Normal,No,Repair & Return,Create Pick Ticket,4/7/2025 0:00,,,,443
+OPEN_RMA00295,open,Normal,No,Repair & Return,Awaiting Parts,4/7/2025 0:00,,,,443
+OPEN_RMA00296,open,ASAP,No,Return - Replacement,RTV OPEN,9/3/2025 0:00,9/10/2025 0:00,,287,0
+OPEN_RMA00297,open,Normal,No,Repair & Return,Awaiting Parts,9/11/2025 0:00,,,,286
+OPEN_RMA00298,open,Normal,No,Return - Replacement,Awaiting Parts,3/8/2025 0:00,,,,473
+OPEN_RMA00299,open,Normal,No,Return - Credit,RTV OPEN,7/17/2025 0:00,7/28/2025 0:00,,331,0
+OPEN_RMA00300,open,Normal,No,Repair & Return,Awaiting Parts,8/20/2025 0:00,,,,308
+OPEN_RMA00301,open,Critical,Yes,Return - Replacement,Awaiting Parts,4/15/2025 0:00,,,,435
+OPEN_RMA00302,open,Normal,No,Repair & Return,Awaiting Parts,3/10/2025 0:00,,,,471
+OPEN_RMA00303,open,Normal,No,Repair & Return,Awaiting Parts,3/10/2025 0:00,,,,471
+OPEN_RMA00304,open,Normal,No,Repair & Return,Create Pick Ticket,5/23/2025 0:00,5/27/2025 0:00,,393,0
+OPEN_RMA00305,open,Normal,No,Return - Credit,RTV OPEN,5/20/2025 0:00,7/3/2025 0:00,,356,0
+OPEN_RMA00306,open,Normal,No,Repair & Return,Awaiting Parts,5/9/2025 0:00,,,,411
+OPEN_RMA00307,open,Normal,No,Repair & Return,RMA Received,7/22/2025 0:00,8/8/2025 0:00,,320,0
+OPEN_RMA00308,open,Normal,No,Return - Replacement,Awaiting Parts,3/10/2025 0:00,,,,471
+OPEN_RMA00309,open,Normal,No,Return - Replacement,Awaiting Parts,3/10/2025 0:00,,,,471
+OPEN_RMA00310,open,Normal,No,Repair & Return,Awaiting Parts,3/6/2025 0:00,,,,475
+OPEN_RMA00311,open,Normal,No,Return - Replacement,RMA Received,6/19/2025 0:00,6/24/2025 0:00,,365,0
+OPEN_RMA00312,open,Normal,No,Repair & Return,RMA Received,5/9/2025 0:00,5/21/2025 0:00,,399,0
+OPEN_RMA00313,open,ASAP,Yes,Return - Replacement,RTV OPEN,9/9/2025 0:00,12/2/2025 0:00,,204,0
+OPEN_RMA00314,open,Normal,No,Repair & Return,Awaiting Parts,5/28/2025 0:00,,,,392
+OPEN_RMA00315,open,Normal,No,Return - Replacement,Awaiting Parts,5/29/2025 0:00,,,,391
+OPEN_RMA00316,open,Normal,No,Return - Replacement,Awaiting Parts,5/29/2025 0:00,,,,391
+OPEN_RMA00317,open,Normal,No,Return - Replacement,Awaiting Parts,5/29/2025 0:00,,,,391
+OPEN_RMA00318,open,Normal,No,Return - Replacement,RTV OPEN,5/30/2025 0:00,6/17/2025 0:00,,372,0
+OPEN_RMA00319,open,Normal,No,Return - Replacement,Awaiting Parts,5/30/2025 0:00,,,,390
+OPEN_RMA00320,open,Normal,No,Return - Replacement,Awaiting Parts,5/30/2025 0:00,,,,390
+OPEN_RMA00321,open,Normal,No,Repair & Return,Awaiting Parts,4/22/2025 0:00,,,,428
+OPEN_RMA00322,open,Normal,No,Repair & Return,RMA Received,5/30/2025 0:00,6/12/2025 0:00,,377,0
+OPEN_RMA00323,open,Normal,No,Repair & Return,RMA Received,5/9/2025 0:00,5/22/2025 0:00,,398,0
+OPEN_RMA00324,open,Normal,No,Return - Replacement,RMA Received,6/5/2025 0:00,6/16/2025 0:00,,373,0
+OPEN_RMA00325,open,Normal,No,Repair & Return,Awaiting Parts,6/9/2025 0:00,,,,380
+OPEN_RMA00326,open,Normal,No,Return - Replacement,Awaiting Parts,6/11/2025 0:00,,,,378
+OPEN_RMA00327,open,Normal,No,Return - Replacement,Awaiting Parts,6/12/2025 0:00,,,,377
+OPEN_RMA00328,open,ASAP,No,Return - Replacement,In-Progress,5/9/2025 0:00,2/21/2026 0:00,,123,0
+OPEN_RMA00329,open,Normal,No,Return - Credit,Awaiting Parts,3/6/2025 0:00,,,,475
+OPEN_RMA00330,open,Normal,No,Repair & Return,RMA Received,6/16/2025 0:00,6/17/2025 0:00,,372,0
+OPEN_RMA00331,open,Normal,No,Return - Replacement,Awaiting Parts,4/23/2025 0:00,,,,427
+OPEN_RMA00332,open,Critical,No,Return - Replacement,Replacements Shipped,7/30/2025 0:00,,,,329
+OPEN_RMA00333,open,Normal,No,Return - Replacement,Awaiting Parts,5/9/2025 0:00,,,,411
+OPEN_RMA00334,open,Normal,No,Repair & Return,Awaiting Parts,5/9/2025 0:00,,,,411
+OPEN_RMA00335,open,Normal,No,Return - Replacement,Awaiting Parts,4/28/2025 0:00,,,,422
+OPEN_RMA00336,open,Normal,No,Return - Replacement,Awaiting Parts,3/7/2025 0:00,,,,474
+OPEN_RMA00337,open,Normal,No,Repair & Return,Awaiting Parts,6/19/2025 0:00,,,,370
+OPEN_RMA00338,open,Critical,Yes,Return - Credit,Awaiting Parts,3/24/2025 0:00,,,,457
+OPEN_RMA00339,open,Normal,No,Return - Replacement,Awaiting Parts,6/23/2025 0:00,,,,366
+OPEN_RMA00340,open,Normal,No,Return - Replacement,Awaiting Parts,5/12/2025 0:00,,,,408
+OPEN_RMA00341,open,Normal,No,Return - Replacement,Awaiting Parts,8/25/2025 0:00,,,,303
+OPEN_RMA00342,open,Normal,No,Return - Replacement,Awaiting Parts,5/5/2025 0:00,,,,415
+OPEN_RMA00343,open,Normal,No,Repair & Return,RTV OPEN,8/4/2025 0:00,9/2/2025 0:00,,295,0
+OPEN_RMA00344,open,Normal,No,Repair & Return,Awaiting Parts,8/25/2025 0:00,,,,303
+OPEN_RMA00345,open,Normal,No,Return - Credit,RTV OPEN,8/5/2025 0:00,9/5/2025 0:00,,292,0
+OPEN_RMA00346,open,Normal,No,Repair & Return,Awaiting Parts,6/23/2025 0:00,,,,366
+OPEN_RMA00347,open,Normal,No,Repair & Return,Awaiting Parts,3/6/2025 0:00,,,,475
+OPEN_RMA00348,open,Normal,No,Return - Replacement,Awaiting Parts,5/15/2025 0:00,,,,405
+OPEN_RMA00349,open,ASAP,Yes,Repair & Return,Create Pick Ticket,8/5/2025 0:00,10/14/2025 0:00,,253,0
+OPEN_RMA00350,open,Normal,No,Return - Replacement,Awaiting Parts,3/6/2025 0:00,,,,475
+OPEN_RMA00351,open,Normal,No,Return - Replacement,Awaiting Parts,7/17/2025 0:00,,,,342
+OPEN_RMA00352,open,Normal,No,Return - Replacement,Awaiting Parts,5/15/2025 0:00,,,,405
+OPEN_RMA00353,open,Normal,No,Repair & Return,Awaiting Parts,5/6/2025 0:00,,,,414
+OPEN_RMA00354,open,Normal,No,Repair & Return,Awaiting Parts,6/23/2025 0:00,,,,366
+OPEN_RMA00355,open,Normal,No,,Awaiting Parts,,,,,
+OPEN_RMA00356,open,Normal,No,Return - Replacement,Awaiting Parts,6/24/2025 0:00,,,,365
+OPEN_RMA00357,open,Normal,No,Repair & Return,Awaiting Parts,5/8/2025 0:00,,,,412
+OPEN_RMA00358,open,Normal,No,Return - Replacement,Awaiting Parts,3/7/2025 0:00,,,,474
+OPEN_RMA00359,open,Normal,No,Return - Credit,RTV OPEN,5/16/2025 0:00,5/31/2025 0:00,,389,0
+OPEN_RMA00360,open,Normal,No,Return - Replacement,Awaiting Parts,3/10/2025 0:00,,,,471
+OPEN_RMA00361,open,Normal,No,Return - Replacement,RTV OPEN,5/8/2025 0:00,5/21/2025 0:00,,399,0
+OPEN_RMA00362,open,Normal,No,Repair & Return,RMA Received,7/17/2025 0:00,7/28/2025 0:00,,331,0
+OPEN_RMA00363,open,Normal,No,Return - Replacement,Awaiting Parts,8/5/2025 0:00,,,,323
+OPEN_RMA00364,open,Normal,No,AdvEx,Replacements Shipped,8/5/2025 0:00,,,,323
+OPEN_RMA00365,open,Normal,No,Repair & Return,RTV OPEN,8/18/2025 0:00,9/2/2025 0:00,,295,0
+OPEN_RMA00366,open,Normal,No,Repair & Return,Create Pick Ticket,7/10/2025 0:00,7/28/2025 0:00,1/26/2026 0:00,182,0
+OPEN_RMA00367,open,ASAP,No,Return - Replacement,RMA Received,7/10/2025 0:00,11/3/2025 0:00,,233,0
+OPEN_RMA00368,open,Normal,No,Return - Credit,In-Progress,7/14/2025 0:00,7/21/2025 0:00,,338,0
+OPEN_RMA00369,open,Normal,No,Return - Replacement,Awaiting Parts,8/6/2025 0:00,,,,322
+OPEN_RMA00370,open,Normal,No,Repair & Return,Awaiting Parts,8/6/2025 0:00,,,,322
+OPEN_RMA00371,open,Normal,No,Repair & Return,Awaiting Parts,8/7/2025 0:00,,,,321
+OPEN_RMA00372,open,ASAP,No,Return - Credit,RTV OPEN,8/22/2025 0:00,9/18/2025 0:00,,279,0
+OPEN_RMA00373,open,Normal,No,Repair & Return,Awaiting Parts,8/22/2025 0:00,,,,306
+OPEN_RMA00374,open,ASAP,No,Return - Credit,RTV OPEN,8/22/2025 0:00,9/22/2025 0:00,,275,0
+OPEN_RMA00375,open,Normal,No,Repair & Return,Awaiting Parts,3/26/2025 0:00,,,,455
+OPEN_RMA00376,open,Normal,No,Repair & Return,Awaiting Parts,3/26/2025 0:00,,,,455
+OPEN_RMA00377,open,Normal,No,Repair & Return,In-Progress,10/30/2024 0:00,,,,602
+OPEN_RMA00378,open,Normal,No,Repair & Return,Incorrect Pick Ticket,1/28/2025 0:00,,,,512
+OPEN_RMA00379,open,Normal,No,Return - Credit,RMA Received,2/24/2025 0:00,5/6/2025 0:00,,414,0
+OPEN_RMA00380,open,Normal,No,Credit,RMA Received,2/11/2025 0:00,4/30/2025 0:00,1/26/2026 0:00,271,0
+OPEN_RMA00381,open,Normal,No,Credit,RTV OPEN,5/16/2024 0:00,,2/17/2025 0:00,,769
+OPEN_RMA00382,open,Normal,No,Repair & Return,RTV OPEN,8/20/2024 0:00,,9/3/2024 0:00,,673
+OPEN_RMA00383,open,Normal,No,Repair & Return,RTV OPEN,1/2/2025 0:00,,,,538
+OPEN_RMA00384,open,Normal,Yes,Return - Credit,RTV OPEN,8/6/2024 0:00,,,,687
+OPEN_RMA00385,open,Normal,Yes,Return - Credit,RTV OPEN,1/21/2025 0:00,,4/15/2025 0:00,,519
+OPEN_RMA00386,open,Normal,Yes,Return - Credit,RTV OPEN,9/17/2024 0:00,,,,645
+OPEN_RMA00387,open,Normal,No,Return - Credit,RTV OPEN,7/26/2024 0:00,,,,698
+OPEN_RMA00388,open,Normal,No,Return - Replacement,In-Progress,1/17/2025 0:00,,,,523
+OPEN_RMA00389,open,Normal,Yes,Repair & Return,RTV OPEN,7/22/2024 0:00,,3/12/2025 0:00,,702
+OPEN_RMA00390,open,Normal,No,Repair & Return,RTV OPEN,12/9/2024 0:00,,,,562
+OPEN_RMA00391,open,Normal,Yes,Repair & Return,RTV OPEN,10/28/2024 0:00,,,,604
+OPEN_RMA00392,open,Normal,Yes,Repair & Return,RTV OPEN,1/13/2025 0:00,,,,527
+OPEN_RMA00393,open,Normal,No,Credit,RMA Received,2/14/2025 0:00,,,,495
+OPEN_RMA00394,open,ASAP,No,Return - Replacement,Replacements Shipped,,,10/16/2025 0:00,,
+OPEN_RMA00395,open,Normal,No,Credit,RMA Received,12/10/2024 0:00,5/19/2025 0:00,,401,0
+OPEN_RMA00396,open,Normal,No,Credit,RMA Received,2/26/2025 0:00,,,,483
+OPEN_RMA00397,open,Normal,No,Repair & Return,RMA Received,1/24/2025 0:00,6/3/2025 0:00,,386,0
+OPEN_RMA00398,open,Normal,No,Repair & Return,RMA Received,2/4/2025 0:00,,,,505
+OPEN_RMA00399,open,Normal,No,Credit,RMA Received,2/11/2025 0:00,,,,498
+OPEN_RMA00400,open,Normal,No,Return - Credit,Closed - Credit,12/4/2025 0:00,12/5/2025 0:00,2/6/2026 12:00,64,0
+OPEN_RMA00401,open,Normal,No,Repair & Return,Incorrect Pick Ticket,6/24/2025 0:00,8/12/2025 0:00,4/3/2026 12:04,235,0
+OPEN_RMA00402,open,ASAP,Yes,Return - Credit,In-Progress,12/17/2025 0:00,1/28/2026 0:00,,147,0
+OPEN_RMA00403,open,Critical,No,AdvEx,In-Progress,2/6/2026 0:00,3/10/2026 0:00,4/24/2026 11:05,45,0
+OPEN_RMA00404,open,ASAP,Yes,Return - Credit,In-Progress,1/23/2026 0:00,2/23/2026 0:00,4/6/2026 15:37,43,0
+CLOSED_RMA00001,closed,ASAP,No,Repair & Return,Closed - Shipped,10/13/2025 9:17,7/3/2025 0:00,10/13/2025 12:00,103,0
+CLOSED_RMA00002,closed,ASAP,No,Repair & Return,Closed - Shipped,10/13/2025 9:17,7/24/2025 0:00,10/13/2025 12:00,82,0
+CLOSED_RMA00003,closed,ASAP,No,Repair & Return,Closed - Shipped,10/13/2025 9:17,7/24/2025 0:00,10/13/2025 12:00,82,0
+CLOSED_RMA00004,closed,ASAP,No,Repair & Return,Closed - Shipped,10/13/2025 9:17,,10/13/2025 12:00,,254
+CLOSED_RMA00005,closed,ASAP,No,Repair & Return,Closed - Shipped,10/13/2025 9:17,5/19/2025 0:00,10/13/2025 12:00,148,0
+CLOSED_RMA00006,closed,ASAP,No,Repair & Return,Closed - Shipped,10/13/2025 9:17,7/24/2025 0:00,10/13/2025 12:00,82,0
+CLOSED_RMA00007,closed,ASAP,No,Repair & Return,Closed - Shipped,10/13/2025 9:17,7/3/2025 0:00,10/13/2025 12:00,103,0
+CLOSED_RMA00008,closed,ASAP,No,Repair & Return,Closed - Shipped,10/13/2025 9:17,6/23/2025 0:00,10/13/2025 12:00,113,0
+CLOSED_RMA00009,closed,ASAP,No,Repair & Return,Closed - Shipped,10/13/2025 9:17,6/24/2025 0:00,10/13/2025 12:00,112,0
+CLOSED_RMA00010,closed,ASAP,No,Repair & Return,Closed - Shipped,10/13/2025 9:17,4/30/2025 0:00,10/13/2025 12:00,167,0
+CLOSED_RMA00011,closed,ASAP,No,Repair & Return,Closed - Shipped,10/13/2025 9:17,5/16/2025 0:00,10/13/2025 12:00,151,0
+CLOSED_RMA00012,closed,ASAP,No,Repair & Return,Closed - Shipped,10/13/2025 9:17,5/3/2025 0:00,10/13/2025 12:00,164,0
+CLOSED_RMA00013,closed,ASAP,No,Repair & Return,Closed - Shipped,10/13/2025 9:17,4/15/2025 0:00,10/13/2025 12:00,182,0
+CLOSED_RMA00014,closed,ASAP,No,Repair & Return,Closed - Shipped,10/13/2025 9:17,5/7/2025 0:00,10/13/2025 12:00,160,0
+CLOSED_RMA00015,closed,ASAP,No,Return - Credit,Closed - Credit,10/13/2025 9:17,7/24/2025 0:00,10/16/2025 0:00,84,0
+CLOSED_RMA00016,closed,ASAP,No,Return - Credit,Closed - Credit,10/13/2025 9:17,6/26/2025 0:00,10/16/2025 0:00,112,0
+CLOSED_RMA00017,closed,ASAP,No,Return - Credit,Closed - Credit,10/13/2025 9:17,6/25/2025 0:00,10/16/2025 0:00,113,0
+CLOSED_RMA00018,closed,ASAP,Yes,Return - Credit,Closed - Credit,10/13/2025 9:17,5/31/2025 0:00,10/16/2025 0:00,138,0
+CLOSED_RMA00019,closed,ASAP,No,Return - Credit,Closed - Credit,10/13/2025 9:17,8/11/2025 0:00,10/16/2025 0:00,66,0
+CLOSED_RMA00020,closed,ASAP,No,Return - Credit,Closed - Credit,10/13/2025 9:17,6/24/2025 0:00,10/16/2025 0:00,114,0
+CLOSED_RMA00021,closed,ASAP,No,Return - Credit,Closed - Credit,10/13/2025 9:17,5/7/2025 0:00,10/16/2025 0:00,162,0
+CLOSED_RMA00022,closed,ASAP,No,Return - Replacement,Closed - Credit,,6/23/2025 0:00,10/16/2025 0:00,115,0
+CLOSED_RMA00023,closed,ASAP,No,Return - Replacement,Closed - Credit,,6/6/2025 0:00,10/16/2025 0:00,132,0
+CLOSED_RMA00024,closed,ASAP,Yes,Return - Replacement,Closed - Credit,,6/20/2025 0:00,6/24/2025 0:00,4,0
+CLOSED_RMA00025,closed,ASAP,No,Return - Replacement,Closed - Credit,,8/6/2025 0:00,10/16/2025 0:00,71,0
+CLOSED_RMA00026,closed,ASAP,No,Repair & Return,Closed - Canceled,,,6/23/2025 0:00,,
+CLOSED_RMA00027,closed,ASAP,Yes,Repair & Return,Closed - Canceled,,7/21/2025 0:00,10/16/2025 0:00,87,0
+CLOSED_RMA00028,closed,ASAP,Yes,Repair & Return,Closed - Canceled,,,10/16/2025 0:00,,
+CLOSED_RMA00029,closed,Normal,No,Repair & Return,Closed - Shipped,4/7/2025 0:00,6/17/2025 0:00,10/14/2025 11:04,119,0
+CLOSED_RMA00030,closed,Critical,Yes,Repair & Return,Closed - Shipped,3/12/2025 0:00,,10/14/2025 11:07,,469
+CLOSED_RMA00031,closed,Normal,No,Repair & Return,Closed - Shipped,4/7/2025 0:00,5/19/2025 0:00,10/14/2025 11:10,148,0
+CLOSED_RMA00032,closed,Normal,No,Return - Replacement,Closed - Credit,7/28/2025 0:00,7/29/2025 0:00,10/16/2025 0:00,79,0
+CLOSED_RMA00033,closed,Normal,No,Return - Replacement,Closed - Credit,7/14/2025 0:00,7/25/2025 0:00,10/16/2025 0:00,83,0
+CLOSED_RMA00034,closed,Normal,No,Return - Credit,Closed - Credit,,5/29/2025 0:00,10/16/2025 0:00,140,0
+CLOSED_RMA00035,closed,Normal,No,Repair & Return,Closed - Shipped,7/28/2025 0:00,8/7/2025 0:00,10/14/2025 11:21,68,0
+CLOSED_RMA00036,closed,ASAP,No,Return - Credit,Closed - Credit,9/2/2025 0:00,9/10/2025 0:00,10/16/2025 0:00,36,0
+CLOSED_RMA00037,closed,Normal,Yes,Return - Replacement,Closed - Credit,4/1/2025 0:00,5/23/2025 0:00,10/16/2025 0:00,146,0
+CLOSED_RMA00038,closed,Normal,No,Return - Replacement,Ready For Close,3/7/2025 0:00,,10/16/2025 0:00,,474
+CLOSED_RMA00039,closed,Normal,No,Repair & Return,Closed - Shipped,7/17/2025 0:00,7/24/2025 0:00,10/14/2025 11:38,82,0
+CLOSED_RMA00040,closed,Normal,No,Repair & Return,Closed - Shipped,5/12/2025 0:00,6/2/2025 0:00,10/14/2025 11:39,134,0
+CLOSED_RMA00041,closed,Critical,Yes,Repair & Return,Closed - Shipped,5/13/2025 0:00,5/19/2025 0:00,10/14/2025 11:42,148,0
+CLOSED_RMA00042,closed,ASAP,No,Repair & Return,Closed - Shipped,9/25/2025 0:00,10/7/2025 0:00,10/15/2025 7:41,8,0
+CLOSED_RMA00043,closed,Normal,No,Repair & Return,Closed - Shipped,4/23/2025 0:00,5/14/2025 0:00,10/15/2025 7:41,154,0
+CLOSED_RMA00044,closed,ASAP,No,Repair & Return,Closed - Shipped,9/23/2025 0:00,10/7/2025 0:00,10/15/2025 7:42,8,0
+CLOSED_RMA00045,closed,Normal,No,Repair & Return,Closed - Shipped,7/23/2025 0:00,7/25/2025 0:00,10/15/2025 7:42,82,0
+CLOSED_RMA00046,closed,Normal,No,Repair & Return,Closed - Shipped,7/15/2024 0:00,,10/15/2025 7:42,,709
+CLOSED_RMA00047,closed,Normal,No,Return - Replacement,Closed- Scrapped,3/31/2025 0:00,5/31/2025 0:00,10/16/2025 0:00,138,0
+CLOSED_RMA00048,closed,Normal,No,Repair & Return,Closed - Credit,7/28/2025 0:00,8/7/2025 0:00,10/16/2025 0:00,70,0
+CLOSED_RMA00049,closed,Normal,No,Credit,Closed - Credit,1/3/2025 0:00,,10/16/2025 0:00,,537
+CLOSED_RMA00050,closed,Normal,No,Repair & Return,Closed - Shipped,1/23/2025 0:00,,10/15/2025 15:25,,517
+CLOSED_RMA00051,closed,Normal,No,Credit,Closed - Credit,1/21/2025 0:00,,10/15/2025 16:26,,519
+CLOSED_RMA00052,closed,Normal,No,Repair & Return,Closed - Shipped,10/16/2025 14:26,,10/16/2025 14:26,,250
+CLOSED_RMA00053,closed,Normal,No,Credit,Closed - Credit,2/4/2025 0:00,,10/16/2025 14:35,,505
+CLOSED_RMA00054,closed,Normal,No,Reship,Closed - Shipped,2/11/2025 0:00,,10/16/2025 15:52,,498
+CLOSED_RMA00055,closed,ASAP,Yes,Return - Replacement,Closed - Credit,9/19/2025 0:00,10/14/2025 0:00,10/17/2025 8:53,3,0
+CLOSED_RMA00056,closed,Normal,No,Return - Credit,Closed - Credit,2/18/2025 0:00,5/29/2025 0:00,10/17/2025 10:06,141,0
+CLOSED_RMA00057,closed,Normal,No,Return - Credit,Closed - Credit,10/16/2025 12:25,,10/17/2025 0:00,,250
+CLOSED_RMA00058,closed,Normal,Yes,Return - Credit,Closed - Credit,10/23/2024 0:00,,10/17/2025 14:03,,609
+CLOSED_RMA00059,closed,Normal,Yes,Return - Credit,Closed - Credit,9/13/2024 0:00,,10/17/2025 14:06,,649
+CLOSED_RMA00060,closed,Normal,Yes,Return - Replacement,Closed - Credit,11/11/2024 0:00,,10/17/2025 14:44,,590
+CLOSED_RMA00061,closed,Normal,Yes,Return - Credit,Closed - Credit,10/25/2024 0:00,,10/17/2025 14:46,,607
+CLOSED_RMA00062,closed,Normal,No,Return - Credit,Closed - Credit,10/17/2025 11:52,6/12/2025 0:00,10/20/2025 8:04,130,0
+CLOSED_RMA00063,closed,ASAP,No,Return - Credit,Closed - Shipped,,,10/20/2025 7:40,,
+CLOSED_RMA00064,closed,Normal,No,Return - Replacement,Closed - Credit,7/16/2025 0:00,7/23/2025 0:00,10/20/2025 7:37,89,0
+CLOSED_RMA00065,closed,Normal,No,Return - Credit,Closed - Credit,,8/7/2025 0:00,10/20/2025 7:42,74,0
+CLOSED_RMA00066,closed,Normal,No,Return - Credit,Closed - Credit,10/15/2025 12:16,7/21/2025 0:00,10/20/2025 7:41,91,0
+CLOSED_RMA00067,closed,Normal,No,Return - Credit,Closed - Credit,,8/11/2025 0:00,10/20/2025 7:37,70,0
+CLOSED_RMA00068,closed,Normal,No,Return - Replacement,Closed - Credit,4/23/2025 0:00,,10/20/2025 7:31,,427
+CLOSED_RMA00069,closed,Normal,No,Return - Credit,Closed - Credit,9/3/2025 0:00,8/22/2025 0:00,10/20/2025 7:39,59,0
+CLOSED_RMA00070,closed,Normal,No,Return - Credit,Closed - Credit,,7/14/2025 0:00,10/20/2025 7:41,98,0
+CLOSED_RMA00071,closed,ASAP,No,Return - Credit,Closed - Shipped,9/2/2025 0:00,9/20/2025 0:00,10/20/2025 7:40,30,0
+CLOSED_RMA00072,closed,Normal,No,Return - Credit,Closed - Shipped,10/16/2025 8:10,9/2/2025 0:00,10/20/2025 7:37,48,0
+CLOSED_RMA00073,closed,Normal,No,Return - Credit,Closed - Credit,8/12/2025 0:00,8/15/2025 0:00,10/20/2025 7:46,66,0
+CLOSED_RMA00074,closed,Normal,No,Reship,Closed - Shipped,,8/7/2025 0:00,10/20/2025 7:47,74,0
+CLOSED_RMA00075,closed,Normal,No,Return - Credit,Closed - Credit,7/28/2025 0:00,8/7/2025 0:00,10/20/2025 7:56,74,0
+CLOSED_RMA00076,closed,Normal,No,Repair & Return,Closed - Credit,7/16/2025 0:00,7/21/2025 0:00,10/20/2025 8:04,91,0
+CLOSED_RMA00077,closed,Normal,No,Return - Replacement,Closed - Credit,7/14/2025 0:00,7/21/2025 0:00,10/20/2025 8:12,91,0
+CLOSED_RMA00078,closed,Normal,No,Return - Credit,Closed - Shipped,10/17/2025 9:48,,,,249
+CLOSED_RMA00079,closed,Normal,No,Return - Replacement,Closed - Credit,6/12/2025 0:00,6/16/2025 0:00,10/20/2025 10:27,126,0
+CLOSED_RMA00080,closed,Normal,No,Return - Replacement,Closed - Credit,4/28/2025 0:00,5/6/2025 0:00,10/20/2025 16:09,168,0
+CLOSED_RMA00081,closed,Normal,No,Return - Credit,Closed- Scrapped,6/11/2025 0:00,6/16/2025 0:00,10/20/2025 16:24,127,0
+CLOSED_RMA00082,closed,Normal,No,Return - Credit,Closed- Scrapped,7/26/2024 0:00,,10/20/2025 16:36,,698
+CLOSED_RMA00083,closed,Normal,No,AdvEx,Closed - Credit,5/9/2025 0:00,6/13/2025 0:00,10/20/2025 17:10,130,0
+CLOSED_RMA00084,closed,Normal,No,Repair & Return,Closed - Credit,7/28/2025 0:00,8/6/2025 0:00,10/20/2025 17:17,76,0
+CLOSED_RMA00085,closed,Normal,No,Return - Credit,Closed - Credit,10/21/2025 7:37,6/2/2025 0:00,10/21/2025 7:40,141,0
+CLOSED_RMA00086,closed,Normal,No,Return - Credit,Closed - Credit,10/27/2025 7:29,8/11/2025 0:00,10/27/2025 7:33,77,0
+CLOSED_RMA00087,closed,Normal,No,Return - Credit,Closed - Credit,10/24/2025 13:57,8/12/2025 0:00,10/27/2025 9:41,76,0
+CLOSED_RMA00088,closed,Normal,No,Return - Credit,Closed - Credit,10/21/2025 8:29,5/31/2025 0:00,10/27/2025 9:48,149,0
+CLOSED_RMA00089,closed,Normal,No,Return - Credit,Closed - Credit,10/21/2025 8:22,5/27/2025 0:00,10/27/2025 9:48,153,0
+CLOSED_RMA00090,closed,Normal,No,Return - Credit,Closed - Credit,10/21/2025 7:19,6/2/2025 0:00,10/27/2025 9:49,147,0
+CLOSED_RMA00091,closed,ASAP,No,Return - Credit,Closed - Credit,10/20/2025 16:59,10/16/2025 0:00,10/27/2025 9:50,11,0
+CLOSED_RMA00092,closed,ASAP,No,Repair & Return,Closed - Shipped,2/19/2025 9:00,,10/27/2025 9:54,,489
+CLOSED_RMA00093,closed,Normal,Yes,Return - Credit,Closed- Scrapped,7/23/2024 0:00,,10/27/2025 14:00,,701
+CLOSED_RMA00094,closed,Normal,No,Return - Credit,Closed - Credit,7/14/2025 0:00,7/24/2025 0:00,11/3/2025 11:56,103,0
+CLOSED_RMA00095,closed,Normal,No,Return - Credit,Closed - Credit,10/17/2025 10:48,5/29/2025 0:00,11/4/2025 15:50,160,0
+CLOSED_RMA00096,closed,Normal,No,Repair & Return,Closed - Shipped,7/9/2025 0:00,7/15/2025 0:00,11/6/2025 8:56,114,0
+CLOSED_RMA00097,closed,Normal,No,Repair & Return,Closed - Shipped,7/9/2025 0:00,7/15/2025 0:00,11/6/2025 8:56,114,0
+CLOSED_RMA00098,closed,Normal,No,Return - Credit,Closed - Credit,8/14/2025 0:00,8/14/2025 0:00,11/7/2025 14:02,86,0
+CLOSED_RMA00099,closed,ASAP,No,Repair & Return,Closed - Shipped,11/6/2025 0:00,11/6/2025 0:00,11/7/2025 15:16,2,0
+CLOSED_RMA00100,closed,ASAP,No,Return - Replacement,Closed - Shipped,11/6/2025 0:00,11/6/2025 0:00,11/7/2025 15:16,2,0
+CLOSED_RMA00101,closed,Normal,Yes,Return - Credit,Closed - Credit,8/29/2024 0:00,,11/10/2025 9:54,,664
+CLOSED_RMA00102,closed,Normal,No,Return - Credit,Closed - Credit,7/22/2025 0:00,8/13/2025 0:00,11/10/2025 10:14,89,0
+CLOSED_RMA00103,closed,ASAP,No,Repair & Return,Closed- Scrapped,8/20/2025 0:00,9/3/2025 0:00,11/10/2025 12:10,69,0
+CLOSED_RMA00104,closed,ASAP,Yes,Repair & Return,Closed - Shipped,8/12/2025 0:00,8/18/2025 0:00,11/10/2025 13:02,85,0
+CLOSED_RMA00105,closed,Normal,No,Repair & Return,Closed - RTV Repair Complete,1/24/2025 0:00,,11/10/2025 13:11,,516
+CLOSED_RMA00106,closed,Normal,No,Return - Credit,Closed - Credit,7/22/2025 0:00,8/14/2025 0:00,11/10/2025 13:50,89,0
+CLOSED_RMA00107,closed,ASAP,No,Return - Credit,Closed - Credit,9/30/2025 0:00,10/7/2025 0:00,11/10/2025 13:51,35,0
+CLOSED_RMA00108,closed,Normal,No,Return - Credit,Closed - Credit,8/22/2025 0:00,8/26/2025 0:00,11/10/2025 15:45,77,0
+CLOSED_RMA00109,closed,ASAP,No,Return - Credit,Closed - Credit,9/12/2025 0:00,9/24/2025 0:00,11/11/2025 7:00,48,0
+CLOSED_RMA00110,closed,ASAP,No,Return - Replacement,Closed- Scrapped,9/4/2025 0:00,9/24/2025 0:00,11/11/2025 7:23,48,0
+CLOSED_RMA00111,closed,Critical,Yes,Repair & Return,Closed - Shipped,4/8/2025 0:00,6/5/2025 0:00,11/11/2025 8:03,159,0
+CLOSED_RMA00112,closed,Normal,No,Repair & Return,Closed - Shipped,10/13/2025 9:17,5/27/2025 0:00,11/11/2025 8:03,168,0
+CLOSED_RMA00113,closed,ASAP,No,Return - Credit,Closed - Credit,10/23/2025 0:00,11/3/2025 0:00,11/11/2025 10:18,8,0
+CLOSED_RMA00114,closed,ASAP,No,Return - Credit,Closed - Credit,10/28/2025 0:00,11/3/2025 0:00,11/11/2025 10:53,8,0
+CLOSED_RMA00115,closed,Normal,No,Repair & Return,Closed - Shipped,7/9/2025 0:00,7/15/2025 0:00,11/12/2025 7:20,120,0
+CLOSED_RMA00116,closed,Normal,No,Repair & Return,Closed - Credit,7/29/2025 0:00,8/7/2025 0:00,11/12/2025 7:20,97,0
+CLOSED_RMA00117,closed,ASAP,No,AdvEx,Closed - Shipped,10/8/2025 0:00,10/14/2025 0:00,11/12/2025 10:30,29,0
+CLOSED_RMA00118,closed,Normal,No,Repair & Return,Closed - Credit,8/4/2025 0:00,8/22/2025 0:00,11/14/2025 15:09,85,0
+CLOSED_RMA00119,closed,ASAP,No,Return - Credit,Closed - Credit,8/6/2025 0:00,9/2/2025 0:00,11/18/2025 8:03,77,0
+CLOSED_RMA00120,closed,Normal,No,Return - Credit,Closed - Credit,,4/11/2025 0:00,11/18/2025 12:04,222,0
+CLOSED_RMA00121,closed,Normal,No,Repair & Return,Closed - Shipped,1/28/2025 0:00,,11/19/2025 8:48,,512
+CLOSED_RMA00122,closed,Normal,No,Repair & Return,Closed - Shipped,7/28/2025 0:00,8/14/2025 0:00,11/19/2025 8:49,97,0
+CLOSED_RMA00123,closed,ASAP,Yes,Repair & Return,Closed - Shipped,8/12/2025 0:00,8/20/2025 0:00,11/19/2025 8:49,91,0
+CLOSED_RMA00124,closed,ASAP,No,Repair & Return,Closed - Shipped,9/13/2025 0:00,9/19/2025 0:00,11/19/2025 8:49,61,0
+CLOSED_RMA00125,closed,ASAP,No,Repair & Return,Closed - Shipped,9/23/2025 0:00,9/24/2025 0:00,11/19/2025 8:49,56,0
+CLOSED_RMA00126,closed,ASAP,Yes,Repair & Return,Closed - Shipped,9/9/2025 0:00,9/18/2025 0:00,11/19/2025 8:49,62,0
+CLOSED_RMA00127,closed,Normal,No,Repair & Return,Closed - Shipped,10/20/2025 7:36,5/20/2025 0:00,11/19/2025 8:49,183,0
+CLOSED_RMA00128,closed,Normal,No,Return - Replacement,Closed - Credit,8/14/2025 0:00,8/15/2025 0:00,11/19/2025 9:03,96,0
+CLOSED_RMA00129,closed,Normal,No,Repair & Return,Closed - Shipped,5/1/2025 0:00,,11/19/2025 10:00,,419
+CLOSED_RMA00130,closed,Normal,No,Repair & Return,Closed - Shipped,5/1/2025 0:00,,11/19/2025 10:00,,419
+CLOSED_RMA00131,closed,Normal,No,Repair & Return,Closed - Shipped,1/6/2025 0:00,,11/19/2025 10:00,,534
+CLOSED_RMA00132,closed,ASAP,No,Repair & Return,Closed - Credit,7/16/2025 0:00,8/13/2025 0:00,11/20/2025 7:12,99,0
+CLOSED_RMA00133,closed,ASAP,No,Return - Credit,Closed - Credit,8/6/2025 0:00,10/6/2025 0:00,11/20/2025 8:24,45,0
+CLOSED_RMA00134,closed,ASAP,Yes,Repair & Return,Closed- Scrapped,10/20/2025 9:06,10/22/2025 0:00,11/20/2025 14:37,30,0
+CLOSED_RMA00135,closed,ASAP,Yes,Return - Replacement,Closed - Credit,8/22/2025 0:00,10/7/2025 0:00,11/21/2025 11:07,46,0
+CLOSED_RMA00136,closed,ASAP,No,Return - Credit,Closed - Credit,9/25/2025 0:00,10/2/2025 0:00,11/21/2025 12:09,51,0
+CLOSED_RMA00137,closed,Normal,No,Repair & Return,Closed - Shipped,4/8/2025 0:00,6/7/2025 0:00,11/25/2025 7:10,171,0
+CLOSED_RMA00138,closed,Normal,No,Return - Credit,Closed - Credit,9/10/2025 0:00,9/24/2025 0:00,11/25/2025 7:18,62,0
+CLOSED_RMA00139,closed,Normal,No,Repair & Return,Closed - Shipped,7/16/2025 0:00,8/11/2025 0:00,12/2/2025 12:01,114,0
+CLOSED_RMA00140,closed,ASAP,Yes,Return - Replacement,Closed - Credit,10/16/2025 8:13,10/17/2025 0:00,12/5/2025 8:14,49,0
+CLOSED_RMA00141,closed,ASAP,Yes,Repair & Return,Closed- Scrapped,11/3/2025 0:00,11/17/2025 0:00,12/5/2025 12:31,19,0
+CLOSED_RMA00142,closed,ASAP,No,Repair & Return,Closed- Scrapped,9/5/2025 0:00,9/20/2025 0:00,12/8/2025 7:41,79,0
+CLOSED_RMA00143,closed,ASAP,No,Repair & Return,Closed - Shipped,10/23/2025 16:18,11/3/2025 0:00,12/8/2025 8:13,35,0
+CLOSED_RMA00144,closed,ASAP,No,Repair & Return,Closed - Shipped,9/9/2025 0:00,9/29/2025 0:00,12/8/2025 8:13,70,0
+CLOSED_RMA00145,closed,ASAP,No,Repair & Return,Closed - Shipped,9/9/2025 0:00,9/20/2025 0:00,12/8/2025 8:13,79,0
+CLOSED_RMA00146,closed,ASAP,Yes,Repair & Return,Closed - Shipped,9/10/2025 0:00,10/20/2025 0:00,12/8/2025 8:13,49,0
+CLOSED_RMA00147,closed,ASAP,Yes,Repair & Return,Closed - Shipped,7/28/2025 0:00,8/14/2025 0:00,12/8/2025 8:13,116,0
+CLOSED_RMA00148,closed,ASAP,No,Repair & Return,Closed - Shipped,10/29/2025 0:00,11/3/2025 0:00,12/8/2025 8:13,35,0
+CLOSED_RMA00149,closed,ASAP,No,Repair & Return,Closed - Shipped,11/4/2025 0:00,11/6/2025 0:00,12/8/2025 8:13,32,0
+CLOSED_RMA00150,closed,ASAP,Yes,Repair & Return,Closed - Shipped,8/7/2025 0:00,8/13/2025 0:00,12/8/2025 8:13,117,0
+CLOSED_RMA00151,closed,ASAP,Yes,Repair & Return,Closed - Shipped,9/25/2025 0:00,10/2/2025 0:00,12/8/2025 8:13,67,0
+CLOSED_RMA00152,closed,Normal,Yes,Repair & Return,Closed - Shipped,10/15/2024 0:00,,12/8/2025 8:13,,617
+CLOSED_RMA00153,closed,ASAP,Yes,Repair & Return,Closed - Shipped,10/16/2025 8:00,10/17/2025 0:00,12/8/2025 14:54,53,0
+CLOSED_RMA00154,closed,ASAP,Yes,Repair & Return,Closed- Scrapped,9/25/2025 0:00,10/15/2025 0:00,12/10/2025 12:15,57,0
+CLOSED_RMA00155,closed,ASAP,No,Return - Credit,Closed - Credit,7/28/2025 0:00,10/20/2025 0:00,12/11/2025 9:59,52,0
+CLOSED_RMA00156,closed,ASAP,Yes,Return - Replacement,Closed - Credit,9/30/2025 0:00,10/7/2025 0:00,12/11/2025 15:23,66,0
+CLOSED_RMA00157,closed,ASAP,Yes,Repair & Return,Closed - Shipped,11/21/2025 0:00,12/2/2025 0:00,12/15/2025 9:34,13,0
+CLOSED_RMA00158,closed,ASAP,No,Repair & Return,Closed - Shipped,10/9/2025 0:00,10/20/2025 0:00,12/16/2025 10:04,57,0
+CLOSED_RMA00159,closed,ASAP,Yes,Repair & Return,Closed - Shipped,9/30/2025 0:00,10/7/2025 0:00,12/16/2025 10:04,70,0
+CLOSED_RMA00160,closed,ASAP,Yes,Repair & Return,Closed - Shipped,10/8/2025 0:00,10/14/2025 0:00,12/16/2025 10:04,63,0
+CLOSED_RMA00161,closed,Normal,No,Repair & Return,Closed - Shipped,9/13/2025 0:00,9/24/2025 0:00,12/16/2025 10:04,83,0
+CLOSED_RMA00162,closed,ASAP,No,Repair & Return,Closed - Shipped,9/26/2025 0:00,10/2/2025 0:00,12/16/2025 10:03,75,0
+CLOSED_RMA00163,closed,ASAP,No,AdvEx,Closed - Shipped,9/13/2025 0:00,9/22/2025 0:00,12/16/2025 10:03,85,0
+CLOSED_RMA00164,closed,ASAP,No,Repair & Return,Closed - Shipped,10/9/2025 0:00,10/14/2025 0:00,12/16/2025 10:03,63,0
+CLOSED_RMA00165,closed,ASAP,Yes,Repair & Return,Closed - Shipped,9/25/2025 0:00,10/2/2025 0:00,12/16/2025 10:04,75,0
+CLOSED_RMA00166,closed,ASAP,No,Repair & Return,Closed - Shipped,9/25/2025 0:00,10/20/2025 0:00,12/16/2025 10:04,57,0
+CLOSED_RMA00167,closed,ASAP,Yes,Repair & Return,Closed - Shipped,9/25/2025 0:00,10/16/2025 0:00,12/16/2025 10:04,61,0
+CLOSED_RMA00168,closed,ASAP,No,Repair & Return,Closed - Shipped,10/6/2025 0:00,10/9/2025 0:00,12/16/2025 10:04,68,0
+CLOSED_RMA00169,closed,Normal,No,Repair & Return,Closed - Shipped,2/11/2025 9:00,,12/16/2025 10:04,,497
+CLOSED_RMA00170,closed,ASAP,No,Repair & Return,Closed - Shipped,9/9/2025 0:00,10/21/2025 0:00,12/16/2025 10:04,56,0
+CLOSED_RMA00171,closed,Normal,No,Repair & Return,Closed - Shipped,4/23/2025 0:00,6/26/2025 0:00,12/16/2025 10:16,173,0
+CLOSED_RMA00172,closed,Normal,No,Repair & Return,Closed - Shipped,5/30/2025 0:00,6/5/2025 0:00,12/16/2025 10:16,194,0
+CLOSED_RMA00173,closed,ASAP,Yes,Repair & Return,Closed - Shipped,8/14/2025 0:00,9/22/2025 0:00,12/16/2025 10:16,85,0
+CLOSED_RMA00174,closed,Normal,No,Repair & Return,Closed - Shipped,6/16/2025 0:00,6/19/2025 0:00,12/16/2025 10:16,180,0
+CLOSED_RMA00175,closed,Normal,No,Return - Replacement,Closed - Shipped,8/13/2025 0:00,8/15/2025 0:00,12/16/2025 10:16,123,0
+CLOSED_RMA00176,closed,Normal,No,Return - Replacement,Closed - Shipped,7/29/2025 0:00,8/18/2025 0:00,12/16/2025 10:16,120,0
+CLOSED_RMA00177,closed,Normal,No,Repair & Return,Closed - Shipped,8/26/2025 0:00,9/3/2025 0:00,12/16/2025 10:16,104,0
+CLOSED_RMA00178,closed,Normal,No,Repair & Return,Closed - Shipped,5/23/2025 0:00,5/23/2025 0:00,12/16/2025 10:16,207,0
+CLOSED_RMA00179,closed,Critical,Yes,Return - Replacement,Closed - Shipped,3/19/2025 0:00,6/2/2025 0:00,12/16/2025 10:16,197,0
+CLOSED_RMA00180,closed,Normal,No,Repair & Return,Closed - Shipped,8/18/2025 0:00,8/22/2025 0:00,12/16/2025 13:15,117,0
+CLOSED_RMA00181,closed,ASAP,Yes,Repair & Return,Closed - Shipped,11/4/2025 0:00,11/17/2025 0:00,12/16/2025 13:47,30,0
+CLOSED_RMA00182,closed,ASAP,Yes,Repair & Return,Closed - Shipped,9/19/2025 0:00,9/26/2025 0:00,12/16/2025 13:47,82,0
+CLOSED_RMA00183,closed,ASAP,Yes,Return - Replacement,Closed - Credit,10/7/2025 0:00,10/22/2025 0:00,1/5/2026 7:10,75,0
+CLOSED_RMA00184,closed,ASAP,No,Return - Credit,Closed - Credit,11/6/2025 0:00,11/6/2025 0:00,1/5/2026 9:37,60,0
+CLOSED_RMA00185,closed,ASAP,No,Return - Credit,Closed - Credit,11/24/2025 0:00,12/12/2025 0:00,1/5/2026 11:46,25,0
+CLOSED_RMA00186,closed,ASAP,No,Return - Credit,Closed - Credit,12/1/2025 0:00,12/2/2025 0:00,1/5/2026 11:48,35,0
+CLOSED_RMA00187,closed,ASAP,No,Return - Credit,Closed - Credit,9/23/2025 0:00,10/17/2025 0:00,1/5/2026 11:48,81,0
+CLOSED_RMA00188,closed,Normal,No,Return - Credit,Closed - Credit,8/4/2025 0:00,9/2/2025 0:00,1/5/2026 12:03,126,0
+CLOSED_RMA00189,closed,Normal,No,Return - Credit,Closed - Credit,9/5/2025 0:00,9/5/2025 0:00,1/5/2026 12:05,123,0
+CLOSED_RMA00190,closed,Normal,No,Return - Credit,Closed - Credit,8/19/2025 0:00,9/4/2025 0:00,1/5/2026 12:10,124,0
+CLOSED_RMA00191,closed,Normal,No,Return - Credit,Closed - Credit,8/12/2025 0:00,8/22/2025 0:00,1/5/2026 12:16,137,0
+CLOSED_RMA00192,closed,ASAP,Yes,AdvEx,Closed - Credit,11/12/2025 0:00,12/5/2025 0:00,1/5/2026 12:18,32,0
+CLOSED_RMA00193,closed,Normal,No,Return - Credit,Closed - Credit,8/20/2025 0:00,8/20/2025 0:00,1/5/2026 12:19,139,0
+CLOSED_RMA00194,closed,Normal,No,Return - Credit,Closed - Credit,8/22/2025 0:00,8/28/2025 0:00,1/5/2026 12:19,131,0
+CLOSED_RMA00195,closed,Normal,No,Repair & Return,Closed - Credit,8/6/2025 0:00,8/14/2025 0:00,1/5/2026 12:28,145,0
+CLOSED_RMA00196,closed,ASAP,No,Return - Credit,Closed - Credit,10/21/2025 0:00,10/22/2025 0:00,1/5/2026 12:30,76,0
+CLOSED_RMA00197,closed,ASAP,No,Return - Credit,Closed - Credit,8/26/2025 0:00,9/29/2025 0:00,1/5/2026 12:30,99,0
+CLOSED_RMA00198,closed,ASAP,Yes,Return - Credit,Closed- Scrapped,9/30/2025 0:00,11/6/2025 0:00,1/5/2026 12:31,61,0
+CLOSED_RMA00199,closed,ASAP,No,Return - Credit,Closed- Scrapped,10/29/2025 0:00,11/3/2025 0:00,1/5/2026 12:32,64,0
+CLOSED_RMA00200,closed,ASAP,Yes,Return - Credit,Closed - Credit,10/23/2025 15:51,10/31/2025 0:00,1/5/2026 12:42,67,0
+CLOSED_RMA00201,closed,ASAP,Yes,Return - Credit,Closed - Credit,10/23/2025 15:57,10/30/2025 0:00,1/5/2026 12:46,68,0
+CLOSED_RMA00202,closed,Normal,No,Return - Credit,Closed - Credit,9/22/2026 0:00,10/28/2025 0:00,1/5/2026 12:48,70,0
+CLOSED_RMA00203,closed,ASAP,No,Return - Credit,Closed - Credit,10/8/2025 0:00,10/21/2025 0:00,1/5/2026 13:37,77,0
+CLOSED_RMA00204,closed,ASAP,No,Return - Replacement,Closed - Credit,10/21/2025 10:20,10/28/2025 0:00,1/5/2026 13:38,70,0
+CLOSED_RMA00205,closed,ASAP,No,Return - Credit,Closed - Credit,11/18/2025 0:00,11/19/2025 0:00,1/5/2026 13:39,48,0
+CLOSED_RMA00206,closed,ASAP,Yes,Return - Replacement,Closed - Credit,10/16/2025 8:17,10/17/2025 0:00,1/5/2026 13:41,81,0
+CLOSED_RMA00207,closed,ASAP,No,Return - Credit,Closed - Credit,10/7/2025 0:00,10/17/2025 0:00,1/5/2026 13:49,81,0
+CLOSED_RMA00208,closed,ASAP,No,Return - Credit,Closed - Credit,9/8/2025 0:00,10/16/2025 0:00,1/5/2026 13:50,82,0
+CLOSED_RMA00209,closed,ASAP,Yes,Return - Credit,Closed - Credit,10/16/2025 8:23,10/15/2025 0:00,1/5/2026 13:53,83,0
+CLOSED_RMA00210,closed,ASAP,No,Return - Credit,Closed- Scrapped,10/9/2025 0:00,10/15/2025 0:00,1/5/2026 13:53,83,0
+CLOSED_RMA00211,closed,ASAP,No,Return - Credit,Closed - Credit,10/7/2025 0:00,10/15/2025 0:00,1/5/2026 13:57,83,0
+CLOSED_RMA00212,closed,ASAP,Yes,Return - Replacement,Closed - Credit,9/29/2025 0:00,10/15/2025 0:00,1/5/2026 13:58,83,0
+CLOSED_RMA00213,closed,ASAP,Yes,Repair & Return,Closed- Scrapped,8/22/2025 0:00,8/28/2025 0:00,1/5/2026 15:38,131,0
+CLOSED_RMA00214,closed,Normal,No,Return - Credit,Closed- Scrapped,9/25/2025 0:00,,1/5/2026 16:04,,272
+CLOSED_RMA00215,closed,Normal,No,Return - Credit,Closed - Credit,,4/15/2025 0:00,1/6/2026 17:00,267,0
+CLOSED_RMA00216,closed,Normal,No,Return - Credit,Closed - Credit,5/9/2025 0:00,5/31/2025 0:00,1/6/2026 17:02,221,0
+CLOSED_RMA00217,closed,Normal,No,Return - Credit,Closed - Credit,,5/31/2025 0:00,1/6/2026 17:06,221,0
+CLOSED_RMA00218,closed,Normal,No,Return - Replacement,Closed - Credit,5/30/2025 0:00,6/14/2025 0:00,1/6/2026 17:08,207,0
+CLOSED_RMA00219,closed,Normal,No,Return - Credit,Closed - Credit,,6/25/2025 0:00,1/6/2026 17:11,196,0
+CLOSED_RMA00220,closed,ASAP,No,Return - Replacement,Closed - Credit,10/23/2025 16:28,10/28/2025 0:00,1/6/2026 17:19,71,0
+CLOSED_RMA00221,closed,Normal,No,Repair & Return,Closed - Shipped,5/6/2025 0:00,6/2/2025 0:00,1/7/2026 10:11,219,0
+CLOSED_RMA00222,closed,ASAP,Yes,Return - Credit,Closed - Shipped,7/28/2025 0:00,8/13/2025 0:00,1/7/2026 15:21,148,0
+CLOSED_RMA00223,closed,ASAP,No,Return - Replacement,Closed - Credit,5/16/2025 0:00,10/27/2025 0:00,1/8/2026 7:46,73,0
+CLOSED_RMA00224,closed,Normal,No,Return - Replacement,Closed - Credit,8/12/2025 0:00,8/22/2025 0:00,1/8/2026 7:50,139,0
+CLOSED_RMA00225,closed,ASAP,No,Return - Replacement,Closed - Credit,9/4/2025 0:00,9/10/2025 0:00,1/8/2026 7:53,120,0
+CLOSED_RMA00226,closed,ASAP,Yes,Return - Replacement,Closed - Credit,7/17/2025 0:00,8/13/2025 0:00,1/8/2026 8:14,148,0
+CLOSED_RMA00227,closed,Normal,No,Return - Replacement,Closed - Credit,1/23/2025 0:00,,1/8/2026 8:20,,517
+CLOSED_RMA00228,closed,Normal,Yes,Return - Credit,Closed - Credit,9/12/2024 0:00,,1/8/2026 8:31,,650
+CLOSED_RMA00229,closed,Normal,No,Return - Credit,Closed - Credit,,7/14/2025 0:00,1/8/2026 8:57,178,0
+CLOSED_RMA00230,closed,ASAP,No,Return - Credit,Closed - Credit,8/12/2025 0:00,8/22/2025 0:00,1/8/2026 9:03,139,0
+CLOSED_RMA00231,closed,ASAP,No,Repair & Return,Closed - Credit,10/29/2025 0:00,11/4/2025 0:00,1/8/2026 9:04,65,0
+CLOSED_RMA00232,closed,ASAP,No,Return - Credit,Closed - Credit,11/11/2025 0:00,11/14/2025 0:00,1/12/2026 11:54,60,0
+CLOSED_RMA00233,closed,Normal,No,Return - Credit,Closed - Credit,10/21/2025 0:00,11/5/2025 0:00,1/12/2026 11:55,69,0
+CLOSED_RMA00234,closed,ASAP,No,Return - Credit,Closed - Credit,10/20/2025 8:31,10/22/2025 0:00,1/12/2026 12:15,83,0
+CLOSED_RMA00235,closed,ASAP,No,Return - Credit,Closed - Credit,10/23/2025 0:00,10/28/2025 0:00,1/12/2026 12:19,77,0
+CLOSED_RMA00236,closed,Normal,No,Return - Credit,Closed - Credit,11/4/2025 0:00,11/4/2025 0:00,1/12/2026 12:42,70,0
+CLOSED_RMA00237,closed,ASAP,No,Return - Credit,Closed - Credit,10/2/2025 0:00,10/14/2025 0:00,1/12/2026 12:47,91,0
+CLOSED_RMA00238,closed,ASAP,No,Return - Credit,Closed - Credit,10/8/2025 0:00,10/13/2025 0:00,1/12/2026 12:51,92,0
+CLOSED_RMA00239,closed,ASAP,No,Return - Credit,Closed - Credit,9/29/2025 0:00,10/9/2025 0:00,1/12/2026 12:55,96,0
+CLOSED_RMA00240,closed,ASAP,No,Return - Credit,Closed - Credit,10/3/2025 0:00,10/9/2025 0:00,1/12/2026 12:55,96,0
+CLOSED_RMA00241,closed,ASAP,Yes,Return - Credit,Closed- Scrapped,9/25/2025 0:00,10/2/2025 0:00,1/12/2026 13:13,103,0
+CLOSED_RMA00242,closed,ASAP,No,Return - Credit,Closed - Credit,9/25/2025 0:00,10/13/2025 0:00,1/13/2026 10:53,92,0
+CLOSED_RMA00243,closed,ASAP,No,Return - Credit,Closed - Credit,9/25/2025 0:00,10/13/2025 0:00,1/13/2026 10:56,92,0
+CLOSED_RMA00244,closed,ASAP,No,Return - Credit,Closed - Credit,9/25/2025 0:00,10/13/2025 0:00,1/13/2026 11:00,93,0
+CLOSED_RMA00245,closed,ASAP,No,Return - Credit,Closed - Credit,9/11/2025 0:00,10/13/2025 0:00,1/13/2026 11:04,93,0
+CLOSED_RMA00246,closed,ASAP,No,Return - Credit,Closed - Credit,9/8/2025 0:00,9/22/2025 0:00,1/13/2026 11:08,114,0
+CLOSED_RMA00247,closed,Normal,No,Return - Credit,Closed - Credit,8/19/2025 0:00,9/4/2025 0:00,1/13/2026 11:13,132,0
+CLOSED_RMA00248,closed,Normal,No,Return - Credit,Closed - Credit,5/9/2025 0:00,8/12/2025 0:00,1/13/2026 11:24,155,0
+CLOSED_RMA00249,closed,ASAP,Yes,Return - Credit,Closed - Credit,10/23/2025 15:54,10/31/2025 0:00,1/13/2026 13:20,75,0
+CLOSED_RMA00250,closed,ASAP,No,Return - Replacement,Closed - Credit,9/4/2025 0:00,9/24/2025 0:00,1/13/2026 13:21,112,0
+CLOSED_RMA00251,closed,ASAP,Yes,Return - Credit,Closed - Credit,11/4/2025 0:00,11/10/2025 0:00,1/13/2026 13:39,65,0
+CLOSED_RMA00252,closed,ASAP,No,Return - Credit,Closed - Credit,1/10/2026 0:00,1/10/2026 0:00,1/13/2026 13:47,4,0
+CLOSED_RMA00253,closed,ASAP,No,Return - Credit,Closed - Credit,9/25/2025 0:00,10/2/2025 0:00,1/13/2026 13:56,104,0
+CLOSED_RMA00254,closed,Normal,No,Return - Credit,Closed - Credit,8/19/2025 0:00,9/4/2025 0:00,1/13/2026 14:10,132,0
+CLOSED_RMA00255,closed,Normal,No,Return - Credit,Closed - Credit,10/27/2025 15:25,,1/13/2026 14:16,,239
+CLOSED_RMA00256,closed,ASAP,Yes,Repair & Return,Closed - Shipped,,6/12/2025 0:00,1/13/2026 14:46,216,0
+CLOSED_RMA00257,closed,Normal,No,Return - Credit,Closed - Credit,10/28/2025 0:00,10/28/2025 0:00,1/14/2026 14:10,79,0
+CLOSED_RMA00258,closed,ASAP,Yes,Repair & Return,Closed - Shipped,10/21/2025 10:48,10/28/2025 0:00,1/15/2026 8:21,79,0
+CLOSED_RMA00259,closed,ASAP,Yes,Repair & Return,Closed - Shipped,10/29/2025 0:00,11/5/2025 0:00,1/15/2026 8:23,71,0
+CLOSED_RMA00260,closed,Normal,No,Repair & Return,Closed - Shipped,6/23/2025 0:00,6/26/2025 0:00,1/15/2026 13:48,204,0
+CLOSED_RMA00261,closed,ASAP,Yes,Repair & Return,Closed - Shipped,8/14/2025 0:00,8/15/2025 0:00,1/16/2026 7:40,154,0
+CLOSED_RMA00262,closed,ASAP,Yes,Repair & Return,Closed - Shipped,10/29/2025 0:00,10/31/2025 0:00,1/16/2026 7:42,77,0
+CLOSED_RMA00263,closed,ASAP,Yes,Repair & Return,Closed - Shipped,10/29/2025 0:00,11/5/2025 0:00,1/16/2026 7:42,72,0
+CLOSED_RMA00264,closed,ASAP,No,Repair & Return,Closed - Shipped,11/4/2025 0:00,11/11/2025 0:00,1/16/2026 7:43,66,0
+CLOSED_RMA00265,closed,Normal,No,Repair & Return,Closed - Shipped,7/22/2025 0:00,8/25/2025 0:00,1/16/2026 9:47,144,0
+CLOSED_RMA00266,closed,ASAP,Yes,Repair & Return,Closed - Shipped,8/11/2025 0:00,8/22/2025 0:00,1/16/2026 9:47,147,0
+CLOSED_RMA00267,closed,ASAP,No,Return - Replacement,Closed - Shipped,9/30/2025 0:00,10/7/2025 0:00,1/16/2026 11:12,102,0
+CLOSED_RMA00268,closed,Normal,No,Return - Replacement,Closed - Shipped,4/1/2025 0:00,5/17/2025 0:00,1/16/2026 11:13,245,0
+CLOSED_RMA00269,closed,ASAP,No,Repair & Return,Closed - Shipped,10/28/2025 0:00,11/3/2025 0:00,1/16/2026 11:13,75,0
+CLOSED_RMA00270,closed,Normal,Yes,Repair & Return,Closed - Shipped,1/15/2026 0:00,,1/19/2026 8:05,,160
+CLOSED_RMA00271,closed,Normal,No,Repair & Return,Closed - Shipped,,,1/19/2026 9:47,,
+CLOSED_RMA00272,closed,ASAP,No,Repair & Return,Closed - Shipped,10/7/2025 0:00,10/13/2025 0:00,1/19/2026 9:48,98,0
+CLOSED_RMA00273,closed,ASAP,No,Repair & Return,Closed - Shipped,10/13/2025 9:17,8/7/2025 0:00,1/19/2026 9:48,165,0
+CLOSED_RMA00274,closed,ASAP,Yes,Repair & Return,Closed - Shipped,11/5/2025 0:00,11/11/2025 0:00,1/19/2026 13:54,70,0
+CLOSED_RMA00275,closed,ASAP,No,Return - Replacement,Closed - Shipped,9/9/2025 0:00,9/20/2025 0:00,1/19/2026 13:54,122,0
+CLOSED_RMA00276,closed,ASAP,Yes,Repair & Return,Closed - Shipped,10/21/2025 10:14,10/24/2025 0:00,1/21/2026 7:43,89,0
+CLOSED_RMA00277,closed,Normal,No,Return - Credit,Closed - Credit,10/21/2025 0:00,11/21/2025 0:00,1/21/2026 12:40,62,0
+CLOSED_RMA00278,closed,ASAP,No,Return - Credit,Closed - Credit,11/20/2025 0:00,11/25/2025 0:00,1/22/2026 7:42,58,0
+CLOSED_RMA00279,closed,Normal,No,Return - Credit,Closed - Credit,8/12/2025 0:00,8/14/2025 0:00,1/26/2026 9:00,165,0
+CLOSED_RMA00280,closed,ASAP,No,Return - Credit,Closed - Credit,11/17/2025 0:00,11/20/2025 0:00,1/26/2026 9:19,67,0
+CLOSED_RMA00281,closed,Normal,No,Return - Credit,Closed - Credit,8/25/2025 0:00,9/2/2025 0:00,1/26/2026 15:16,147,0
+CLOSED_RMA00282,closed,ASAP,No,Return - Replacement,Closed - Credit,10/29/2025 0:00,11/14/2025 0:00,1/26/2026 15:21,74,0
+CLOSED_RMA00283,closed,Normal,No,Return - Credit,Closed - Credit,10/29/2025 0:00,10/29/2025 0:00,1/26/2026 16:10,90,0
+CLOSED_RMA00284,closed,Normal,No,Return - Credit,Closed - Credit,11/21/2025 0:00,11/22/2025 0:00,1/27/2026 7:49,66,0
+CLOSED_RMA00285,closed,Normal,No,Return - Credit,Closed - Credit,10/22/2024 0:00,,1/29/2026 11:00,,610
+CLOSED_RMA00286,closed,Normal,No,Return - Credit,Closed - Credit,12/3/2025 0:00,12/4/2025 0:00,2/2/2026 0:00,60,0
+CLOSED_RMA00287,closed,ASAP,No,Return - Credit,Closed - Credit,9/24/2025 0:00,1/27/2026 0:00,2/2/2026 11:53,7,0
+CLOSED_RMA00288,closed,ASAP,No,Return - Credit,Closed - Credit,1/15/2026 0:00,1/27/2026 0:00,2/2/2026 13:02,7,0
+CLOSED_RMA00289,closed,ASAP,No,Return - Credit,Closed - Credit,12/12/2025 0:00,12/12/2025 0:00,2/6/2026 8:03,56,0
+CLOSED_RMA00290,closed,ASAP,No,Return - Credit,Closed - Credit,1/15/2026 0:00,1/27/2026 0:00,2/6/2026 12:44,11,0
+CLOSED_RMA00291,closed,Normal,Yes,Repair & Return,Closed - Shipped,9/10/2024 0:00,,2/13/2026 9:05,,652
+CLOSED_RMA00292,closed,ASAP,No,Return - Credit,Closed- Scrapped,12/3/2025 0:00,12/5/2025 0:00,2/13/2026 10:04,70,0
+CLOSED_RMA00293,closed,Normal,No,Return - Credit,Closed- Scrapped,10/17/2025 16:11,,2/13/2026 14:00,,249
+CLOSED_RMA00294,closed,Normal,No,AdvEx,Closed - Shipped,1/14/2026 0:00,,2/16/2026 13:32,,161
+CLOSED_RMA00295,closed,ASAP,No,Return - Credit,Closed - Credit,1/14/2026 0:00,1/27/2026 0:00,2/17/2026 8:25,21,0
+CLOSED_RMA00296,closed,ASAP,No,Return - Credit,Closed - Credit,1/6/2026 0:00,1/10/2026 0:00,2/17/2026 8:27,38,0
+CLOSED_RMA00297,closed,ASAP,No,Return - Credit,Closed - Credit,12/19/2025 0:00,12/22/2025 0:00,2/17/2026 8:27,57,0
+CLOSED_RMA00298,closed,Normal,No,Return - Credit,Closed - Credit,12/12/2025 0:00,,2/17/2026 8:30,,194
+CLOSED_RMA00299,closed,ASAP,No,Return - Credit,Closed - Credit,12/9/2025 0:00,12/12/2025 0:00,2/17/2026 9:09,67,0
+CLOSED_RMA00300,closed,Normal,No,Return - Credit,Closed - Credit,12/1/2025 0:00,,2/17/2026 9:13,,205
+CLOSED_RMA00301,closed,Normal,No,Return - Credit,Closed - Credit,12/1/2025 0:00,12/2/2025 0:00,2/17/2026 9:14,77,0
+CLOSED_RMA00302,closed,ASAP,No,Return - Credit,Closed - Credit,11/26/2025 0:00,12/5/2025 0:00,2/17/2026 10:15,74,0
+CLOSED_RMA00303,closed,ASAP,No,Return - Credit,Closed - Credit,11/12/2025 0:00,11/19/2025 0:00,2/17/2026 10:38,90,0
+CLOSED_RMA00304,closed,Normal,No,Return - Credit,Closed - Credit,10/29/2025 0:00,11/20/2025 0:00,2/17/2026 11:10,90,0
+CLOSED_RMA00305,closed,ASAP,No,Return - Credit,Closed - Credit,10/29/2025 0:00,11/5/2025 0:00,2/17/2026 11:31,105,0
+CLOSED_RMA00306,closed,Normal,No,Return - Credit,Closed - Credit,10/29/2025 0:00,11/21/2025 0:00,2/17/2026 11:37,89,0
+CLOSED_RMA00307,closed,ASAP,Yes,Return - Credit,Closed - Credit,10/29/2025 0:00,11/11/2025 0:00,2/17/2026 11:42,99,0
+CLOSED_RMA00308,closed,ASAP,No,Return - Credit,Closed - Credit,12/3/2025 0:00,1/10/2026 0:00,2/18/2026 8:07,39,0
+CLOSED_RMA00309,closed,Normal,No,Return - Credit,Closed - Credit,10/23/2025 0:00,11/24/2025 0:00,2/18/2026 8:11,86,0
+CLOSED_RMA00310,closed,Normal,No,Return - Credit,Closed - Credit,10/8/2025 0:00,11/24/2025 0:00,2/18/2026 8:12,86,0
+CLOSED_RMA00311,closed,Normal,No,Return - Credit,Closed - Credit,7/16/2025 0:00,7/21/2025 0:00,2/18/2026 8:46,212,0
+CLOSED_RMA00312,closed,Normal,No,Credit,Closed - Credit,2/24/2025 0:00,6/30/2025 0:00,2/18/2026 9:09,233,0
+CLOSED_RMA00313,closed,ASAP,Yes,Repair & Return,Closed- Scrapped,11/5/2025 0:00,11/11/2025 0:00,2/20/2026 8:49,101,0
+CLOSED_RMA00314,closed,ASAP,No,AdvEx,Closed - Shipped,10/29/2025 0:00,11/4/2025 0:00,2/20/2026 12:11,109,0
+CLOSED_RMA00315,closed,ASAP,No,Repair & Return,Closed - Shipped,9/19/2025 0:00,9/24/2025 0:00,2/20/2026 12:13,150,0
+CLOSED_RMA00316,closed,ASAP,No,Return - Replacement,Closed - Shipped,9/12/2025 0:00,9/22/2025 0:00,2/20/2026 12:27,152,0
+CLOSED_RMA00317,closed,ASAP,Yes,Repair & Return,Closed - Shipped,11/5/2025 0:00,11/11/2025 0:00,2/20/2026 14:19,102,0
+CLOSED_RMA00318,closed,ASAP,Yes,Repair & Return,Closed - Shipped,11/5/2025 0:00,11/11/2025 0:00,2/20/2026 14:24,102,0
+CLOSED_RMA00319,closed,ASAP,Yes,Repair & Return,Closed - Shipped,11/17/2025 0:00,11/21/2025 0:00,2/20/2026 14:27,92,0
+CLOSED_RMA00320,closed,ASAP,Yes,Repair & Return,Closed - Shipped,11/5/2025 0:00,11/11/2025 0:00,2/20/2026 14:28,102,0
+CLOSED_RMA00321,closed,ASAP,Yes,Repair & Return,Closed - Shipped,11/17/2025 0:00,11/19/2025 0:00,2/20/2026 15:20,94,0
+CLOSED_RMA00322,closed,ASAP,Yes,Repair & Return,Closed - Shipped,12/2/2025 0:00,12/12/2025 0:00,2/23/2026 8:00,73,0
+CLOSED_RMA00323,closed,Normal,No,Repair & Return,Closed - Shipped,11/20/2025 0:00,11/26/2025 0:00,2/23/2026 8:00,89,0
+CLOSED_RMA00324,closed,ASAP,Yes,Repair & Return,Closed- Scrapped,12/9/2025 0:00,12/17/2025 0:00,2/25/2026 12:14,71,0
+CLOSED_RMA00325,closed,ASAP,No,Return - Credit,Closed- Scrapped,12/17/2025 0:00,12/23/2025 0:00,2/25/2026 13:01,65,0
+CLOSED_RMA00326,closed,Normal,No,Return - Credit,Closed - Credit,7/28/2025 0:00,8/6/2025 0:00,3/3/2026 11:02,210,0
+CLOSED_RMA00327,closed,Normal,No,Return - Credit,Closed - Credit,12/3/2025 0:00,12/9/2025 0:00,3/3/2026 11:06,85,0
+CLOSED_RMA00328,closed,Normal,No,Return - Replacement,Closed - Credit,8/19/2025 0:00,8/21/2025 0:00,3/3/2026 11:24,195,0
+CLOSED_RMA00329,closed,ASAP,Yes,AdvEx,Closed - Credit,11/26/2025 0:00,12/23/2025 0:00,3/3/2026 11:31,71,0
+CLOSED_RMA00330,closed,Normal,No,Return - Credit,Closed - Credit,7/22/2025 0:00,8/14/2025 0:00,3/3/2026 11:45,202,0
+CLOSED_RMA00331,closed,ASAP,No,Return - Credit,Closed - Credit,7/1/2025 0:00,9/23/2025 0:00,3/3/2026 12:02,162,0
+CLOSED_RMA00332,closed,Normal,No,Repair & Return,Closed - Credit,8/4/2025 0:00,8/22/2025 0:00,3/3/2026 12:09,194,0
+CLOSED_RMA00333,closed,Normal,No,Repair & Return,Closed - Credit,8/4/2025 0:00,8/22/2025 0:00,3/3/2026 12:57,194,0
+CLOSED_RMA00334,closed,Normal,No,Repair & Return,Closed - Credit,8/5/2025 0:00,8/22/2025 0:00,3/3/2026 13:03,194,0
+CLOSED_RMA00335,closed,Normal,No,Repair & Return,Closed - Credit,8/5/2025 0:00,8/22/2025 0:00,3/3/2026 13:09,194,0
+CLOSED_RMA00336,closed,ASAP,No,AdvEx,Closed - Credit,1/9/2026 0:00,1/28/2026 0:00,3/3/2026 15:36,35,0
+CLOSED_RMA00337,closed,ASAP,No,Return - Credit,Closed- Scrapped,12/17/2025 0:00,12/23/2025 0:00,3/3/2026 15:42,71,0
+CLOSED_RMA00338,closed,ASAP,No,Return - Credit,Closed - Credit,12/16/2025 0:00,12/22/2025 0:00,3/3/2026 15:53,72,0
+CLOSED_RMA00339,closed,ASAP,No,Return - Credit,Closed - Credit,12/11/2025 0:00,12/17/2025 0:00,3/3/2026 16:01,77,0
+CLOSED_RMA00340,closed,ASAP,Yes,AdvEx,Closed - Credit,12/4/2025 0:00,12/31/2025 0:00,3/3/2026 16:04,63,0
+CLOSED_RMA00341,closed,ASAP,No,AdvEx,Closed - Credit,12/3/2025 0:00,12/17/2025 0:00,3/3/2026 16:06,77,0
+CLOSED_RMA00342,closed,ASAP,No,Return - Replacement,Closed - Credit,10/23/2025 16:47,12/17/2025 0:00,3/3/2026 16:14,77,0
+CLOSED_RMA00343,closed,ASAP,No,Return - Credit,Closed - Credit,12/22/2025 0:00,1/28/2026 0:00,3/3/2026 16:15,35,0
+CLOSED_RMA00344,closed,ASAP,No,AdvEx,Closed - Credit,11/11/2025 0:00,12/17/2025 0:00,3/3/2026 16:21,77,0
+CLOSED_RMA00345,closed,Normal,No,Return - Credit,Closed - Credit,7/14/2025 0:00,7/23/2025 0:00,3/3/2026 16:24,224,0
+CLOSED_RMA00346,closed,ASAP,Yes,Repair & Return,Closed - Credit,11/10/2025 0:00,12/31/2025 0:00,3/4/2026 9:13,63,0
+CLOSED_RMA00347,closed,ASAP,No,Return - Credit,Closed - Credit,12/31/2025 0:00,12/31/2025 0:00,3/4/2026 9:14,63,0
+CLOSED_RMA00348,closed,Normal,No,Return - Credit,Closed - Credit,10/28/2025 0:00,10/28/2025 0:00,3/4/2026 9:17,127,0
+CLOSED_RMA00349,closed,ASAP,No,Return - Credit,Closed - Credit,11/12/2025 0:00,12/18/2025 0:00,3/4/2026 9:20,76,0
+CLOSED_RMA00350,closed,ASAP,No,Return - Credit,Closed - Credit,9/25/2025 0:00,10/7/2025 0:00,3/4/2026 9:33,148,0
+CLOSED_RMA00351,closed,Normal,No,Return - Credit,Closed - Credit,10/17/2024 0:00,,3/4/2026 9:35,,615
+CLOSED_RMA00352,closed,Normal,No,Repair & Return,Closed - Credit,7/29/2025 0:00,8/11/2025 0:00,3/4/2026 9:57,205,0
+CLOSED_RMA00353,closed,Normal,No,Repair & Return,Closed - Credit,7/3/2024 0:00,,3/4/2026 9:59,,721
+CLOSED_RMA00354,closed,Normal,No,Return - Credit,Closed - Credit,,7/23/2025 0:00,3/4/2026 10:01,224,0
+CLOSED_RMA00355,closed,Normal,No,Return - Credit,Closed - Credit,12/19/2025 0:00,12/22/2025 0:00,3/4/2026 10:09,72,0
+CLOSED_RMA00356,closed,Normal,No,Return - Credit,Closed - Credit,4/9/2025 0:00,5/21/2025 0:00,3/4/2026 10:14,287,0
+CLOSED_RMA00357,closed,Normal,No,Return - Credit,Closed - Credit,12/10/2025 0:00,12/19/2025 0:00,3/4/2026 10:42,75,0
+CLOSED_RMA00358,closed,ASAP,No,Repair & Return,Closed - Shipped,1/15/2026 0:00,1/20/2026 0:00,3/4/2026 10:53,43,0
+CLOSED_RMA00359,closed,ASAP,No,Repair & Return,Denied,8/11/2025 0:00,10/22/2025 0:00,3/4/2026 0:00,133,0
+CLOSED_RMA00360,closed,ASAP,Yes,Return - Replacement,Closed - Shipped,8/13/2025 0:00,8/19/2025 0:00,3/6/2026 10:56,199,0
+CLOSED_RMA00361,closed,ASAP,No,Repair & Return,Closed - Shipped,1/2/2026 0:00,1/28/2026 0:00,3/6/2026 11:16,38,0
+CLOSED_RMA00362,closed,ASAP,Yes,Repair & Return,Closed - Shipped,12/19/2025 0:00,12/30/2025 0:00,3/6/2026 11:16,67,0
+CLOSED_RMA00363,closed,ASAP,Yes,Repair & Return,Closed - Shipped,12/15/2025 0:00,12/31/2025 0:00,3/6/2026 11:16,66,0
+CLOSED_RMA00364,closed,ASAP,Yes,Repair & Return,Closed - Shipped,12/9/2025 0:00,12/17/2025 0:00,3/6/2026 11:17,80,0
+CLOSED_RMA00365,closed,ASAP,Yes,Repair & Return,Closed - Shipped,11/18/2025 0:00,11/25/2025 0:00,3/6/2026 11:17,102,0
+CLOSED_RMA00366,closed,ASAP,Yes,Repair & Return,Closed - Shipped,12/12/2025 0:00,12/17/2025 0:00,3/6/2026 11:32,80,0
+CLOSED_RMA00367,closed,ASAP,No,Return - Credit,Closed - Credit,1/6/2026 0:00,2/7/2026 0:00,3/9/2026 10:33,30,0
+CLOSED_RMA00368,closed,ASAP,No,Return - Credit,Closed - Credit,2/6/2026 0:00,2/6/2026 0:00,3/9/2026 14:27,32,0
+CLOSED_RMA00369,closed,Normal,Yes,Repair & Return,Closed - Shipped,10/11/2024 0:00,,3/10/2026 16:01,,621
+CLOSED_RMA00370,closed,ASAP,Yes,AdvEx,Closed - Credit,1/13/2026 0:00,2/6/2026 0:00,3/11/2026 8:54,33,0
+CLOSED_RMA00371,closed,ASAP,Yes,AdvEx,Closed - Credit,1/16/2026 0:00,2/16/2026 0:00,3/11/2026 12:55,24,0
+CLOSED_RMA00372,closed,ASAP,No,Return - Credit,Closed - Credit,1/22/2026 0:00,2/7/2026 0:00,3/11/2026 12:57,33,0
+CLOSED_RMA00373,closed,ASAP,No,AdvEx,Closed - Credit,2/3/2026 0:00,2/6/2026 0:00,3/11/2026 12:59,34,0
+CLOSED_RMA00374,closed,ASAP,No,Return - Credit,Closed - Credit,2/2/2026 0:00,2/6/2026 0:00,3/11/2026 13:03,34,0
+CLOSED_RMA00375,closed,ASAP,No,Return - Credit,Closed - Credit,1/29/2026 0:00,2/6/2026 0:00,3/11/2026 13:06,34,0
+CLOSED_RMA00376,closed,ASAP,No,AdvEx,Closed - Credit,1/29/2026 0:00,2/6/2026 0:00,3/11/2026 13:08,34,0
+CLOSED_RMA00377,closed,ASAP,No,Return - Credit,Closed - Credit,1/29/2026 0:00,2/6/2026 0:00,3/11/2026 13:10,34,0
+CLOSED_RMA00378,closed,ASAP,Yes,AdvEx,Closed - Credit,1/20/2026 0:00,2/6/2026 0:00,3/11/2026 13:12,34,0
+CLOSED_RMA00379,closed,ASAP,No,Return - Credit,Closed - Credit,1/21/2026 0:00,2/2/2026 0:00,3/12/2026 12:38,39,0
+CLOSED_RMA00380,closed,ASAP,No,Return - Credit,Closed - Credit,1/20/2026 0:00,2/3/2026 0:00,3/12/2026 12:56,38,0
+CLOSED_RMA00381,closed,ASAP,No,AdvEx,Closed - Credit,11/25/2025 0:00,1/30/2026 0:00,3/12/2026 13:25,42,0
+CLOSED_RMA00382,closed,ASAP,No,Return - Credit,Closed - Credit,2/9/2026 0:00,2/19/2026 0:00,3/16/2026 15:37,26,0
+CLOSED_RMA00383,closed,ASAP,No,Return - Credit,Closed - Credit,10/21/2025 0:00,1/27/2026 0:00,3/17/2026 8:07,49,0
+CLOSED_RMA00384,closed,Normal,No,Return - Replacement,Closed - Credit,6/9/2025 0:00,6/17/2025 0:00,3/20/2026 11:40,276,0
+CLOSED_RMA00385,closed,Normal,No,Return - Credit,Closed - Shipped,10/20/2025 17:28,4/11/2025 0:00,3/20/2026 11:42,343,0
+CLOSED_RMA00386,closed,ASAP,No,Repair & Return,Closed - Shipped,12/9/2025 0:00,12/11/2025 0:00,3/20/2026 11:43,99,0
+CLOSED_RMA00387,closed,ASAP,No,Return - Credit,Closed - Credit,1/26/2026 0:00,1/30/2026 0:00,3/24/2026 9:28,53,0
+CLOSED_RMA00388,closed,ASAP,No,AdvEx,Closed - Credit,12/3/2025 0:00,12/3/2025 0:00,3/24/2026 10:15,111,0
+CLOSED_RMA00389,closed,Normal,No,Repair & Return,Closed - Canceled,9/22/2025 0:00,,3/20/2026 16:53,,275
+CLOSED_RMA00390,closed,Critical,No,AdvEx,Closed - Credit,2/13/2026 0:00,3/11/2026 0:00,3/25/2026 9:08,14,0
+CLOSED_RMA00391,closed,ASAP,Yes,AdvEx,Closed - Credit,2/5/2026 0:00,2/20/2026 0:00,3/25/2026 9:11,33,0
+CLOSED_RMA00392,closed,ASAP,No,Return - Credit,Closed - Credit,2/3/2026 0:00,2/16/2026 0:00,3/25/2026 9:13,37,0
+CLOSED_RMA00393,closed,ASAP,No,Reship,Closed - Credit,1/30/2026 0:00,2/2/2026 0:00,3/25/2026 9:15,51,0
+CLOSED_RMA00394,closed,ASAP,No,AdvEx,Closed - Credit,10/30/2025 0:00,1/30/2026 0:00,3/25/2026 9:19,54,0
+CLOSED_RMA00395,closed,ASAP,No,AdvEx,Closed - Credit,12/31/2025 0:00,1/30/2026 0:00,3/25/2026 9:22,54,0
+CLOSED_RMA00396,closed,ASAP,No,Return - Credit,Closed - Credit,1/21/2026 0:00,1/30/2026 0:00,3/25/2026 9:27,54,0
+CLOSED_RMA00397,closed,ASAP,No,AdvEx,Closed - Credit,1/21/2026 0:00,1/30/2026 0:00,3/25/2026 9:29,54,0
+CLOSED_RMA00398,closed,ASAP,No,Return - Credit,Closed - Credit,1/23/2026 0:00,1/30/2026 0:00,3/25/2026 9:30,54,0
+CLOSED_RMA00399,closed,ASAP,No,Return - Credit,Closed - Credit,1/23/2026 0:00,1/30/2026 0:00,3/25/2026 9:32,54,0
+CLOSED_RMA00400,closed,ASAP,No,Return - Credit,Closed - Credit,12/17/2025 0:00,1/28/2026 0:00,3/25/2026 9:35,56,0
+CLOSED_RMA00401,closed,ASAP,No,Return - Credit,Closed - Credit,1/14/2026 0:00,1/28/2026 0:00,3/25/2026 9:45,56,0
+CLOSED_RMA00402,closed,ASAP,No,Return - Credit,Closed - Credit,1/20/2026 0:00,1/28/2026 0:00,3/25/2026 9:50,56,0
+CLOSED_RMA00403,closed,Normal,No,Repair & Return,Closed - Shipped,3/10/2025 0:00,5/15/2025 0:00,3/25/2026 9:55,314,0
+CLOSED_RMA00404,closed,ASAP,Yes,Repair & Return,Closed- Scrapped,1/7/2026 0:00,1/28/2026 0:00,3/26/2026 11:06,57,0
+CLOSED_RMA00405,closed,ASAP,Yes,Repair & Return,Closed- Scrapped,1/2/2026 0:00,1/28/2026 0:00,3/27/2026 15:21,59,0
+CLOSED_RMA00406,closed,ASAP,No,Return - Credit,Closed - Credit,1/16/2026 0:00,2/7/2026 0:00,3/30/2026 9:19,51,0
+CLOSED_RMA00407,closed,Normal,No,Return - Credit,Closed - Credit,12/6/2024 0:00,,3/31/2026 11:33,,565
+CLOSED_RMA00408,closed,Critical,No,Repair & Return,Closed - Shipped,2/26/2026 0:00,3/12/2026 0:00,4/2/2026 9:34,21,0
+CLOSED_RMA00409,closed,Critical,Yes,Repair & Return,Closed- Scrapped,2/18/2026 0:00,3/3/2026 0:00,4/2/2026 9:46,30,0
+CLOSED_RMA00410,closed,ASAP,No,Repair & Return,Closed - Return to Stock,11/19/2025 0:00,11/24/2025 0:00,4/3/2026 10:07,130,0
+CLOSED_RMA00411,closed,ASAP,No,Repair & Return,Closed - Return to Stock,12/15/2025 0:00,12/15/2025 0:00,4/3/2026 12:04,110,0
+CLOSED_RMA00412,closed,ASAP,Yes,Repair & Return,Closed - Shipped,1/30/2026 0:00,2/6/2026 0:00,4/3/2026 15:15,57,0
+CLOSED_RMA00413,closed,Critical,Yes,Repair & Return,Closed - Shipped,1/26/2026 0:00,3/10/2026 0:00,4/3/2026 15:15,25,0
+CLOSED_RMA00414,closed,Normal,No,Repair & Return,Closed - Shipped,5/22/2025 0:00,5/23/2025 0:00,4/3/2026 15:15,316,0
+CLOSED_RMA00415,closed,ASAP,No,Repair & Return,Closed - Shipped,12/26/2025 0:00,1/28/2026 0:00,4/3/2026 15:15,66,0
+CLOSED_RMA00416,closed,Normal,Yes,Repair & Return,Closed - Shipped,1/15/2026 0:00,,4/3/2026 15:15,,160
+CLOSED_RMA00417,closed,ASAP,No,Repair & Return,Closed - Shipped,2/11/2026 0:00,2/16/2026 0:00,4/6/2026 7:43,49,0
+CLOSED_RMA00418,closed,ASAP,Yes,Repair & Return,Closed - Shipped,2/5/2026 0:00,2/20/2026 0:00,4/6/2026 7:43,45,0
+CLOSED_RMA00419,closed,ASAP,Yes,Repair & Return,Closed - Shipped,1/27/2026 0:00,2/7/2026 0:00,4/6/2026 7:43,58,0
+CLOSED_RMA00420,closed,ASAP,Yes,Repair & Return,Closed - Shipped,1/23/2026 0:00,1/30/2026 0:00,4/6/2026 7:43,66,0
+CLOSED_RMA00421,closed,Critical,No,Return - Credit,Closed - Credit,2/18/2026 0:00,3/3/2026 0:00,4/6/2026 15:29,35,0
+CLOSED_RMA00422,closed,Critical,Yes,AdvEx,Closed - Credit,2/18/2026 0:00,3/3/2026 0:00,4/6/2026 15:30,35,0
+CLOSED_RMA00423,closed,ASAP,No,Return - Credit,Closed - Credit,2/3/2026 0:00,2/21/2026 0:00,4/6/2026 15:31,45,0
+CLOSED_RMA00424,closed,Critical,No,Return - Credit,Closed - Credit,2/9/2026 0:00,3/4/2026 0:00,4/6/2026 15:33,34,0
+CLOSED_RMA00425,closed,ASAP,No,Return - Credit,Closed - Credit,12/17/2025 0:00,2/16/2026 0:00,4/6/2026 15:47,50,0
+CLOSED_RMA00426,closed,Critical,No,Return - Credit,Closed - Credit,12/22/2025 0:00,3/12/2026 0:00,4/14/2026 13:49,34,0
+CLOSED_RMA00427,closed,Critical,Yes,AdvEx,Closed - Credit,3/10/2026 0:00,3/17/2026 0:00,4/20/2026 15:20,35,0
+CLOSED_RMA00428,closed,Critical,No,Return - Credit,Closed - Credit,3/5/2026 0:00,3/11/2026 0:00,4/20/2026 15:24,41,0
+CLOSED_RMA00429,closed,Critical,No,AdvEx,Closed - Credit,3/3/2026 0:00,3/11/2026 0:00,4/20/2026 15:27,41,0
+CLOSED_RMA00430,closed,Critical,No,Return - Credit,Closed - Credit,2/26/2026 0:00,3/12/2026 0:00,4/20/2026 15:52,40,0
+CLOSED_RMA00431,closed,Critical,No,Return - Credit,Closed - Credit,4/23/2025 0:00,3/17/2026 0:00,4/22/2026 12:44,37,0
+CLOSED_RMA00432,closed,Critical,No,Return - Credit,Closed - Credit,12/19/2025 0:00,3/13/2026 0:00,4/22/2026 12:49,41,0
+CLOSED_RMA00433,closed,Critical,No,Return - Credit,Closed - Credit,2/13/2026 0:00,3/13/2026 0:00,4/22/2026 13:01,41,0
+CLOSED_RMA00434,closed,Critical,No,Return - Credit,Closed - Credit,3/2/2026 0:00,3/11/2026 0:00,4/22/2026 13:09,43,0
+CLOSED_RMA00435,closed,ASAP,No,Return - Replacement,Closed - Credit,,6/12/2025 0:00,4/24/2026 11:27,316,0
+CLOSED_RMA00436,closed,Critical,No,AdvEx,Closed - Credit,1/6/2026 0:00,,4/24/2026 11:38,,169
+CLOSED_RMA00437,closed,Critical,No,Return - Credit,Closed - Credit,2/9/2026 0:00,3/12/2026 0:00,4/24/2026 11:48,43,0
+CLOSED_RMA00438,closed,Critical,No,Return - Credit,Closed - Credit,2/2/2026 0:00,3/4/2026 0:00,4/24/2026 12:01,52,0
+CLOSED_RMA00439,closed,Critical,Yes,Return - Credit,Closed- Scrapped,1/23/2026 0:00,3/5/2026 0:00,4/24/2026 12:13,51,0
+CLOSED_RMA00440,closed,Normal,No,Return - Replacement,Closed - Credit,7/14/2025 0:00,8/20/2025 0:00,4/24/2026 12:19,248,0
+CLOSED_RMA00441,closed,Normal,No,Return - Credit,Closed - Credit,4/9/2025 0:00,4/11/2025 0:00,4/24/2026 12:21,379,0
+CLOSED_RMA00442,closed,Critical,No,Return - Credit,Closed - Credit,1/13/2026 0:00,3/24/2026 0:00,4/24/2026 12:28,32,0
+CLOSED_RMA00443,closed,ASAP,No,AdvEx,Closed - Credit,1/9/2026 0:00,1/30/2026 0:00,4/24/2026 12:34,85,0
+CLOSED_RMA00444,closed,ASAP,No,Return - Credit,Closed- Scrapped,12/23/2025 0:00,12/30/2025 0:00,4/24/2026 12:35,116,0
+CLOSED_RMA00445,closed,ASAP,No,Return - Credit,Closed - Credit,11/17/2025 0:00,1/28/2026 0:00,4/27/2026 14:45,90,0
+CLOSED_RMA00446,closed,Normal,No,Return - Credit,Closed - Credit,6/19/2025 0:00,6/23/2025 0:00,4/27/2026 15:08,309,0
+CLOSED_RMA00447,closed,ASAP,No,Return - Credit,Closed - Credit,9/8/2025 0:00,9/22/2025 0:00,4/28/2026 8:46,218,0
+CLOSED_RMA00448,closed,ASAP,No,Return - Credit,Closed - Credit,9/18/2025 0:00,9/24/2025 0:00,4/28/2026 15:37,217,0
+CLOSED_RMA00449,closed,Normal,No,Return - Replacement,Closed - Credit,3/12/2025 0:00,5/13/2025 0:00,4/28/2026 16:00,351,0
+CLOSED_RMA00450,closed,ASAP,Yes,Repair & Return,Closed - Shipped,12/22/2025 0:00,1/28/2026 0:00,4/29/2026 11:31,91,0
+CLOSED_RMA00451,closed,ASAP,No,Repair & Return,Closed - Shipped,12/23/2025 0:00,2/6/2026 0:00,4/29/2026 11:31,82,0
+CLOSED_RMA00452,closed,ASAP,Yes,Repair & Return,Closed - Shipped,1/2/2026 0:00,1/28/2026 0:00,4/29/2026 11:31,91,0
+CLOSED_RMA00453,closed,ASAP,Yes,Repair & Return,Closed - Shipped,1/5/2026 0:00,1/30/2026 0:00,4/29/2026 11:32,89,0
+CLOSED_RMA00454,closed,ASAP,Yes,Repair & Return,Closed - Shipped,1/15/2026 0:00,1/28/2026 0:00,4/29/2026 11:33,91,0
+CLOSED_RMA00455,closed,Normal,No,Repair & Return,Closed - Shipped,5/5/2025 0:00,5/14/2025 0:00,4/29/2026 11:34,350,0
+CLOSED_RMA00456,closed,Critical,No,Return - Credit,Closed - Credit,12/17/2025 0:00,3/13/2026 0:00,4/29/2026 12:00,48,0
+CLOSED_RMA00457,closed,ASAP,No,Return - Credit,Closed - Credit,12/17/2025 0:00,12/23/2025 0:00,4/29/2026 12:10,128,0
+CLOSED_RMA00458,closed,ASAP,No,AdvEx,Closed - Credit,12/10/2025 0:00,12/17/2025 0:00,4/29/2026 12:26,134,0
+CLOSED_RMA00459,closed,Critical,No,Return - Credit,Closed - Credit,11/21/2025 0:00,3/5/2026 0:00,4/29/2026 12:32,56,0
+CLOSED_RMA00460,closed,ASAP,No,Return - Credit,Closed - Credit,11/4/2025 0:00,11/19/2025 0:00,4/29/2026 12:34,162,0
+CLOSED_RMA00461,closed,Normal,No,Repair & Return,Closed - Shipped,6/11/2024 0:00,11/26/2024 0:00,4/29/2026 12:51,520,0
+CLOSED_RMA00462,closed,Normal,No,Return - Credit,Closed - Credit,,4/12/2025 0:00,4/30/2026 10:59,383,0
+CLOSED_RMA00463,closed,Normal,No,Return - Credit,Closed - Credit,4/28/2025 0:00,6/2/2025 0:00,4/30/2026 12:10,333,0
+CLOSED_RMA00464,closed,Critical,Yes,Return - Replacement,Closed - Credit,5/28/2025 0:00,6/13/2025 0:00,4/30/2026 13:04,322,0
+CLOSED_RMA00465,closed,ASAP,No,Repair & Return,Closed - Credit,10/13/2025 9:17,7/2/2025 0:00,4/30/2026 13:43,303,0
+CLOSED_RMA00466,closed,Normal,No,Return - Credit,Closed - Credit,7/16/2025 0:00,7/21/2025 0:00,4/30/2026 15:15,284,0
+CLOSED_RMA00467,closed,Normal,Yes,Return - Credit,Closed - Credit,9/12/2024 0:00,,4/30/2026 15:30,,650
+CLOSED_RMA00468,closed,Normal,Yes,Return - Credit,Closed - Credit,9/12/2024 0:00,,4/30/2026 15:33,,650
+CLOSED_RMA00469,closed,Normal,Yes,Return - Credit,Closed - Credit,10/23/2024 0:00,,4/30/2026 15:42,,609
+CLOSED_RMA00470,closed,Normal,Yes,Return - Credit,Closed - Credit,12/6/2024 0:00,,4/30/2026 16:12,,565
+CLOSED_RMA00471,closed,Normal,Yes,Return - Credit,Closed - Credit,9/12/2024 0:00,,4/30/2026 16:17,,650
+CLOSED_RMA00472,closed,Normal,Yes,Repair & Return,Closed - Credit,12/11/2024 0:00,,4/30/2026 16:43,,560
+CLOSED_RMA00473,closed,ASAP,Yes,Return - Credit,Closed - Credit,9/11/2025 0:00,9/22/2025 0:00,5/1/2026 11:15,221,0
+CLOSED_RMA00474,closed,ASAP,Yes,Return - Credit,Closed - Credit,8/22/2025 0:00,8/28/2025 0:00,5/1/2026 11:53,246,0
+CLOSED_RMA00475,closed,Normal,No,Return - Credit,Closed - Credit,7/28/2025 0:00,8/6/2025 0:00,5/1/2026 12:10,269,0
+CLOSED_RMA00476,closed,Normal,No,Return - Credit,Closed- Scrapped,9/22/2025 0:00,9/26/2025 0:00,5/1/2026 12:24,218,0
+CLOSED_RMA00477,closed,Normal,No,Return - Replacement,Closed - Credit,10/28/2024 0:00,,5/1/2026 12:54,,604
+CLOSED_RMA00478,closed,ASAP,Yes,Repair & Return,Closed - Shipped,9/9/2025 0:00,2/7/2026 0:00,5/8/2026 8:14,90,0
+CLOSED_RMA00479,closed,Critical,No,Repair & Return,Closed - Shipped,2/26/2026 0:00,3/13/2026 0:00,5/8/2026 8:15,56,0
+CLOSED_RMA00480,closed,Critical,Yes,Repair & Return,Closed - Shipped,3/17/2026 0:00,3/24/2026 0:00,5/8/2026 8:15,45,0
+CLOSED_RMA00481,closed,Critical,No,Repair & Return,Closed - Shipped,2/23/2026 0:00,2/26/2026 0:00,5/8/2026 8:15,71,0
+CLOSED_RMA00482,closed,Normal,No,Repair & Return,Closed - Shipped,1/5/2026 0:00,4/25/2026 0:00,5/8/2026 8:15,13,0
+CLOSED_RMA00483,closed,ASAP,No,Repair & Return,Closed - Shipped,1/6/2026 0:00,1/28/2026 0:00,5/8/2026 8:16,100,0
+CLOSED_RMA00484,closed,Normal,No,Return - Replacement,Closed - Canceled,3/24/2025 0:00,,5/8/2026 8:43,,457
+CLOSED_RMA00485,closed,Normal,Yes,Return - Credit,Closed - Canceled,2/5/2026 0:00,,3/5/2026 12:11,,139
+CLOSED_RMA00486,closed,Normal,No,Return - Replacement,Closed - Canceled,6/16/2025 0:00,,3/24/2026 14:33,,373
+CLOSED_RMA00487,closed,Critical,No,AdvEx,Closed - Credit,4/2/2026 0:00,4/15/2026 0:00,5/13/2026 16:35,29,0
+CLOSED_RMA00488,closed,Normal,Yes,Repair & Return,Closed- Scrapped,4/27/2026 0:00,4/28/2026 0:00,5/20/2026 11:33,22,0
+CLOSED_RMA00489,closed,ASAP,Yes,Repair & Return,Closed - Shipped,12/8/2025 0:00,12/18/2025 0:00,5/21/2026 12:46,155,0
+CLOSED_RMA00490,closed,Normal,No,Repair & Return,Closed - Shipped,3/25/2025 0:00,4/11/2025 0:00,5/26/2026 8:52,410,0
+CLOSED_RMA00491,closed,Normal,No,Repair & Return,Closed - Shipped,4/14/2025 0:00,4/15/2025 0:00,5/26/2026 9:43,406,0
+CLOSED_RMA00492,closed,Normal,No,Return - Replacement,Closed - Shipped,4/16/2025 0:00,5/17/2025 0:00,5/26/2026 9:45,374,0
+CLOSED_RMA00493,closed,Normal,No,Return - Replacement,Closed - Shipped,5/1/2025 0:00,,5/26/2026 9:46,,419
+CLOSED_RMA00494,closed,Normal,No,Return - Replacement,Closed - Credit,6/12/2025 0:00,6/25/2025 0:00,5/26/2026 9:49,335,0
+CLOSED_RMA00495,closed,ASAP,No,Repair & Return,Closed - Shipped,10/20/2025 7:46,10/28/2025 0:00,5/26/2026 10:08,210,0
+CLOSED_RMA00496,closed,Normal,No,Return - Replacement,Closed - RTV Repair Complete,3/20/2025 0:00,,5/26/2026 10:42,,461
+CLOSED_RMA00497,closed,ASAP,No,Return - Replacement,Closed- Scrapped,9/9/2025 0:00,9/22/2025 0:00,5/26/2026 10:44,246,0
+CLOSED_RMA00498,closed,Critical,No,Repair & Return,Closed - Shipped,5/6/2025 0:00,,5/26/2026 10:46,,414
+CLOSED_RMA00499,closed,Normal,No,Return - Credit,Closed - Credit,4/10/2026 0:00,4/29/2026 0:00,5/26/2026 14:32,28,0
+CLOSED_RMA00500,closed,Normal,No,Return - Credit,Closed - Credit,4/1/2026 0:00,4/29/2026 0:00,5/26/2026 14:38,28,0
+CLOSED_RMA00501,closed,Normal,Yes,Return - Credit,Closed- Scrapped,4/22/2026 0:00,4/29/2026 0:00,5/26/2026 14:52,28,0
+CLOSED_RMA00502,closed,Normal,No,Return - Credit,Closed - Credit,4/10/2026 0:00,4/27/2026 0:00,5/26/2026 15:07,30,0
+CLOSED_RMA00503,closed,Normal,No,Return - Credit,Closed - Credit,4/7/2026 0:00,4/25/2026 0:00,5/26/2026 15:33,32,0
+CLOSED_RMA00504,closed,Normal,No,Return - Credit,Closed - Credit,4/20/2026 0:00,4/25/2026 0:00,5/26/2026 16:08,32,0
+CLOSED_RMA00505,closed,Normal,Yes,Return - Credit,Closed - Credit,4/21/2026 0:00,4/25/2026 0:00,5/26/2026 16:18,32,0
+CLOSED_RMA00506,closed,ASAP,Yes,Return - Credit,Closed - Credit,9/3/2025 0:00,9/8/2025 0:00,5/26/2026 16:48,261,0
+CLOSED_RMA00507,closed,ASAP,Yes,Repair & Return,Closed - Shipped,1/27/2026 0:00,2/23/2026 0:00,5/29/2026 14:27,96,0
+CLOSED_RMA00508,closed,Normal,No,Return - Credit,Closed - Credit,3/24/2026 0:00,5/13/2026 0:00,6/1/2026 11:48,19,0
+CLOSED_RMA00509,closed,Critical,No,AdvEx,Closed - Credit,4/20/2026 0:00,4/30/2026 0:00,6/1/2026 11:50,32,0
+CLOSED_RMA00510,closed,Normal,No,Repair & Return,Closed - Credit,4/24/2026 0:00,4/30/2026 0:00,6/1/2026 12:07,33,0
+CLOSED_RMA00511,closed,ASAP,Yes,Repair & Return,Closed - Shipped,12/23/2025 0:00,12/31/2025 0:00,6/1/2026 15:28,153,0
+CLOSED_RMA00512,closed,ASAP,Yes,Repair & Return,Closed - Shipped,11/12/2025 0:00,11/19/2025 0:00,6/2/2026 8:10,195,0
+CLOSED_RMA00513,closed,ASAP,Yes,Repair & Return,Closed - Shipped,12/2/2025 0:00,12/9/2025 0:00,6/2/2026 8:09,175,0
+CLOSED_RMA00514,closed,Normal,No,Repair & Return,Closed - Return to Stock,3/5/2025 0:00,,6/2/2026 9:21,,476
+CLOSED_RMA00515,closed,Critical,Yes,AdvEx,Closed - Return to Stock,4/23/2026 0:00,5/12/2026 0:00,6/2/2026 13:35,22,0
+CLOSED_RMA00516,closed,Normal,No,Return - Credit,Closed - Credit,10/20/2025 17:27,4/12/2025 0:00,6/6/2026 18:35,421,0
+CLOSED_RMA00517,closed,Normal,No,Return - Credit,Closed - Credit,4/30/2026 0:00,5/11/2026 0:00,6/6/2026 18:53,27,0
+CLOSED_RMA00518,closed,Normal,No,Return - Credit,Closed- Scrapped,4/24/2026 0:00,5/6/2026 0:00,6/6/2026 18:56,32,0
+CLOSED_RMA00519,closed,Critical,Yes,AdvEx,Closed - Credit,4/15/2026 0:00,5/14/2026 0:00,6/6/2026 19:00,24,0
+CLOSED_RMA00520,closed,ASAP,Yes,Return - Credit,Closed - Credit,9/12/2025 0:00,9/22/2025 0:00,6/8/2026 8:58,259,0
+CLOSED_RMA00521,closed,Normal,Yes,Return - Credit,Closed - Credit,5/12/2026 0:00,,6/8/2026 9:20,,43
+CLOSED_RMA00522,closed,Normal,No,Return - Credit,Closed - Credit,9/9/2025 0:00,5/12/2026 0:00,6/8/2026 15:07,28,0
+CLOSED_RMA00523,closed,Normal,No,Return - Credit,Closed - Credit,5/12/2026 0:00,5/14/2026 0:00,6/9/2026 8:39,26,0
+CLOSED_RMA00524,closed,ASAP,No,AdvEx,Closed - Credit,9/13/2025 0:00,10/16/2025 0:00,6/10/2026 7:25,237,0
+CLOSED_RMA00525,closed,Critical,No,AdvEx,Closed - Credit,3/19/2026 0:00,5/26/2026 0:00,6/10/2026 7:28,15,0
+CLOSED_RMA00526,closed,Normal,No,Return - Credit,Closed - Credit,7/28/2025 0:00,8/7/2025 0:00,6/10/2026 7:35,307,0
+CLOSED_RMA00527,closed,Critical,No,AdvEx,Closed - Shipped,6/9/2026 0:00,,6/10/2026 15:33,,15
+CLOSED_RMA00528,closed,ASAP,Yes,Repair & Return,Closed- Scrapped,11/12/2025 0:00,11/19/2025 0:00,6/12/2026 12:53,206,0
+CLOSED_RMA00529,closed,Normal,Yes,Repair & Return,Closed- Scrapped,5/18/2026 0:00,5/21/2026 0:00,6/15/2026 10:22,25,0
+CLOSED_RMA00530,closed,Normal,No,Return - Credit,Closed - Credit,4/8/2026 0:00,6/11/2026 0:00,6/16/2026 8:29,5,0
+CLOSED_RMA00531,closed,Normal,Yes,Repair & Return,Closed - Shipped,4/27/2026 0:00,5/1/2026 0:00,6/19/2026 10:40,49,0
+CLOSED_RMA00532,closed,Normal,Yes,Repair & Return,Closed - Shipped,5/1/2026 0:00,5/7/2026 0:00,6/19/2026 10:40,43,0
+CLOSED_RMA00533,closed,Normal,No,Repair & Return,Closed - Shipped,4/21/2026 0:00,4/25/2026 0:00,6/19/2026 10:40,55,0
+CLOSED_RMA00534,closed,Critical,Yes,Repair & Return,Closed - Shipped,3/18/2026 0:00,3/25/2026 0:00,6/19/2026 10:40,86,0
+CLOSED_RMA00535,closed,Critical,Yes,Repair & Return,Closed - Shipped,3/5/2026 0:00,3/12/2026 0:00,6/19/2026 10:40,99,0
+CLOSED_RMA00536,closed,Critical,Yes,Repair & Return,Closed - Shipped,3/2/2026 0:00,3/10/2026 0:00,6/19/2026 10:40,101,0
+CLOSED_RMA00537,closed,ASAP,Yes,Repair & Return,Closed - Shipped,11/12/2025 0:00,11/25/2025 0:00,6/19/2026 10:40,206,0
+CLOSED_RMA00538,closed,ASAP,Yes,Repair & Return,Closed - Shipped,8/22/2025 0:00,9/4/2025 0:00,6/19/2026 10:40,288,0
+CLOSED_RMA00539,closed,Normal,No,Repair & Return,Closed - Shipped,3/10/2025 0:00,,6/19/2026 10:40,,471
+CLOSED_RMA00540,closed,ASAP,No,Repair & Return,Closed - Shipped,2/2/2026 0:00,2/23/2026 0:00,6/19/2026 10:40,116,0
