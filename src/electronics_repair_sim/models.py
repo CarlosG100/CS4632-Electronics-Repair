@@ -55,6 +55,7 @@ class Job:
         self.capability = capability
 
         self.outcome = None
+        self.board_status = ""
         self.start_time = None
         self.finish_time = None
         self.remaining_time = service_time
