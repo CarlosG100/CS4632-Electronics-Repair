@@ -23,6 +23,13 @@ def find_free_station(job, stations):
     return None
 
 
+def pick_resources(job, general_tech_resource, specialty_tech_resource, general_station_resource, specialty_station_resource):
+    # return the right pair of simpy resources based on job capability
+    if job.capability == CAPABILITY_SPECIALTY:
+        return specialty_tech_resource, specialty_station_resource
+    return general_tech_resource, general_station_resource
+
+
 def repair_job(env, job, tech_resource, station_resource, technicians, stations, metrics):
     print("Time", format(env.now, ".2f") + ":", job.job_id, "pending")
 
@@ -78,6 +85,7 @@ def run_basic_fifo_simulation(config):
     print("Specialty stations:", config.specialty_stations)
     print("Allow preemption:", config.allow_preemption)
     print("Job limit:", config.job_limit)
+    print("Direct request limit:", config.direct_request_limit)
     print("Open RMA jobs waiting:", rma_rack.count_jobs())
     print("Open direct requests waiting:", direct_requests.count_jobs())
     print()
@@ -86,15 +94,24 @@ def run_basic_fifo_simulation(config):
         job = rma_rack.get_next_job()
 
         if job is not None:
-            # pick the right simpy resource based on job capability
-            if job.capability == CAPABILITY_SPECIALTY:
-                tech_resource = specialty_tech_resource
-                station_resource = specialty_station_resource
-            else:
-                tech_resource = general_tech_resource
-                station_resource = general_station_resource
+            tech_resource, station_resource = pick_resources(
+                job, general_tech_resource, specialty_tech_resource, general_station_resource, specialty_station_resource
+            )
 
             # mark when the job enters the sim so wait time can be measured
+            job.sim_arrival_time = env.now
+
+            env.process(repair_job(env, job, tech_resource, station_resource, technicians, stations, metrics))
+
+    # direct requests (AdvEx, reship, production) are pulled in priority order
+    for count in range(config.direct_request_limit):
+        job = direct_requests.get_next_job()
+
+        if job is not None:
+            tech_resource, station_resource = pick_resources(
+                job, general_tech_resource, specialty_tech_resource, general_station_resource, specialty_station_resource
+            )
+
             job.sim_arrival_time = env.now
 
             env.process(repair_job(env, job, tech_resource, station_resource, technicians, stations, metrics))

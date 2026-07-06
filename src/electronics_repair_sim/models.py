@@ -107,6 +107,9 @@ class ScenarioConfig:
         # how many RMA rack jobs to run in this scenario
         self.job_limit = 3
 
+        # how many AdvEx/reship/production jobs to run in this scenario
+        self.direct_request_limit = 3
+
         # Production failures can interrupt lower-priority work.
         self.allow_preemption = True
 
@@ -122,6 +125,8 @@ def validate_config(config):
         raise ValueError("specialty_stations cannot be negative")
     if config.job_limit < 0:
         raise ValueError("job_limit cannot be negative")
+    if config.direct_request_limit < 0:
+        raise ValueError("direct_request_limit cannot be negative")
 
     if config.general_technicians + config.specialty_technicians == 0:
         raise ValueError("You need at least one technician.")
