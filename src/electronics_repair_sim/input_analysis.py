@@ -4,8 +4,6 @@ from electronics_repair_sim.csv_parser import count_values, load_all_csv_data
 
 
 def parse_date(date_text):
-    # try to turn a date string into a datetime object
-    # returns None if the date is blank or doesn't work
     if date_text is None:
         return None
 
@@ -50,7 +48,7 @@ def get_interarrival_hours(dates):
 
     for index in range(1, len(dates)):
         time_difference = dates[index] - dates[index - 1]
-        hours = time_difference.total_seconds() / 3600
+        hours = time_difference.total_seconds() / 3600  # divide by 3600 to convert seconds to hours
 
         if hours >= 0:
             interarrival_hours.append(hours)
@@ -88,7 +86,7 @@ def percentage(part, total):
 
 
 def print_date_range(title, dates):
-    # Print the first and last date for a date list.
+
     print(title)
 
     if len(dates) == 0:

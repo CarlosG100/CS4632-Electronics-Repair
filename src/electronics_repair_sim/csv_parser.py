@@ -9,6 +9,7 @@ PRODUCTION_FILE = "production_issue_jobs.csv"
 
 
 def get_data_folder():
+    # figure out where the data folder is based on where this file is
     this_file = os.path.abspath(__file__)
     sim_folder = os.path.dirname(this_file)
     src_folder = os.path.dirname(sim_folder)
