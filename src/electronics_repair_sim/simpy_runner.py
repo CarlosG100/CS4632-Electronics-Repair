@@ -3,7 +3,7 @@ import simpy
 from electronics_repair_sim.create_jobs import create_all_jobs
 from electronics_repair_sim.metrics import SimulationMetrics
 from electronics_repair_sim.models import CAPABILITY_SPECIALTY, ScenarioConfig
-from electronics_repair_sim.queue import split_jobs_into_waiting_lines
+from electronics_repair_sim.rack import split_jobs_into_waiting_lines
 from electronics_repair_sim.resources import create_stations, create_technicians
 
 
@@ -25,9 +25,6 @@ def find_station_for_job(job, stations):
 
 def repair_job(env, job, tech_resource, station_resource, tech, station, metrics):
     print("Time", format(env.now, ".2f") + ":", job.job_id, "pending")
-
-    # I learned from the simpy docs that you use with resource.request()
-    # and yield to wait until the resource is free
     with tech_resource.request() as tech_req:
         yield tech_req
 
@@ -59,8 +56,6 @@ def run_basic_fifo_simulation(job_limit):
     technicians = create_technicians()
     stations = create_stations()
 
-    # set up one simpy resource per technician and one per station
-    # capacity=1 means only one job can use it at a time
     general_tech_resource = simpy.Resource(env, capacity=1)
     specialty_tech_resource = simpy.Resource(env, capacity=1)
     general_station_resource = simpy.Resource(env, capacity=1)
@@ -97,6 +92,9 @@ def run_basic_fifo_simulation(job_limit):
             else:
                 tech_resource = general_tech_resource
                 station_resource = general_station_resource
+
+            # mark when the job enters sim so wait time can be measured
+            job.sim_arrival_time = env.now
 
             env.process(repair_job(env, job, tech_resource, station_resource, tech, station, metrics))
 

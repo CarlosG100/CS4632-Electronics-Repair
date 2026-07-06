@@ -56,6 +56,7 @@ class Job:
 
         self.outcome = None
         self.board_status = ""
+        self.sim_arrival_time = None
         self.start_time = None
         self.finish_time = None
         self.remaining_time = service_time
@@ -68,8 +69,6 @@ class Technician:
         self.tech_id = tech_id
         self.capability = capability
         self.current_job_id = None
-        self.busy_until = 0.0
-        self.busy_time = 0.0
 
     def can_work(self, job):
         # General jobs can be worked by anyone.
@@ -85,8 +84,6 @@ class Station:
         self.station_id = station_id
         self.capability = capability
         self.current_job_id = None
-        self.busy_until = 0.0
-        self.busy_time = 0.0
 
     def can_handle(self, job):
         # General jobs can use any station.

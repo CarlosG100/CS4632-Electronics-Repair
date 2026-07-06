@@ -4,6 +4,11 @@ class SimulationMetrics:
         self.completed_jobs = []
 
     def record_completed_job(self, job, technician, station):
+        # wait time is how long the job sat before starting
+        # turnaround time is how long the job took from arrival to finish
+        wait_time = job.start_time - job.sim_arrival_time
+        turnaround_time = job.finish_time - job.sim_arrival_time
+
         record = {
             "job_id": job.job_id,
             "source": job.source,
@@ -11,8 +16,8 @@ class SimulationMetrics:
             "outcome": job.outcome,
             "start_time": job.start_time,
             "finish_time": job.finish_time,
-            "wait_time": job.start_time,
-            "turnaround_time": job.finish_time,
+            "wait_time": wait_time,
+            "turnaround_time": turnaround_time,
             "service_time": job.service_time,
             "technician": technician.tech_id,
             "station": station.station_id,
