@@ -1,5 +1,3 @@
-# Basic classes for the electronics repair simulation.
-
 # Job sources from my project scope.
 SOURCE_RMA = "Customer RMA"
 SOURCE_ADVEX = "Advance Exchange"
@@ -94,16 +92,41 @@ class Station:
 
 
 class ScenarioConfig:
-    # Basic settings for one simulation run.
+    # Settings for sim run
     def __init__(self):
         self.name = "baseline"
 
-        # My starting system has 2 technicians and 2 stations.
-        self.technicians = 2
-        self.stations = 2
+        # My starting system has 1 general and 1 specialty technician (2 total).
+        self.general_technicians = 1
+        self.specialty_technicians = 1
+
+        # My starting system has 1 general and 1 specialty station (2 total).
+        self.general_stations = 1
+        self.specialty_stations = 1
+
+        # how many RMA rack jobs to run in this scenario
+        self.job_limit = 3
 
         # Production failures can interrupt lower-priority work.
         self.allow_preemption = True
+
+
+def validate_config(config):
+    if config.general_technicians < 0:
+        raise ValueError("general_technicians cannot be negative")
+    if config.specialty_technicians < 0:
+        raise ValueError("specialty_technicians cannot be negative")
+    if config.general_stations < 0:
+        raise ValueError("general_stations cannot be negative")
+    if config.specialty_stations < 0:
+        raise ValueError("specialty_stations cannot be negative")
+    if config.job_limit < 0:
+        raise ValueError("job_limit cannot be negative")
+
+    if config.general_technicians + config.specialty_technicians == 0:
+        raise ValueError("You need at least one technician.")
+    if config.general_stations + config.specialty_stations == 0:
+        raise ValueError("You need at least one station.")
 
 
 def capability_from_sop(sop_value):

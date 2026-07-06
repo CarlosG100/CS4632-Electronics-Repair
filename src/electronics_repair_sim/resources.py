@@ -6,19 +6,33 @@ from electronics_repair_sim.models import (
 )
 
 
-def create_technicians():
-    # two technicians, one general and one specialty
-    technicians = [
-        Technician("Tech 1", CAPABILITY_GENERAL),
-        Technician("Tech 2", CAPABILITY_SPECIALTY),
-    ]
+def create_technicians(config):
+    # build the list of technicians based on the scenario settings
+    technicians = []
+    tech_number = 1
+
+    for count in range(config.general_technicians):
+        technicians.append(Technician("Tech " + str(tech_number), CAPABILITY_GENERAL))
+        tech_number += 1
+
+    for count in range(config.specialty_technicians):
+        technicians.append(Technician("Tech " + str(tech_number), CAPABILITY_SPECIALTY))
+        tech_number += 1
+
     return technicians
 
 
-def create_stations():
-    # two stations, one general and one specialty
-    stations = [
-        Station("Station 1", CAPABILITY_GENERAL),
-        Station("Station 2", CAPABILITY_SPECIALTY),
-    ]
+def create_stations(config):
+    # build the list of stations based on the scenario settings
+    stations = []
+    station_number = 1
+
+    for count in range(config.general_stations):
+        stations.append(Station("Station " + str(station_number), CAPABILITY_GENERAL))
+        station_number += 1
+
+    for count in range(config.specialty_stations):
+        stations.append(Station("Station " + str(station_number), CAPABILITY_SPECIALTY))
+        station_number += 1
+
     return stations
