@@ -1,3 +1,5 @@
+from datetime import datetime
+
 from electronics_repair_sim.input_analysis import parse_date
 from electronics_repair_sim.job_rules import is_direct_request, is_rma_rack_job
 
@@ -47,12 +49,13 @@ class DirectRequestList:
 
 
 def get_fifo_sort_value(job):
+    # return the arrival date so the list can be sorted oldest first
     arrival_date = parse_date(job.arrival_time)
 
     if arrival_date is None:
-        return "9999-12-31 23:59:59"
+        return datetime(9999, 12, 31)
 
-    return arrival_date.strftime("%Y-%m-%d %H:%M:%S")
+    return arrival_date
 
 
 def split_jobs_into_waiting_lines(jobs):

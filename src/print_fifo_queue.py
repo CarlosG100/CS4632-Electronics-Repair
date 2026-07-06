@@ -1,5 +1,5 @@
 from electronics_repair_sim.create_jobs import create_all_jobs
-from electronics_repair_sim.queue import split_jobs_into_waiting_lines
+from electronics_repair_sim.rack import split_jobs_into_waiting_lines
 
 
 def print_next_rma_jobs(rma_rack, amount):
