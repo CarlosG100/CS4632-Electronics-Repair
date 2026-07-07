@@ -158,7 +158,7 @@ def run_basic_fifo_simulation(config):
     env.run()
 
     print()
-    metrics.print_summary()
+    metrics.print_summary(env.now)
 
     print_utilization(technicians, stations, env.now)
 
