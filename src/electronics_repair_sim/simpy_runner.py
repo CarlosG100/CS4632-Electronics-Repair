@@ -58,9 +58,16 @@ def repair_job(env, job, tech_resource, station_resource, technicians, stations,
 
                     print("Time", format(env.now, ".2f") + ":", job.job_id, "started on", tech.tech_id, "and", station.station_id)
 
-                    yield env.timeout(job.remaining_time)
+                    # save this before it gets reset to 0 below
+                    work_time = job.remaining_time
+
+                    yield env.timeout(work_time)
 
                     job.finish_time = env.now
+                    job.remaining_time = 0
+
+                    tech.busy_time = tech.busy_time + work_time
+                    station.busy_time = station.busy_time + work_time
 
                     print("Time", format(env.now, ".2f") + ":", job.job_id, "finished")
 
@@ -77,8 +84,10 @@ def repair_job(env, job, tech_resource, station_resource, technicians, stations,
             job.interrupted_count += 1
 
             if tech is not None:
+                tech.busy_time = tech.busy_time + time_worked
                 tech.current_job_id = None
             if station is not None:
+                station.busy_time = station.busy_time + time_worked
                 station.current_job_id = None
 
             print("Time", format(env.now, ".2f") + ":", job.job_id, "interrupted, remaining time", format(job.remaining_time, ".2f"))
@@ -151,4 +160,27 @@ def run_basic_fifo_simulation(config):
     print()
     metrics.print_summary()
 
+    print_utilization(technicians, stations, env.now)
+
     return metrics
+
+
+def print_utilization(technicians, stations, total_sim_time):
+    print("Technician utilization")
+    for tech in technicians:
+        # percent of the total sim time this tech was busy
+        if total_sim_time > 0:
+            percent_busy = (tech.busy_time / total_sim_time) * 100
+        else:
+            percent_busy = 0
+        print(tech.tech_id + ":", format(tech.busy_time, ".2f"), "busy hours out of", format(total_sim_time, ".2f"), "(" + format(percent_busy, ".1f") + "%)")
+    print()
+
+    print("Station utilization")
+    for station in stations:
+        if total_sim_time > 0:
+            percent_busy = (station.busy_time / total_sim_time) * 100
+        else:
+            percent_busy = 0
+        print(station.station_id + ":", format(station.busy_time, ".2f"), "busy hours out of", format(total_sim_time, ".2f"), "(" + format(percent_busy, ".1f") + "%)")
+    print()

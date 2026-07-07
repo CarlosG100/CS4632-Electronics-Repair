@@ -67,6 +67,7 @@ class Technician:
         self.tech_id = tech_id
         self.capability = capability
         self.current_job_id = None
+        self.busy_time = 0.0
 
     def can_work(self, job):
         # General jobs can be worked by anyone.
@@ -82,6 +83,7 @@ class Station:
         self.station_id = station_id
         self.capability = capability
         self.current_job_id = None
+        self.busy_time = 0.0
 
     def can_handle(self, job):
         # General jobs can use any station.
