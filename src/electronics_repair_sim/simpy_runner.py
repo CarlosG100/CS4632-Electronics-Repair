@@ -2,7 +2,7 @@ import simpy
 
 from electronics_repair_sim.create_jobs import create_all_jobs
 from electronics_repair_sim.metrics import SimulationMetrics
-from electronics_repair_sim.models import CAPABILITY_SPECIALTY, validate_config
+from electronics_repair_sim.models import CAPABILITY_SPECIALTY, SOURCE_PRODUCTION, validate_config
 from electronics_repair_sim.rack import split_jobs_into_waiting_lines
 from electronics_repair_sim.resources import create_stations, create_technicians
 
@@ -24,40 +24,64 @@ def find_free_station(job, stations):
 
 
 def pick_resources(job, general_tech_resource, specialty_tech_resource, general_station_resource, specialty_station_resource):
-    # return the right pair of simpy resources based on job capability
+    # return the right pair of resources based on job capability
     if job.capability == CAPABILITY_SPECIALTY:
         return specialty_tech_resource, specialty_station_resource
     return general_tech_resource, general_station_resource
 
 
-def repair_job(env, job, tech_resource, station_resource, technicians, stations, metrics):
-    print("Time", format(env.now, ".2f") + ":", job.job_id, "pending")
+def repair_job(env, job, tech_resource, station_resource, technicians, stations, metrics, preempt):
+    # A production failure can jump ahead and kick a lower-priority job off its technician/station.
+    while True:
+        print("Time", format(env.now, ".2f") + ":", job.job_id, "pending")
 
-    with tech_resource.request() as tech_req:
-        yield tech_req
+        tech = None
+        station = None
+        work_started_at = env.now
 
-        with station_resource.request() as station_req:
-            yield station_req
+        try:
+            with tech_resource.request(priority=job.priority, preempt=preempt) as tech_req:
+                yield tech_req
 
-            tech = find_free_tech(job, technicians)
-            station = find_free_station(job, stations)
+                with station_resource.request(priority=job.priority, preempt=preempt) as station_req:
+                    yield station_req
 
-            job.start_time = env.now
-            tech.current_job_id = job.job_id
-            station.current_job_id = job.job_id
+                    tech = find_free_tech(job, technicians)
+                    station = find_free_station(job, stations)
 
-            print("Time", format(env.now, ".2f") + ":", job.job_id, "started on", tech.tech_id, "and", station.station_id)
+                    if job.start_time is None:
+                        job.start_time = env.now
 
-            yield env.timeout(job.service_time)
+                    tech.current_job_id = job.job_id
+                    station.current_job_id = job.job_id
+                    work_started_at = env.now
 
-            job.finish_time = env.now
+                    print("Time", format(env.now, ".2f") + ":", job.job_id, "started on", tech.tech_id, "and", station.station_id)
 
-            print("Time", format(env.now, ".2f") + ":", job.job_id, "finished")
+                    yield env.timeout(job.remaining_time)
 
-            metrics.record_completed_job(job, tech, station)
+                    job.finish_time = env.now
 
-            tech.current_job_id = None
-            station.current_job_id = None
+                    print("Time", format(env.now, ".2f") + ":", job.job_id, "finished")
+
+                    metrics.record_completed_job(job, tech, station)
+
+                    tech.current_job_id = None
+                    station.current_job_id = None
+                    return
+
+        except simpy.Interrupt:
+            # a higher priority job (like a production failure) took the resource
+            time_worked = env.now - work_started_at
+            job.remaining_time = job.remaining_time - time_worked
+            job.interrupted_count += 1
+
+            if tech is not None:
+                tech.current_job_id = None
+            if station is not None:
+                station.current_job_id = None
+
+            print("Time", format(env.now, ".2f") + ":", job.job_id, "interrupted, remaining time", format(job.remaining_time, ".2f"))
 
 
 def run_basic_fifo_simulation(config):
@@ -68,10 +92,11 @@ def run_basic_fifo_simulation(config):
     technicians = create_technicians(config)
     stations = create_stations(config)
 
-    general_tech_resource = simpy.Resource(env, capacity=config.general_technicians)
-    specialty_tech_resource = simpy.Resource(env, capacity=config.specialty_technicians)
-    general_station_resource = simpy.Resource(env, capacity=config.general_stations)
-    specialty_station_resource = simpy.Resource(env, capacity=config.specialty_stations)
+    # PreemptiveResource lets a higher priority job (like a production failure) take over lower priority 
+    general_tech_resource = simpy.PreemptiveResource(env, capacity=config.general_technicians)
+    specialty_tech_resource = simpy.PreemptiveResource(env, capacity=config.specialty_technicians)
+    general_station_resource = simpy.PreemptiveResource(env, capacity=config.general_stations)
+    specialty_station_resource = simpy.PreemptiveResource(env, capacity=config.specialty_stations)
 
     metrics = SimulationMetrics()
 
@@ -101,7 +126,10 @@ def run_basic_fifo_simulation(config):
             # mark when the job enters the sim so wait time can be measured
             job.sim_arrival_time = env.now
 
-            env.process(repair_job(env, job, tech_resource, station_resource, technicians, stations, metrics))
+            # only production failures are allowed to preempt other jobs
+            preempt = config.allow_preemption and job.source == SOURCE_PRODUCTION
+
+            env.process(repair_job(env, job, tech_resource, station_resource, technicians, stations, metrics, preempt))
 
     # direct requests (AdvEx, reship, production) are pulled in priority order
     for count in range(config.direct_request_limit):
@@ -114,7 +142,9 @@ def run_basic_fifo_simulation(config):
 
             job.sim_arrival_time = env.now
 
-            env.process(repair_job(env, job, tech_resource, station_resource, technicians, stations, metrics))
+            preempt = config.allow_preemption and job.source == SOURCE_PRODUCTION
+
+            env.process(repair_job(env, job, tech_resource, station_resource, technicians, stations, metrics, preempt))
 
     env.run()
 
