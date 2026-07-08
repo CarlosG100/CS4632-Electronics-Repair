@@ -11,7 +11,6 @@ from electronics_repair_sim.resources import create_stations, create_technicians
 
 
 def get_results_folder():
-    # figure out where the results folder is, the same way csv_parser finds the data folder
     this_file = os.path.abspath(__file__)
     sim_folder = os.path.dirname(this_file)
     src_folder = os.path.dirname(sim_folder)
@@ -22,11 +21,6 @@ def get_results_folder():
         os.makedirs(results_folder)
 
     return results_folder
-
-
-def make_safe_file_name(name):
-    # turn a scenario name like "extra specialty tech" into a file-name-friendly string
-    return name.replace(" ", "_")
 
 
 def find_free_tech(job, technicians):
@@ -116,17 +110,10 @@ def repair_job(env, job, tech_resource, station_resource, technicians, stations,
 
 
 def production_arrival_process(env, avg_interarrival_hours, rtv_probability, tech_resource, station_resource, technicians, stations, metrics, config, job_count):
-    # My textbook (Banks) said random arrivals are usually modeled with an
-    # exponential distribution instead of just spacing them evenly, so I'm
-    # generating new production failures this way instead of replaying the
-    # historical rows directly.
     job_number = 1
 
     while job_number <= job_count:
         if avg_interarrival_hours > 0:
-            # random.expovariate wants the rate (1 / average), not the
-            # average itself. Took me a while to figure out why my gaps
-            # were coming out way too small before I fixed this.
             gap = random.expovariate(1 / avg_interarrival_hours)
         else:
             gap = 0
@@ -185,8 +172,7 @@ def run_basic_fifo_simulation(config):
             # mark when the job enters the sim so wait time can be measured
             job.sim_arrival_time = env.now
 
-            # only production failures are allowed to preempt other jobs, and
-            # none of these jobs are production failures
+            # only production failures are allowed to preempt other jobs
             env.process(repair_job(env, job, tech_resource, station_resource, technicians, stations, metrics, False))
 
     # direct requests (AdvEx, reship) are pulled in priority order
@@ -203,7 +189,6 @@ def run_basic_fifo_simulation(config):
             env.process(repair_job(env, job, tech_resource, station_resource, technicians, stations, metrics, False))
 
     # production failures are simulated as brand new arrivals over time,
-    # using patterns learned from historical production data
     env.process(production_arrival_process(
         env, avg_production_interarrival_hours, production_rtv_probability,
         general_tech_resource, general_station_resource, technicians, stations, metrics,
@@ -218,11 +203,11 @@ def run_basic_fifo_simulation(config):
     print_utilization(technicians, stations, env.now)
 
     results_folder = get_results_folder()
-    safe_name = make_safe_file_name(config.name)
+    file_name = config.name.replace(" ", "_")
 
-    events_path = os.path.join(results_folder, safe_name + "_events.csv")
-    summary_path = os.path.join(results_folder, safe_name + "_summary.json")
-    config_path = os.path.join(results_folder, safe_name + "_config.json")
+    events_path = os.path.join(results_folder, file_name + "_events.csv")
+    summary_path = os.path.join(results_folder, file_name + "_summary.json")
+    config_path = os.path.join(results_folder, file_name + "_config.json")
 
     metrics.export_events_csv(events_path)
     metrics.export_summary_json(summary_path, technicians, stations, env.now)
