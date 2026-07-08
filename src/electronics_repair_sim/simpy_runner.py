@@ -129,6 +129,40 @@ def production_arrival_process(env, avg_interarrival_hours, rtv_probability, tec
         env.process(repair_job(env, job, tech_resource, station_resource, technicians, stations, metrics, config.allow_preemption))
 
 
+def watch_queues(env, rma_rack, direct_requests, technicians, stations, metrics, gap_hours, limit):
+    checks_done = 0
+
+    while checks_done < limit:
+        techs_busy = 0
+        techs_idle = 0
+        for tech in technicians:
+            if tech.current_job_id is None:
+                techs_idle = techs_idle + 1
+            else:
+                techs_busy = techs_busy + 1
+
+        stations_busy = 0
+        stations_idle = 0
+        for station in stations:
+            if station.current_job_id is None:
+                stations_idle = stations_idle + 1
+            else:
+                stations_busy = stations_busy + 1
+
+        metrics.add_queue_snapshot(
+            env.now,
+            rma_rack.count_jobs(),
+            direct_requests.count_jobs(),
+            techs_busy,
+            techs_idle,
+            stations_busy,
+            stations_idle,
+        )
+
+        checks_done = checks_done + 1
+        yield env.timeout(gap_hours)
+
+
 def run_basic_fifo_simulation(config):
     validate_config(config)
 
@@ -195,12 +229,19 @@ def run_basic_fifo_simulation(config):
         config, config.production_job_count,
     ))
 
+    env.process(watch_queues(
+        env, rma_rack, direct_requests, technicians, stations, metrics,
+        config.snapshot_gap_hours, config.snapshot_limit,
+    ))
+
     env.run()
 
-    print()
-    metrics.print_summary(env.now)
+    total_sim_time = metrics.find_last_job_finish_time()
 
-    print_utilization(technicians, stations, env.now)
+    print()
+    metrics.print_summary(total_sim_time)
+
+    print_utilization(technicians, stations, total_sim_time)
 
     results_folder = get_results_folder()
     file_name = config.name.replace(" ", "_")
@@ -208,10 +249,12 @@ def run_basic_fifo_simulation(config):
     events_path = os.path.join(results_folder, file_name + "_events.csv")
     summary_path = os.path.join(results_folder, file_name + "_summary.json")
     config_path = os.path.join(results_folder, file_name + "_config.json")
+    timeseries_path = os.path.join(results_folder, file_name + "_timeseries.csv")
 
     metrics.export_events_csv(events_path)
-    metrics.export_summary_json(summary_path, technicians, stations, env.now)
+    metrics.export_summary_json(summary_path, technicians, stations, total_sim_time)
     export_config_json(config, config_path)
+    metrics.save_queue_history_csv(timeseries_path)
 
     print("Results saved to:", results_folder)
 

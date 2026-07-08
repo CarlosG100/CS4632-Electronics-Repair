@@ -6,10 +6,22 @@ from datetime import datetime
 class SimulationMetrics:
     def __init__(self):
         self.completed_jobs = []
+        self.queue_history = []
+
+    def add_queue_snapshot(self, sim_time, rma_queue_length, direct_request_queue_length, techs_busy, techs_idle, stations_busy, stations_idle):
+        row = {
+            "sim_time": sim_time,
+            "rma_queue_length": rma_queue_length,
+            "direct_request_queue_length": direct_request_queue_length,
+            "techs_busy": techs_busy,
+            "techs_idle": techs_idle,
+            "stations_busy": stations_busy,
+            "stations_idle": stations_idle,
+        }
+
+        self.queue_history.append(row)
 
     def record_completed_job(self, job, technician, station):
-        # wait time is how long the job sat before starting
-        # turnaround time is how long the job took from arrival to finish
         wait_time = job.start_time - job.sim_arrival_time
         turnaround_time = job.finish_time - job.sim_arrival_time
 
@@ -31,6 +43,17 @@ class SimulationMetrics:
 
     def count_completed_jobs(self):
         return len(self.completed_jobs)
+
+    def find_last_job_finish_time(self):
+        if len(self.completed_jobs) == 0:
+            return 0
+
+        last_time = self.completed_jobs[0]["finish_time"]
+        for record in self.completed_jobs:
+            if record["finish_time"] > last_time:
+                last_time = record["finish_time"]
+
+        return last_time
 
     def calculate_average_wait_time(self):
         if len(self.completed_jobs) == 0:
@@ -92,6 +115,19 @@ class SimulationMetrics:
 
             for record in self.completed_jobs:
                 writer.writerow(record)
+
+    def save_queue_history_csv(self, file_path):
+        field_names = [
+            "sim_time", "rma_queue_length", "direct_request_queue_length",
+            "techs_busy", "techs_idle", "stations_busy", "stations_idle",
+        ]
+
+        with open(file_path, "w", newline="") as csv_file:
+            writer = csv.DictWriter(csv_file, fieldnames=field_names)
+            writer.writeheader()
+
+            for row in self.queue_history:
+                writer.writerow(row)
 
     def export_summary_json(self, file_path, technicians, stations, total_sim_time):
         tech_utilization = {}

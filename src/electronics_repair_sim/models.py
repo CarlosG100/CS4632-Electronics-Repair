@@ -121,6 +121,12 @@ class ScenarioConfig:
         # used to seed python's random module so results can be reproduced
         self.random_seed = 42
 
+        # how many simulated hours to wait between each queue check
+        self.snapshot_gap_hours = 5
+
+        # stop taking queue checks after this many, so the sim always ends
+        self.snapshot_limit = 200
+
         # Production failures can interrupt lower-priority work.
         self.allow_preemption = True
 
@@ -140,6 +146,10 @@ def validate_config(config):
         raise ValueError("direct_request_limit cannot be negative")
     if config.production_job_count < 0:
         raise ValueError("production_job_count cannot be negative")
+    if config.snapshot_gap_hours < 0:
+        raise ValueError("snapshot_gap_hours cannot be negative")
+    if config.snapshot_limit < 0:
+        raise ValueError("snapshot_limit cannot be negative")
 
     if config.general_technicians + config.specialty_technicians == 0:
         raise ValueError("You need at least one technician.")
