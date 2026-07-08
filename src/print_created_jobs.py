@@ -1,5 +1,6 @@
 from electronics_repair_sim.create_jobs import create_all_jobs
 from electronics_repair_sim.job_rules import is_direct_request, is_rma_rack_job
+from electronics_repair_sim.models import ScenarioConfig
 
 
 def count_sources(jobs):
@@ -25,7 +26,8 @@ def print_source_counts(jobs):
 
 
 def main():
-    jobs = create_all_jobs()
+    config = ScenarioConfig()
+    jobs, avg_production_interarrival_hours, production_rtv_probability = create_all_jobs(config)
 
     open_rma_count = 0
     historical_rma_count = 0
@@ -51,6 +53,11 @@ def main():
     print()
 
     print_source_counts(jobs)
+
+    print("Production failure model (learned from historical data)")
+    print("Average interarrival hours:", format(avg_production_interarrival_hours, ".2f"))
+    print("RTV probability:", format(production_rtv_probability, ".4f"))
+    print()
 
 
 if __name__ == "__main__":

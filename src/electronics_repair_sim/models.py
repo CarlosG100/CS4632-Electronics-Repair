@@ -1,3 +1,6 @@
+import json
+
+
 # Job sources from my project scope.
 SOURCE_RMA = "Customer RMA"
 SOURCE_ADVEX = "Advance Exchange"
@@ -109,8 +112,14 @@ class ScenarioConfig:
         # how many RMA rack jobs to run in this scenario
         self.job_limit = 3
 
-        # how many AdvEx/reship/production jobs to run in this scenario
+        # how many AdvEx/reship jobs to run in this scenario
         self.direct_request_limit = 3
+
+        # how many new/simulated production failures to generate this run
+        self.production_job_count = 3
+
+        # used to seed python's random module so results can be reproduced
+        self.random_seed = 42
 
         # Production failures can interrupt lower-priority work.
         self.allow_preemption = True
@@ -129,11 +138,29 @@ def validate_config(config):
         raise ValueError("job_limit cannot be negative")
     if config.direct_request_limit < 0:
         raise ValueError("direct_request_limit cannot be negative")
+    if config.production_job_count < 0:
+        raise ValueError("production_job_count cannot be negative")
 
     if config.general_technicians + config.specialty_technicians == 0:
         raise ValueError("You need at least one technician.")
     if config.general_stations + config.specialty_stations == 0:
         raise ValueError("You need at least one station.")
+
+
+def export_config_json(config, file_path):
+    data = {
+        "name": config.name,
+        "general_technicians": config.general_technicians,
+        "specialty_technicians": config.specialty_technicians,
+        "general_stations": config.general_stations,
+        "specialty_stations": config.specialty_stations,
+        "job_limit": config.job_limit,
+        "direct_request_limit": config.direct_request_limit,
+        "allow_preemption": config.allow_preemption,
+    }
+
+    with open(file_path, "w") as json_file:
+        json.dump(data, json_file, indent=2)
 
 
 def capability_from_sop(sop_value):

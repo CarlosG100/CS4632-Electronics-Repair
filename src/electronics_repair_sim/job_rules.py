@@ -45,6 +45,15 @@ def get_source_from_production_row(row):
     return SOURCE_PRODUCTION
 
 
+def get_production_outcome(location_value):
+    cleaned = clean_text(location_value)
+
+    if cleaned == "":
+        return OUTCOME_REPAIRED
+
+    return OUTCOME_RTV
+
+
 def get_outcome_value(outcome_text):
     # Convert CSV outcome text into a simulation outcome.
     cleaned = clean_text(outcome_text)

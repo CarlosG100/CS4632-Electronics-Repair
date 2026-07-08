@@ -1,10 +1,32 @@
+import os
+import random
+
 import simpy
 
-from electronics_repair_sim.create_jobs import create_all_jobs
+from electronics_repair_sim.create_jobs import create_all_jobs, make_production_job
 from electronics_repair_sim.metrics import SimulationMetrics
-from electronics_repair_sim.models import CAPABILITY_SPECIALTY, SOURCE_PRODUCTION, validate_config
+from electronics_repair_sim.models import CAPABILITY_SPECIALTY, export_config_json, validate_config
 from electronics_repair_sim.rack import split_jobs_into_waiting_lines
 from electronics_repair_sim.resources import create_stations, create_technicians
+
+
+def get_results_folder():
+    # figure out where the results folder is, the same way csv_parser finds the data folder
+    this_file = os.path.abspath(__file__)
+    sim_folder = os.path.dirname(this_file)
+    src_folder = os.path.dirname(sim_folder)
+    project_folder = os.path.dirname(src_folder)
+    results_folder = os.path.join(project_folder, "results")
+
+    if not os.path.exists(results_folder):
+        os.makedirs(results_folder)
+
+    return results_folder
+
+
+def make_safe_file_name(name):
+    # turn a scenario name like "extra specialty tech" into a file-name-friendly string
+    return name.replace(" ", "_")
 
 
 def find_free_tech(job, technicians):
@@ -93,6 +115,33 @@ def repair_job(env, job, tech_resource, station_resource, technicians, stations,
             print("Time", format(env.now, ".2f") + ":", job.job_id, "interrupted, remaining time", format(job.remaining_time, ".2f"))
 
 
+def production_arrival_process(env, avg_interarrival_hours, rtv_probability, tech_resource, station_resource, technicians, stations, metrics, config, job_count):
+    # My textbook (Banks) said random arrivals are usually modeled with an
+    # exponential distribution instead of just spacing them evenly, so I'm
+    # generating new production failures this way instead of replaying the
+    # historical rows directly.
+    job_number = 1
+
+    while job_number <= job_count:
+        if avg_interarrival_hours > 0:
+            # random.expovariate wants the rate (1 / average), not the
+            # average itself. Took me a while to figure out why my gaps
+            # were coming out way too small before I fixed this.
+            gap = random.expovariate(1 / avg_interarrival_hours)
+        else:
+            gap = 0
+
+        yield env.timeout(gap)
+
+        job = make_production_job(job_number, rtv_probability)
+        job.sim_arrival_time = env.now
+        job_number += 1
+
+        print("Time", format(env.now, ".2f") + ":", job.job_id, "new production failure arrived")
+
+        env.process(repair_job(env, job, tech_resource, station_resource, technicians, stations, metrics, config.allow_preemption))
+
+
 def run_basic_fifo_simulation(config):
     validate_config(config)
 
@@ -109,7 +158,7 @@ def run_basic_fifo_simulation(config):
 
     metrics = SimulationMetrics()
 
-    jobs = create_all_jobs()
+    jobs, avg_production_interarrival_hours, production_rtv_probability = create_all_jobs(config)
     rma_rack, direct_requests = split_jobs_into_waiting_lines(jobs)
 
     print("Scenario:", config.name)
@@ -120,6 +169,7 @@ def run_basic_fifo_simulation(config):
     print("Allow preemption:", config.allow_preemption)
     print("Job limit:", config.job_limit)
     print("Direct request limit:", config.direct_request_limit)
+    print("Production job count:", config.production_job_count)
     print("Open RMA jobs waiting:", rma_rack.count_jobs())
     print("Open direct requests waiting:", direct_requests.count_jobs())
     print()
@@ -135,12 +185,11 @@ def run_basic_fifo_simulation(config):
             # mark when the job enters the sim so wait time can be measured
             job.sim_arrival_time = env.now
 
-            # only production failures are allowed to preempt other jobs
-            preempt = config.allow_preemption and job.source == SOURCE_PRODUCTION
+            # only production failures are allowed to preempt other jobs, and
+            # none of these jobs are production failures
+            env.process(repair_job(env, job, tech_resource, station_resource, technicians, stations, metrics, False))
 
-            env.process(repair_job(env, job, tech_resource, station_resource, technicians, stations, metrics, preempt))
-
-    # direct requests (AdvEx, reship, production) are pulled in priority order
+    # direct requests (AdvEx, reship) are pulled in priority order
     for count in range(config.direct_request_limit):
         job = direct_requests.get_next_job()
 
@@ -151,9 +200,15 @@ def run_basic_fifo_simulation(config):
 
             job.sim_arrival_time = env.now
 
-            preempt = config.allow_preemption and job.source == SOURCE_PRODUCTION
+            env.process(repair_job(env, job, tech_resource, station_resource, technicians, stations, metrics, False))
 
-            env.process(repair_job(env, job, tech_resource, station_resource, technicians, stations, metrics, preempt))
+    # production failures are simulated as brand new arrivals over time,
+    # using patterns learned from historical production data
+    env.process(production_arrival_process(
+        env, avg_production_interarrival_hours, production_rtv_probability,
+        general_tech_resource, general_station_resource, technicians, stations, metrics,
+        config, config.production_job_count,
+    ))
 
     env.run()
 
@@ -161,6 +216,19 @@ def run_basic_fifo_simulation(config):
     metrics.print_summary(env.now)
 
     print_utilization(technicians, stations, env.now)
+
+    results_folder = get_results_folder()
+    safe_name = make_safe_file_name(config.name)
+
+    events_path = os.path.join(results_folder, safe_name + "_events.csv")
+    summary_path = os.path.join(results_folder, safe_name + "_summary.json")
+    config_path = os.path.join(results_folder, safe_name + "_config.json")
+
+    metrics.export_events_csv(events_path)
+    metrics.export_summary_json(summary_path, technicians, stations, env.now)
+    export_config_json(config, config_path)
+
+    print("Results saved to:", results_folder)
 
     return metrics
 

@@ -1,5 +1,9 @@
+import csv
+import json
+from datetime import datetime
+
+
 class SimulationMetrics:
-    #data from one simulation run.
     def __init__(self):
         self.completed_jobs = []
 
@@ -71,11 +75,54 @@ class SimulationMetrics:
         return min_value
 
     def calculate_throughput(self, total_sim_time):
-        # jobs completed per hour of simulation time
         if total_sim_time == 0:
             return 0
 
         return self.count_completed_jobs() / total_sim_time
+
+    def export_events_csv(self, file_path):
+        field_names = [
+            "job_id", "source", "capability", "outcome", "start_time", "finish_time",
+            "wait_time", "turnaround_time", "service_time", "technician", "station",
+        ]
+
+        with open(file_path, "w", newline="") as csv_file:
+            writer = csv.DictWriter(csv_file, fieldnames=field_names)
+            writer.writeheader()
+
+            for record in self.completed_jobs:
+                writer.writerow(record)
+
+    def export_summary_json(self, file_path, technicians, stations, total_sim_time):
+        tech_utilization = {}
+        for tech in technicians:
+            if total_sim_time > 0:
+                tech_utilization[tech.tech_id] = (tech.busy_time / total_sim_time) * 100
+            else:
+                tech_utilization[tech.tech_id] = 0
+
+        station_utilization = {}
+        for station in stations:
+            if total_sim_time > 0:
+                station_utilization[station.station_id] = (station.busy_time / total_sim_time) * 100
+            else:
+                station_utilization[station.station_id] = 0
+
+        summary = {
+            "generated_at": datetime.now().isoformat(),
+            "total_sim_time": total_sim_time,
+            "completed_jobs": self.count_completed_jobs(),
+            "average_wait_time": self.calculate_average_wait_time(),
+            "average_turnaround_time": self.calculate_average_turnaround_time(),
+            "max_wait_time": self.get_max_wait_time(),
+            "min_wait_time": self.get_min_wait_time(),
+            "throughput_jobs_per_hour": self.calculate_throughput(total_sim_time),
+            "technician_utilization_percent": tech_utilization,
+            "station_utilization_percent": station_utilization,
+        }
+
+        with open(file_path, "w") as json_file:
+            json.dump(summary, json_file, indent=2)
 
     def print_summary(self, total_sim_time):
         print("Simulation Metrics")

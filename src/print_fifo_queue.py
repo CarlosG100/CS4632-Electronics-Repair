@@ -1,4 +1,5 @@
 from electronics_repair_sim.create_jobs import create_all_jobs
+from electronics_repair_sim.models import ScenarioConfig
 from electronics_repair_sim.rack import split_jobs_into_waiting_lines
 
 
@@ -21,7 +22,8 @@ def print_next_rma_jobs(rma_rack, amount):
 
 
 def main():
-    jobs = create_all_jobs()
+    config = ScenarioConfig()
+    jobs, avg_production_interarrival_hours, production_rtv_probability = create_all_jobs(config)
     rma_rack, direct_requests = split_jobs_into_waiting_lines(jobs)
 
     print("FIFO")
