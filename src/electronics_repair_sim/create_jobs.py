@@ -60,8 +60,8 @@ def get_service_time_from_dates(start_text, end_text):
     return time_difference.total_seconds() / 3600
 
 
-def get_average_rma_service_time(rma_units):
-    # Use closed RMA unit rows for the historical service-time estimate.
+def get_rma_service_times_list(rma_units):
+    # Use closed RMA unit rows for the historical service times.
     service_times = []
 
     for unit in rma_units:
@@ -76,6 +76,11 @@ def get_average_rma_service_time(rma_units):
             if service_time is not None:
                 service_times.append(service_time)
 
+    return service_times
+
+
+def get_average_rma_service_time(rma_units):
+    service_times = get_rma_service_times_list(rma_units)
     return average(service_times)
 
 
@@ -175,8 +180,11 @@ def create_rma_jobs(rma_parents, rma_units):
     closed_customer_units = get_closed_customer_rma_units(rma_parents, rma_units)
     general_closed_units, specialty_closed_units = split_units_by_capability(closed_customer_units)
 
-    general_avg_service_time = get_average_rma_service_time(general_closed_units)
-    specialty_avg_service_time = get_average_rma_service_time(specialty_closed_units)
+    general_service_times = get_rma_service_times_list(general_closed_units)
+    specialty_service_times = get_rma_service_times_list(specialty_closed_units)
+
+    general_avg_service_time = average(general_service_times)
+    specialty_avg_service_time = average(specialty_service_times)
 
     general_outcome_counts = get_outcome_counts(general_closed_units)
     specialty_outcome_counts = get_outcome_counts(specialty_closed_units)
@@ -196,10 +204,16 @@ def create_rma_jobs(rma_parents, rma_units):
 
         if is_open_customer_rma:
             if capability == CAPABILITY_SPECIALTY:
-                service_time = specialty_avg_service_time
+                if len(specialty_service_times) > 0:
+                    service_time = random.choice(specialty_service_times)
+                else:
+                    service_time = specialty_avg_service_time
                 outcome = draw_random_outcome(specialty_outcome_counts)
             else:
-                service_time = general_avg_service_time
+                if len(general_service_times) > 0:
+                    service_time = random.choice(general_service_times)
+                else:
+                    service_time = general_avg_service_time
                 outcome = draw_random_outcome(general_outcome_counts)
         else:
             if capability == CAPABILITY_SPECIALTY:

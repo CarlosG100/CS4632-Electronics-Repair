@@ -37,6 +37,7 @@ class SimulationMetrics:
             "service_time": job.service_time,
             "technician": technician.tech_id,
             "station": station.station_id,
+            "interrupted_count": job.interrupted_count,
         }
 
         self.completed_jobs.append(record)
@@ -107,6 +108,7 @@ class SimulationMetrics:
         field_names = [
             "job_id", "source", "capability", "outcome", "start_time", "finish_time",
             "wait_time", "turnaround_time", "service_time", "technician", "station",
+            "interrupted_count",
         ]
 
         with open(file_path, "w", newline="") as csv_file:
@@ -164,10 +166,10 @@ class SimulationMetrics:
         print("Simulation Metrics")
         print("------------------")
         print("Completed jobs:", self.count_completed_jobs())
-        print("Avg wait time:", format(self.calculate_average_wait_time(), ".2f"))
-        print("Avg turnaround time:", format(self.calculate_average_turnaround_time(), ".2f"))
-        print("Max wait time:", format(self.get_max_wait_time(), ".2f"))
-        print("Min wait time:", format(self.get_min_wait_time(), ".2f"))
+        print("Avg wait time:", format(self.calculate_average_wait_time(), ".2f"), "hrs")
+        print("Avg turnaround time:", format(self.calculate_average_turnaround_time(), ".2f"), "hrs")
+        print("Max wait time:", format(self.get_max_wait_time(), ".2f"), "hrs")
+        print("Min wait time:", format(self.get_min_wait_time(), ".2f"), "hrs")
         print("Throughput (jobs per hour):", format(self.calculate_throughput(total_sim_time), ".4f"))
         print()
 
@@ -176,11 +178,12 @@ class SimulationMetrics:
             print("Source:", record["source"])
             print("Capability:", record["capability"])
             print("Outcome:", record["outcome"])
-            print("Start time:", format(record["start_time"], ".2f"))
-            print("Finish time:", format(record["finish_time"], ".2f"))
-            print("Wait time:", format(record["wait_time"], ".2f"))
-            print("Turnaround time:", format(record["turnaround_time"], ".2f"))
-            print("Service time:", format(record["service_time"], ".2f"))
+            print("Start time:", format(record["start_time"], ".2f"), "hrs")
+            print("Finish time:", format(record["finish_time"], ".2f"), "hrs")
+            print("Wait time:", format(record["wait_time"], ".2f"), "hrs")
+            print("Turnaround time:", format(record["turnaround_time"], ".2f"), "hrs")
+            print("Service time:", format(record["service_time"], ".2f"), "hrs")
             print("Technician:", record["technician"])
             print("Station:", record["station"])
+            print("Interrupted count:", record["interrupted_count"])
             print()
