@@ -1,4 +1,5 @@
 import os
+import time
 
 from electronics_repair_sim.models import ScenarioConfig
 from electronics_repair_sim.simpy_runner import get_results_folder, run_basic_fifo_simulation
@@ -103,16 +104,23 @@ def print_run_header(run_number, name):
     print(("-" * left_dashes) + title + ("-" * right_dashes))
 
 
+def format_execution_time(execution_seconds):
+    minutes = int(execution_seconds // 60)
+    seconds = execution_seconds - (minutes * 60)
+    return str(minutes) + "m " + format(seconds, ".1f") + "s"
+
+
 def print_run_summary_table(run_records):
-    print("Run ID | Purpose | Key Parameters | Duration | Status")
-    print("-------------------------------------------------------")
+    print("Run ID | Purpose | Key Parameters | Simulated Duration | Execution Time | Status")
+    print("---------------------------------------------------------------------------------")
 
     for record in run_records:
         print(
             record["run_number"], "|",
             record["purpose"], "|",
             record["key_parameters"], "|",
-            format(record["duration_hours"], ".2f") + " hrs", "|",
+            format(record["simulated_hours"], ".2f") + " hrs", "|",
+            format_execution_time(record["execution_seconds"]), "|",
             record["status"],
         )
         print()
@@ -120,7 +128,7 @@ def print_run_summary_table(run_records):
 
 def clear_old_results():
     results_folder = get_results_folder()
-    file_names = ["config.csv", "summary.csv", "events.csv", "timeseries.csv"]
+    file_names = ["config.csv", "summary.csv", "events.csv", "time.csv"]
 
     for file_name in file_names:
         file_path = os.path.join(results_folder, file_name)
@@ -141,19 +149,24 @@ def run_all_scenarios():
         print_run_header(run_number, config.name)
 
         status = "Complete"
-        duration_hours = 0
+        simulated_hours = 0
+
+        start_time = time.time()
 
         try:
             metrics = run_basic_fifo_simulation(config)
-            duration_hours = metrics.find_last_job_finish_time()
+            simulated_hours = metrics.find_last_job_finish_time()
         except Exception as error:
             status = "Error: " + str(error)
+
+        execution_seconds = time.time() - start_time
 
         record = {
             "run_number": run_number,
             "purpose": scenario["purpose"],
             "key_parameters": scenario["key_parameters"],
-            "duration_hours": duration_hours,
+            "simulated_hours": simulated_hours,
+            "execution_seconds": execution_seconds,
             "status": status,
         }
         run_records.append(record)

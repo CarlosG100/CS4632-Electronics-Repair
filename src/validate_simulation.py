@@ -135,8 +135,6 @@ def check_wait_and_turnaround_make_sense():
         if record["wait_time"] < 0:
             return False
 
-        # turnaround can be longer than wait + service since business hours
-        # pause work overnight/weekends, but it should never be shorter
         expected_minimum_turnaround = record["wait_time"] + record["service_time"]
 
         if record["turnaround_time"] < expected_minimum_turnaround - 0.01:

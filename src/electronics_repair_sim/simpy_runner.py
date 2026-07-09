@@ -9,12 +9,10 @@ from electronics_repair_sim.models import CAPABILITY_SPECIALTY, SOURCE_ADVEX, SO
 from electronics_repair_sim.resources import create_stations, create_technicians
 
 
-# The department only works 7:00 AM to 3:30 PM, Monday through Friday.
-# Sim time 0 is treated as midnight on a Monday, so day 0 = Monday ... day 6 = Sunday.
 HOURS_PER_DAY = 24
 BUSINESS_START_HOUR = 7.0
 BUSINESS_END_HOUR = 15.5
-LAST_BUSINESS_DAY = 4  # Monday=0 ... Friday=4, Saturday=5, Sunday=6
+LAST_BUSINESS_DAY = 4
 
 
 def is_business_hours(sim_time):
@@ -34,7 +32,6 @@ def get_business_end_of_day(sim_time):
 
 
 def get_next_business_start(sim_time):
-    # find the next moment (at or after sim_time) that business hours begin
     day_number = int(sim_time // HOURS_PER_DAY)
 
     for day_offset in range(0, 8):
@@ -93,7 +90,6 @@ def get_resource_priority(job):
 
 def repair_job(env, job, tech_resource, station_resource, technicians, stations, metrics, preempt):
     while True:
-        # the department is closed, nothing gets picked up until the next business day
         if not is_business_hours(env.now):
             wait_hours = get_next_business_start(env.now) - env.now
             yield env.timeout(wait_hours)
@@ -125,8 +121,6 @@ def repair_job(env, job, tech_resource, station_resource, technicians, stations,
 
                     print("Time", format(env.now, ".2f") + ":", job.job_id, "started on", tech.tech_id, "and", station.station_id)
 
-                    # work in chunks so the job pauses at the end of each business day
-                    # (the unit just stays on the bench overnight/over the weekend)
                     while job.remaining_time > 0:
                         if not is_business_hours(env.now):
                             wait_hours = get_next_business_start(env.now) - env.now
@@ -364,7 +358,7 @@ def run_basic_fifo_simulation(config):
     events_path = os.path.join(results_folder, "events.csv")
     summary_path = os.path.join(results_folder, "summary.csv")
     config_path = os.path.join(results_folder, "config.csv")
-    timeseries_path = os.path.join(results_folder, "timeseries.csv")
+    timeseries_path = os.path.join(results_folder, "time.csv")
 
     metrics.export_events_csv(events_path, config.name)
     metrics.export_summary_csv(summary_path, technicians, stations, total_sim_time, config.name)
