@@ -74,7 +74,6 @@ def repair_job(env, job, tech_resource, station_resource, technicians, stations,
 
                     print("Time", format(env.now, ".2f") + ":", job.job_id, "started on", tech.tech_id, "and", station.station_id)
 
-                    # save this before it gets reset to 0 below
                     work_time = job.remaining_time
 
                     yield env.timeout(work_time)
@@ -206,7 +205,6 @@ def run_basic_fifo_simulation(config):
             # mark when the job enters the sim so wait time can be measured
             job.sim_arrival_time = env.now
 
-            # only production failures are allowed to preempt other jobs
             env.process(repair_job(env, job, tech_resource, station_resource, technicians, stations, metrics, False))
 
     # direct requests (AdvEx, reship) are pulled in priority order
@@ -222,7 +220,6 @@ def run_basic_fifo_simulation(config):
 
             env.process(repair_job(env, job, tech_resource, station_resource, technicians, stations, metrics, False))
 
-    # production failures are simulated as brand new arrivals over time,
     env.process(production_arrival_process(
         env, avg_production_interarrival_hours, production_rtv_probability,
         general_tech_resource, general_station_resource, technicians, stations, metrics,
@@ -269,7 +266,7 @@ def print_utilization(technicians, stations, total_sim_time):
             percent_busy = (tech.busy_time / total_sim_time) * 100
         else:
             percent_busy = 0
-        print(tech.tech_id + ":", format(tech.busy_time, ".2f"), "busy hours out of", format(total_sim_time, ".2f"), "(" + format(percent_busy, ".1f") + "%)")
+        print(tech.tech_id + ":", format(tech.busy_time, ".2f"), "hrs busy out of", format(total_sim_time, ".2f"), "hrs", "(" + format(percent_busy, ".1f") + "%)")
     print()
 
     print("Station utilization")
@@ -278,5 +275,5 @@ def print_utilization(technicians, stations, total_sim_time):
             percent_busy = (station.busy_time / total_sim_time) * 100
         else:
             percent_busy = 0
-        print(station.station_id + ":", format(station.busy_time, ".2f"), "busy hours out of", format(total_sim_time, ".2f"), "(" + format(percent_busy, ".1f") + "%)")
+        print(station.station_id + ":", format(station.busy_time, ".2f"), "hrs busy out of", format(total_sim_time, ".2f"), "hrs", "(" + format(percent_busy, ".1f") + "%)")
     print()

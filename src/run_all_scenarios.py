@@ -109,7 +109,7 @@ def run_all_scenarios():
     for record in run_records:
         print(
             "Run", record["run_number"], "-", record["name"] + ":",
-            format(record["duration_seconds"], ".2f"), "seconds -", record["status"],
+            format(record["duration_seconds"], ".2f"), "secs -", record["status"],
         )
 
 

@@ -166,6 +166,10 @@ def export_config_json(config, file_path):
         "specialty_stations": config.specialty_stations,
         "job_limit": config.job_limit,
         "direct_request_limit": config.direct_request_limit,
+        "production_job_count": config.production_job_count,
+        "random_seed": config.random_seed,
+        "snapshot_gap_hours": config.snapshot_gap_hours,
+        "snapshot_limit": config.snapshot_limit,
         "allow_preemption": config.allow_preemption,
     }
 
