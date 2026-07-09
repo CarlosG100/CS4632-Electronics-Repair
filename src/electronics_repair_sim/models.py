@@ -1,4 +1,5 @@
-import json
+import csv
+import os
 
 
 # Job sources from my project scope.
@@ -24,6 +25,7 @@ CAPABILITY_SPECIALTY = "specialty"
 OUTCOME_REPAIRED = "repaired"
 OUTCOME_SCRAP = "scrap"
 OUTCOME_RTV = "rtv"
+OUTCOME_RESHIPPED = "reshipped"
 
 
 # S&OP values that require specialty equipment.
@@ -109,11 +111,14 @@ class ScenarioConfig:
         self.general_stations = 1
         self.specialty_stations = 1
 
-        # how many RMA rack jobs to run in this scenario
+        # how many new/simulated Customer RMA jobs to generate this run
         self.job_limit = 3
 
-        # how many AdvEx/reship jobs to run in this scenario
-        self.direct_request_limit = 3
+        # how many new/simulated AdvEx jobs to generate this run
+        self.advex_job_count = 3
+
+        # how many new/simulated reship jobs to generate this run
+        self.reship_job_count = 3
 
         # how many new/simulated production failures to generate this run
         self.production_job_count = 3
@@ -142,8 +147,10 @@ def validate_config(config):
         raise ValueError("specialty_stations cannot be negative")
     if config.job_limit < 0:
         raise ValueError("job_limit cannot be negative")
-    if config.direct_request_limit < 0:
-        raise ValueError("direct_request_limit cannot be negative")
+    if config.advex_job_count < 0:
+        raise ValueError("advex_job_count cannot be negative")
+    if config.reship_job_count < 0:
+        raise ValueError("reship_job_count cannot be negative")
     if config.production_job_count < 0:
         raise ValueError("production_job_count cannot be negative")
     if config.snapshot_gap_hours < 0:
@@ -157,15 +164,16 @@ def validate_config(config):
         raise ValueError("You need at least one station.")
 
 
-def export_config_json(config, file_path):
-    data = {
-        "name": config.name,
+def export_config_csv(config, file_path):
+    new_row = {
+        "scenario": config.name,
         "general_technicians": config.general_technicians,
         "specialty_technicians": config.specialty_technicians,
         "general_stations": config.general_stations,
         "specialty_stations": config.specialty_stations,
         "job_limit": config.job_limit,
-        "direct_request_limit": config.direct_request_limit,
+        "advex_job_count": config.advex_job_count,
+        "reship_job_count": config.reship_job_count,
         "production_job_count": config.production_job_count,
         "random_seed": config.random_seed,
         "snapshot_gap_hours": config.snapshot_gap_hours,
@@ -173,8 +181,21 @@ def export_config_json(config, file_path):
         "allow_preemption": config.allow_preemption,
     }
 
-    with open(file_path, "w") as json_file:
-        json.dump(data, json_file, indent=2)
+    existing_rows = []
+    if os.path.exists(file_path):
+        with open(file_path, newline="") as csv_file:
+            reader = csv.DictReader(csv_file)
+            existing_rows = list(reader)
+
+    existing_rows.append(new_row)
+    field_names = list(new_row.keys())
+
+    with open(file_path, "w", newline="") as csv_file:
+        writer = csv.DictWriter(csv_file, fieldnames=field_names, restval="")
+        writer.writeheader()
+
+        for row in existing_rows:
+            writer.writerow(row)
 
 
 def capability_from_sop(sop_value):

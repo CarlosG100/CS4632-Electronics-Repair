@@ -1,5 +1,5 @@
 import csv
-import json
+import os
 from datetime import datetime
 
 
@@ -8,11 +8,11 @@ class SimulationMetrics:
         self.completed_jobs = []
         self.queue_history = []
 
-    def add_queue_snapshot(self, sim_time, rma_queue_length, direct_request_queue_length, techs_busy, techs_idle, stations_busy, stations_idle):
+    def add_queue_snapshot(self, sim_time, tech_queue_length, station_queue_length, techs_busy, techs_idle, stations_busy, stations_idle):
         row = {
             "sim_time": sim_time,
-            "rma_queue_length": rma_queue_length,
-            "direct_request_queue_length": direct_request_queue_length,
+            "tech_queue_length": tech_queue_length,
+            "station_queue_length": station_queue_length,
             "techs_busy": techs_busy,
             "techs_idle": techs_idle,
             "stations_busy": stations_busy,
@@ -104,49 +104,48 @@ class SimulationMetrics:
 
         return self.count_completed_jobs() / total_sim_time
 
-    def export_events_csv(self, file_path):
+    def export_events_csv(self, file_path, scenario_name):
         field_names = [
-            "job_id", "source", "capability", "outcome", "start_time", "finish_time",
+            "scenario", "job_id", "source", "capability", "outcome", "start_time", "finish_time",
             "wait_time", "turnaround_time", "service_time", "technician", "station",
             "interrupted_count",
         ]
 
-        with open(file_path, "w", newline="") as csv_file:
+        file_already_exists = os.path.exists(file_path)
+
+        with open(file_path, "a", newline="") as csv_file:
             writer = csv.DictWriter(csv_file, fieldnames=field_names)
-            writer.writeheader()
+
+            if not file_already_exists:
+                writer.writeheader()
 
             for record in self.completed_jobs:
-                writer.writerow(record)
+                row = dict(record)
+                row["scenario"] = scenario_name
+                writer.writerow(row)
 
-    def save_queue_history_csv(self, file_path):
+    def save_queue_history_csv(self, file_path, scenario_name):
         field_names = [
-            "sim_time", "rma_queue_length", "direct_request_queue_length",
+            "scenario", "sim_time", "tech_queue_length", "station_queue_length",
             "techs_busy", "techs_idle", "stations_busy", "stations_idle",
         ]
 
-        with open(file_path, "w", newline="") as csv_file:
+        file_already_exists = os.path.exists(file_path)
+
+        with open(file_path, "a", newline="") as csv_file:
             writer = csv.DictWriter(csv_file, fieldnames=field_names)
-            writer.writeheader()
+
+            if not file_already_exists:
+                writer.writeheader()
 
             for row in self.queue_history:
-                writer.writerow(row)
+                row_with_scenario = dict(row)
+                row_with_scenario["scenario"] = scenario_name
+                writer.writerow(row_with_scenario)
 
-    def export_summary_json(self, file_path, technicians, stations, total_sim_time):
-        tech_utilization = {}
-        for tech in technicians:
-            if total_sim_time > 0:
-                tech_utilization[tech.tech_id] = (tech.busy_time / total_sim_time) * 100
-            else:
-                tech_utilization[tech.tech_id] = 0
-
-        station_utilization = {}
-        for station in stations:
-            if total_sim_time > 0:
-                station_utilization[station.station_id] = (station.busy_time / total_sim_time) * 100
-            else:
-                station_utilization[station.station_id] = 0
-
-        summary = {
+    def export_summary_csv(self, file_path, technicians, stations, total_sim_time, scenario_name):
+        new_row = {
+            "scenario": scenario_name,
             "generated_at": datetime.now().isoformat(),
             "total_sim_time": total_sim_time,
             "completed_jobs": self.count_completed_jobs(),
@@ -155,12 +154,43 @@ class SimulationMetrics:
             "max_wait_time": self.get_max_wait_time(),
             "min_wait_time": self.get_min_wait_time(),
             "throughput_jobs_per_hour": self.calculate_throughput(total_sim_time),
-            "technician_utilization_percent": tech_utilization,
-            "station_utilization_percent": station_utilization,
         }
 
-        with open(file_path, "w") as json_file:
-            json.dump(summary, json_file, indent=2)
+        for tech in technicians:
+            if total_sim_time > 0:
+                percent_busy = (tech.busy_time / total_sim_time) * 100
+            else:
+                percent_busy = 0
+            new_row[tech.tech_id + "_utilization_percent"] = percent_busy
+
+        for station in stations:
+            if total_sim_time > 0:
+                percent_busy = (station.busy_time / total_sim_time) * 100
+            else:
+                percent_busy = 0
+            new_row[station.station_id + "_utilization_percent"] = percent_busy
+
+        existing_rows = []
+        existing_field_names = []
+
+        if os.path.exists(file_path):
+            with open(file_path, newline="") as csv_file:
+                reader = csv.DictReader(csv_file)
+                existing_field_names = reader.fieldnames or []
+                existing_rows = list(reader)
+
+        existing_rows.append(new_row)
+        field_names = list(existing_field_names)
+        for key in new_row:
+            if key not in field_names:
+                field_names.append(key)
+
+        with open(file_path, "w", newline="") as csv_file:
+            writer = csv.DictWriter(csv_file, fieldnames=field_names, restval="")
+            writer.writeheader()
+
+            for row in existing_rows:
+                writer.writerow(row)
 
     def print_summary(self, total_sim_time):
         print("Simulation Metrics")

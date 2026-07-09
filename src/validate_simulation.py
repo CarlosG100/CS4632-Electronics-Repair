@@ -92,7 +92,8 @@ def check_no_double_booking():
     config = ScenarioConfig()
     config.name = "validation check no preemption"
     config.job_limit = 5
-    config.direct_request_limit = 5
+    config.advex_job_count = 5
+    config.reship_job_count = 5
     config.production_job_count = 0
     config.allow_preemption = False
 
@@ -123,7 +124,8 @@ def check_wait_and_turnaround_make_sense():
     config = ScenarioConfig()
     config.name = "validation check wait and turnaround"
     config.job_limit = 5
-    config.direct_request_limit = 5
+    config.advex_job_count = 5
+    config.reship_job_count = 5
     config.production_job_count = 0
     config.allow_preemption = False
 

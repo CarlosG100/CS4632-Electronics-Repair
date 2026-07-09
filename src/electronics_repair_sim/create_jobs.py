@@ -12,24 +12,16 @@ from electronics_repair_sim.models import (
     CAPABILITY_GENERAL,
     CAPABILITY_SPECIALTY,
     OUTCOME_REPAIRED,
+    OUTCOME_RESHIPPED,
     OUTCOME_RTV,
     PRIORITY_ASAP,
+    SOURCE_ADVEX,
     SOURCE_PRODUCTION,
+    SOURCE_RESHIP,
     SOURCE_RMA,
     Job,
     capability_from_sop,
 )
-
-
-def make_parent_lookup(rma_parents):
-    # This connects each unit row back to the parent RMA row.
-    parent_lookup = {}
-
-    for parent in rma_parents:
-        rma_id = parent.get("anon_rma_id", "")
-        parent_lookup[rma_id] = parent
-
-    return parent_lookup
 
 
 def get_capability(unit_row):
@@ -61,7 +53,7 @@ def get_service_time_from_dates(start_text, end_text):
 
 
 def get_rma_service_times_list(rma_units):
-    # Use closed RMA unit rows for the historical service times.
+    # Use closed unit rows for the historical service times.
     service_times = []
 
     for unit in rma_units:
@@ -79,36 +71,19 @@ def get_rma_service_times_list(rma_units):
     return service_times
 
 
-def get_average_rma_service_time(rma_units):
-    service_times = get_rma_service_times_list(rma_units)
-    return average(service_times)
+def make_parent_lookup(rma_parents):
+    # This connects each unit row back to the parent RMA row.
+    parent_lookup = {}
+
+    for parent in rma_parents:
+        rma_id = parent.get("anon_rma_id", "")
+        parent_lookup[rma_id] = parent
+
+    return parent_lookup
 
 
-def get_rma_service_time(unit_row, default_service_time):
-    service_time = get_service_time_from_dates(
-        unit_row.get("in_progress_date", ""),
-        unit_row.get("complete_date", ""),
-    )
-
-    if service_time is not None:
-        return service_time
-
-    return default_service_time
-
-
-def get_rma_board_status(parent_row, unit_row):
-    #job is open only when the parent RMA and unit row are open.
-    parent_status = parent_row.get("board_status", "").strip().lower()
-    unit_status = unit_row.get("board_status", "").strip().lower()
-
-    if parent_status == "open" and unit_status == "open":
-        return "open"
-
-    return "closed"
-
-
-def get_closed_customer_rma_units(rma_parents, rma_units):
-    # Only look at closed Customer RMA units.
+def get_closed_units_by_source(rma_parents, rma_units, source):
+    # Only look at closed units for the given source (RMA, AdvEx, or reship).
     parent_lookup = make_parent_lookup(rma_parents)
     closed_units = []
 
@@ -116,13 +91,31 @@ def get_closed_customer_rma_units(rma_parents, rma_units):
         rma_id = unit.get("anon_rma_id", "")
         parent = parent_lookup.get(rma_id, {})
 
-        source = get_source_from_rma_type(parent.get("rma_type", ""))
+        unit_source = get_source_from_rma_type(parent.get("rma_type", ""))
         unit_status = unit.get("board_status", "").strip().lower()
 
-        if source == SOURCE_RMA and unit_status == "closed":
+        if unit_source == source and unit_status == "closed":
             closed_units.append(unit)
 
     return closed_units
+
+
+def get_parent_rows_by_source(rma_parents, source):
+    matching_rows = []
+
+    for parent in rma_parents:
+        parent_source = get_source_from_rma_type(parent.get("rma_type", ""))
+        if parent_source == source:
+            matching_rows.append(parent)
+
+    return matching_rows
+
+
+def get_average_interarrival_hours_by_source(rma_parents, source):
+    matching_rows = get_parent_rows_by_source(rma_parents, source)
+    dates = get_sorted_dates(matching_rows, "request_date")
+    gaps = get_interarrival_hours(dates)
+    return average(gaps)
 
 
 def split_units_by_capability(units):
@@ -140,6 +133,14 @@ def split_units_by_capability(units):
     return general_units, specialty_units
 
 
+def get_general_fraction(units):
+    if len(units) == 0:
+        return 0.5
+
+    general_units, specialty_units = split_units_by_capability(units)
+    return len(general_units) / len(units)
+
+
 def get_outcome_counts(units):
     # count how many closed units ended up with each outcome
     counts = {}
@@ -155,7 +156,23 @@ def get_outcome_counts(units):
     return counts
 
 
+def get_priority_counts(parent_rows):
+    # count how many parent rows had each priority level
+    counts = {}
+
+    for parent in parent_rows:
+        priority = get_priority_value(parent.get("priority", ""))
+
+        if priority not in counts:
+            counts[priority] = 0
+
+        counts[priority] = counts[priority] + 1
+
+    return counts
+
+
 def draw_random_outcome(outcome_counts):
+    # pick a random value
     total = sum(outcome_counts.values())
 
     if total == 0:
@@ -172,73 +189,67 @@ def draw_random_outcome(outcome_counts):
     return "unknown"
 
 
-def create_rma_jobs(rma_parents, rma_units):
-    jobs = []
-    parent_lookup = make_parent_lookup(rma_parents)
+def build_job_model(rma_parents, rma_units, source):
+    closed_units = get_closed_units_by_source(rma_parents, rma_units, source)
+    general_units, specialty_units = split_units_by_capability(closed_units)
 
-    # build a repair-time and outcome model from closed Customer RMA units only,
-    closed_customer_units = get_closed_customer_rma_units(rma_parents, rma_units)
-    general_closed_units, specialty_closed_units = split_units_by_capability(closed_customer_units)
+    matching_parent_rows = get_parent_rows_by_source(rma_parents, source)
 
-    general_service_times = get_rma_service_times_list(general_closed_units)
-    specialty_service_times = get_rma_service_times_list(specialty_closed_units)
+    model = {
+        "avg_interarrival_hours": get_average_interarrival_hours_by_source(rma_parents, source),
+        "general_fraction": get_general_fraction(closed_units),
+        "general_avg_service_time": average(get_rma_service_times_list(general_units)),
+        "specialty_avg_service_time": average(get_rma_service_times_list(specialty_units)),
+        "general_service_times": get_rma_service_times_list(general_units),
+        "specialty_service_times": get_rma_service_times_list(specialty_units),
+        "general_outcome_counts": get_outcome_counts(general_units),
+        "specialty_outcome_counts": get_outcome_counts(specialty_units),
+        "priority_counts": get_priority_counts(matching_parent_rows),
+    }
 
-    general_avg_service_time = average(general_service_times)
-    specialty_avg_service_time = average(specialty_service_times)
+    return model
 
-    general_outcome_counts = get_outcome_counts(general_closed_units)
-    specialty_outcome_counts = get_outcome_counts(specialty_closed_units)
 
-    job_number = 1
-    for unit in rma_units:
-        rma_id = unit.get("anon_rma_id", "")
-        parent = parent_lookup.get(rma_id, {})
+def make_synthetic_job(job_number, id_prefix, source, model):
+    if random.random() < model["general_fraction"]:
+        capability = CAPABILITY_GENERAL
+        service_times = model["general_service_times"]
+        avg_service_time = model["general_avg_service_time"]
+        outcome_counts = model["general_outcome_counts"]
+    else:
+        capability = CAPABILITY_SPECIALTY
+        service_times = model["specialty_service_times"]
+        avg_service_time = model["specialty_avg_service_time"]
+        outcome_counts = model["specialty_outcome_counts"]
 
-        source = get_source_from_rma_type(parent.get("rma_type", ""))
-        priority = get_priority_value(parent.get("priority", ""))
-        arrival_time = parent.get("request_date", "")
-        capability = get_capability(unit)
-        board_status = get_rma_board_status(parent, unit)
+    if len(service_times) > 0:
+        service_time = random.choice(service_times)
+    else:
+        service_time = avg_service_time
 
-        is_open_customer_rma = source == SOURCE_RMA and board_status == "open"
+    outcome = draw_random_outcome(outcome_counts)
+    priority = draw_random_outcome(model["priority_counts"])
 
-        if is_open_customer_rma:
-            if capability == CAPABILITY_SPECIALTY:
-                if len(specialty_service_times) > 0:
-                    service_time = random.choice(specialty_service_times)
-                else:
-                    service_time = specialty_avg_service_time
-                outcome = draw_random_outcome(specialty_outcome_counts)
-            else:
-                if len(general_service_times) > 0:
-                    service_time = random.choice(general_service_times)
-                else:
-                    service_time = general_avg_service_time
-                outcome = draw_random_outcome(general_outcome_counts)
-        else:
-            if capability == CAPABILITY_SPECIALTY:
-                default_service_time = specialty_avg_service_time
-            else:
-                default_service_time = general_avg_service_time
+    job = Job(id_prefix + "-" + str(job_number), source, priority, None, service_time, capability)
+    job.outcome = outcome
+    job.board_status = "open"
+    return job
 
-            service_time = get_rma_service_time(unit, default_service_time)
-            outcome = get_outcome_value(unit.get("outcome", ""))
 
-        job = Job(
-            "RMA-" + str(job_number),
-            source,
-            priority,
-            arrival_time,
-            service_time,
-            capability,
-        )
+def make_reship_job(job_number, model):
+    if random.random() < model["general_fraction"]:
+        capability = CAPABILITY_GENERAL
+    else:
+        capability = CAPABILITY_SPECIALTY
 
-        job.outcome = outcome
-        job.board_status = board_status
-        jobs.append(job)
-        job_number += 1
+    service_time = random.uniform(1, 2)
 
-    return jobs
+    priority = draw_random_outcome(model["priority_counts"])
+
+    job = Job("RESHIP-" + str(job_number), SOURCE_RESHIP, priority, None, service_time, capability)
+    job.outcome = OUTCOME_RESHIPPED
+    job.board_status = "open"
+    return job
 
 
 def get_average_production_interarrival_hours(production_rows):
@@ -283,14 +294,18 @@ def make_production_job(job_number, rtv_probability):
     return job
 
 
-def create_all_jobs(config):
+def build_all_job_models(config):
     random.seed(config.random_seed)
 
     rma_parents, rma_units, production_rows = load_all_csv_data()
 
-    rma_jobs = create_rma_jobs(rma_parents, rma_units)
+    rma_model = build_job_model(rma_parents, rma_units, SOURCE_RMA)
+    advex_model = build_job_model(rma_parents, rma_units, SOURCE_ADVEX)
+    reship_model = build_job_model(rma_parents, rma_units, SOURCE_RESHIP)
 
-    avg_production_interarrival_hours = get_average_production_interarrival_hours(production_rows)
+    reship_model["avg_interarrival_hours"] = advex_model["avg_interarrival_hours"]
+
+    production_avg_interarrival_hours = get_average_production_interarrival_hours(production_rows)
     production_rtv_probability = get_production_rtv_probability(production_rows)
 
-    return rma_jobs, avg_production_interarrival_hours, production_rtv_probability
+    return rma_model, advex_model, reship_model, production_avg_interarrival_hours, production_rtv_probability
