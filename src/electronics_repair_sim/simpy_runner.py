@@ -9,6 +9,46 @@ from electronics_repair_sim.models import CAPABILITY_SPECIALTY, SOURCE_ADVEX, SO
 from electronics_repair_sim.resources import create_stations, create_technicians
 
 
+# The department only works 7:00 AM to 3:30 PM, Monday through Friday.
+# Sim time 0 is treated as midnight on a Monday, so day 0 = Monday ... day 6 = Sunday.
+HOURS_PER_DAY = 24
+BUSINESS_START_HOUR = 7.0
+BUSINESS_END_HOUR = 15.5
+LAST_BUSINESS_DAY = 4  # Monday=0 ... Friday=4, Saturday=5, Sunday=6
+
+
+def is_business_hours(sim_time):
+    day_number = int(sim_time // HOURS_PER_DAY) % 7
+    hour_of_day = sim_time % HOURS_PER_DAY
+
+    if day_number > LAST_BUSINESS_DAY:
+        return False
+    if hour_of_day < BUSINESS_START_HOUR or hour_of_day >= BUSINESS_END_HOUR:
+        return False
+    return True
+
+
+def get_business_end_of_day(sim_time):
+    day_number = int(sim_time // HOURS_PER_DAY)
+    return (day_number * HOURS_PER_DAY) + BUSINESS_END_HOUR
+
+
+def get_next_business_start(sim_time):
+    # find the next moment (at or after sim_time) that business hours begin
+    day_number = int(sim_time // HOURS_PER_DAY)
+
+    for day_offset in range(0, 8):
+        candidate_day = day_number + day_offset
+        day_of_week = candidate_day % 7
+
+        if day_of_week <= LAST_BUSINESS_DAY:
+            candidate_start = (candidate_day * HOURS_PER_DAY) + BUSINESS_START_HOUR
+            if candidate_start >= sim_time:
+                return candidate_start
+
+    return sim_time
+
+
 def get_results_folder():
     this_file = os.path.abspath(__file__)
     sim_folder = os.path.dirname(this_file)
@@ -53,11 +93,17 @@ def get_resource_priority(job):
 
 def repair_job(env, job, tech_resource, station_resource, technicians, stations, metrics, preempt):
     while True:
+        # the department is closed, nothing gets picked up until the next business day
+        if not is_business_hours(env.now):
+            wait_hours = get_next_business_start(env.now) - env.now
+            yield env.timeout(wait_hours)
+            continue
+
         print("Time", format(env.now, ".2f") + ":", job.job_id, "pending")
 
         tech = None
         station = None
-        work_started_at = None
+        started_this_attempt = False
         resource_priority = get_resource_priority(job)
 
         try:
@@ -75,19 +121,33 @@ def repair_job(env, job, tech_resource, station_resource, technicians, stations,
 
                     tech.current_job_id = job.job_id
                     station.current_job_id = job.job_id
-                    work_started_at = env.now
+                    started_this_attempt = True
 
                     print("Time", format(env.now, ".2f") + ":", job.job_id, "started on", tech.tech_id, "and", station.station_id)
 
-                    work_time = job.remaining_time
+                    # work in chunks so the job pauses at the end of each business day
+                    # (the unit just stays on the bench overnight/over the weekend)
+                    while job.remaining_time > 0:
+                        if not is_business_hours(env.now):
+                            wait_hours = get_next_business_start(env.now) - env.now
+                            yield env.timeout(wait_hours)
+                            continue
 
-                    yield env.timeout(work_time)
+                        hours_left_today = get_business_end_of_day(env.now) - env.now
+                        chunk = min(job.remaining_time, hours_left_today)
+
+                        yield env.timeout(chunk)
+
+                        job.remaining_time = job.remaining_time - chunk
+                        tech.busy_time = tech.busy_time + chunk
+                        station.busy_time = station.busy_time + chunk
+
+                        if job.remaining_time > 0:
+                            wait_hours = get_next_business_start(env.now) - env.now
+                            print("Time", format(env.now, ".2f") + ":", job.job_id, "paused for the day, remaining time", format(job.remaining_time, ".2f"))
+                            yield env.timeout(wait_hours)
 
                     job.finish_time = env.now
-                    job.remaining_time = 0
-
-                    tech.busy_time = tech.busy_time + work_time
-                    station.busy_time = station.busy_time + work_time
 
                     print("Time", format(env.now, ".2f") + ":", job.job_id, "finished")
 
@@ -101,15 +161,10 @@ def repair_job(env, job, tech_resource, station_resource, technicians, stations,
             # a higher priority job (like a production failure) took the resource
             job.interrupted_count += 1
 
-            if work_started_at is not None:
-                time_worked = env.now - work_started_at
-                job.remaining_time = job.remaining_time - time_worked
-
+            if started_this_attempt:
                 if tech is not None:
-                    tech.busy_time = tech.busy_time + time_worked
                     tech.current_job_id = None
                 if station is not None:
-                    station.busy_time = station.busy_time + time_worked
                     station.current_job_id = None
 
                 print("Time", format(env.now, ".2f") + ":", job.job_id, "interrupted, remaining time", format(job.remaining_time, ".2f"))
@@ -128,6 +183,10 @@ def synthetic_job_arrival_process(env, model, id_prefix, source, general_tech_re
             gap = 0
 
         yield env.timeout(gap)
+
+        if not is_business_hours(env.now):
+            wait_hours = get_next_business_start(env.now) - env.now
+            yield env.timeout(wait_hours)
 
         job = make_synthetic_job(job_number, id_prefix, source, model)
         job.sim_arrival_time = env.now
@@ -154,6 +213,10 @@ def reship_arrival_process(env, model, general_tech_resource, specialty_tech_res
 
         yield env.timeout(gap)
 
+        if not is_business_hours(env.now):
+            wait_hours = get_next_business_start(env.now) - env.now
+            yield env.timeout(wait_hours)
+
         job = make_reship_job(job_number, model)
         job.sim_arrival_time = env.now
         job_number += 1
@@ -177,6 +240,10 @@ def production_arrival_process(env, avg_interarrival_hours, rtv_probability, tec
             gap = 0
 
         yield env.timeout(gap)
+
+        if not is_business_hours(env.now):
+            wait_hours = get_next_business_start(env.now) - env.now
+            yield env.timeout(wait_hours)
 
         job = make_production_job(job_number, rtv_probability)
         job.sim_arrival_time = env.now
