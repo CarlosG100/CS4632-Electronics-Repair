@@ -142,11 +142,14 @@ def get_general_fraction(units):
 
 
 def get_outcome_counts(units):
-    # count how many closed units ended up with each outcome
+
     counts = {}
 
     for unit in units:
         outcome = get_outcome_value(unit.get("outcome", ""))
+
+        if outcome == "unknown":
+            continue
 
         if outcome not in counts:
             counts[outcome] = 0

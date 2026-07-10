@@ -38,7 +38,8 @@ Implemented so far:
 - business hours (7 AM - 3:30 PM, Monday - Friday) for both job arrivals and repair work, with in-progress jobs pausing overnight/over the weekend and picking back up where they left off
 - full metrics collection: wait time, turnaround time, queue length over time, technician/station utilization, throughput, interruption counts
 - CSV export for events, summary stats, time queue snapshots, and scenario config
-- a scenario runner that varies technician counts, station counts, preemption, and job volume across 10 runs, and records both simulated duration and real execution time per run
+- a scenario runner that varies technician counts, station counts, preemption, and job volume across 10 runs, and records both simulated duration and real execution time per run to a master index file
+- parameter prompt that ask if you want to set custom parameters and walk through them one at a time if you say yes
 - a validation script with automated checks (FIFO order, priority order, config validation, no double-booking, wait/turnaround consistency, preemption behavior)
 
 ## Setup
@@ -111,27 +112,23 @@ python src\print_simpy_run.py
 This runs one full scenario with live random arrivals, business hours, and
 preemption, then prints the simulation metrics for every completed job.
 
-To run all 10 scenarios and export results:
+**This is the main script for the project - run this one to generate the full
+set of results:**
 
 ```cmd
 python src\run_all_scenarios.py
 ```
 
-Runs 10 scenarios that vary technician counts,
-station counts, preemption, and job volume, then prints a run summary table
-with simulated duration and real execution time for each run. Results are
-saved to the `results/` folder as `config.csv`, `summary.csv`, `events.csv`,
-and `time.csv`.
+Runs 10 scenarios that vary technician counts, station counts, preemption,
+and job volume, then prints a run summary table with simulated duration and
+real execution time for each run. It also asks if you want to set custom
+parameters for the scenarios before running.
 
 To run the validation checks:
 
 ```cmd
 python src\validate_simulation.py
 ```
-
-This runs 7 automated checks against the simulation, including FIFO order,
-priority order, config validation, no technician double-booking, wait/turnaround
-consistency, and preemption behavior.
 
 ## Architecture Overview
 
@@ -141,8 +138,9 @@ consistency, and preemption behavior.
 - `job_rules.py` maps CSV values into simulation rules.
 - `create_jobs.py` builds the random-arrival job models from historical CSV data and generates new synthetic jobs (Customer RMA, AdvEx, reship, production) for a running simulation.
 - `resources.py` creates SimPy technician and station resources.
-- `simpy_runner.py` runs the live simulation: job arrival processes, the repair work loop with preemption and business-hours handling, and the queue-watching
-- `metrics.py` records completed-job results and exports the CSV result files.
+- `cli_prompts.py` has the shared prompt (yes/no questions and parameter entry) used by `print_simpy_run.py` and `run_all_scenarios.py`.
+- `simpy_runner.py` runs the live simulation: job arrival processes, the repair work loop with preemption and business-hours handling, and the queue-watching process.
+- `metrics.py` records the event log and completed-job results, and exports the CSV result files.
 
 ## UML Mapping
 

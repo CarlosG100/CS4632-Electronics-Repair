@@ -6,6 +6,21 @@ class SimulationMetrics:
     def __init__(self):
         self.completed_jobs = []
         self.queue_history = []
+        self.event_log = []
+
+    def record_event(self, sim_time, job_id, source, event_type, technician="", station="", remaining_time="", outcome=""):
+        row = {
+            "sim_time": sim_time,
+            "job_id": job_id,
+            "source": source,
+            "event_type": event_type,
+            "technician": technician,
+            "station": station,
+            "remaining_time": remaining_time,
+            "outcome": outcome,
+        }
+
+        self.event_log.append(row)
 
     def add_queue_snapshot(self, sim_time, tech_queue_length, station_queue_length, techs_busy, techs_idle, stations_busy, stations_idle):
         row = {
@@ -40,6 +55,8 @@ class SimulationMetrics:
         }
 
         self.completed_jobs.append(record)
+
+        self.record_event(job.finish_time, job.job_id, job.source, "finished", technician.tech_id, station.station_id, 0, job.outcome)
 
     def count_completed_jobs(self):
         return len(self.completed_jobs)
@@ -104,10 +121,10 @@ class SimulationMetrics:
         return self.count_completed_jobs() / total_sim_time
 
     def export_events_csv(self, file_path, scenario_name, generated_at):
+
         field_names = [
-            "scenario", "generated_at", "job_id", "source", "capability", "outcome", "start_time", "finish_time",
-            "wait_time", "turnaround_time", "service_time", "technician", "station",
-            "interrupted_count",
+            "scenario", "generated_at", "sim_time", "job_id", "source", "event_type",
+            "technician", "station", "remaining_time", "outcome",
         ]
 
         file_already_exists = os.path.exists(file_path)
@@ -118,11 +135,11 @@ class SimulationMetrics:
             if not file_already_exists:
                 writer.writeheader()
 
-            for record in self.completed_jobs:
-                row = dict(record)
-                row["scenario"] = scenario_name
-                row["generated_at"] = generated_at
-                writer.writerow(row)
+            for row in self.event_log:
+                row_with_scenario = dict(row)
+                row_with_scenario["scenario"] = scenario_name
+                row_with_scenario["generated_at"] = generated_at
+                writer.writerow(row_with_scenario)
 
     def save_queue_history_csv(self, file_path, scenario_name, generated_at):
         field_names = [
