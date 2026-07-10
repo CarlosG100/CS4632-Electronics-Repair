@@ -1,0 +1,11 @@
+run_number,scenario,purpose,key_parameters,simulated_hours,execution_seconds,status,generated_at
+1,base run,Baseline,Default values,343.05,0.10767459869384766,Complete,2026-07-09T23:04:48.543920
+2,extra gen tech,Extra general technician,general_technicians=2,343.05,0.13885998725891113,Complete,2026-07-09T23:04:48.682780
+3,extra spec tech,Extra specialty technician,specialty_technicians=2,343.05,0.1161046028137207,Complete,2026-07-09T23:04:48.798885
+4,extra gen station,Extra general station,general_stations=2,343.05,0.12158656120300293,Complete,2026-07-09T23:04:48.921471
+5,extra spec station,Extra specialty station,specialty_stations=2,343.05,0.12061357498168945,Complete,2026-07-09T23:04:49.042085
+6,+1 of all,Extra of everything,"general_technicians=2, specialty_technicians=2, general_stations=2, specialty_stations=2",343.05,0.1620006561279297,Complete,2026-07-09T23:04:49.204086
+7,no preemption,No preemption,allow_preemption=False,343.05,0.1259009838104248,Complete,2026-07-09T23:04:49.329987
+8,no preemption and +1 spec tech,No preemption plus extra specialty tech,"allow_preemption=False, specialty_technicians=2",343.05,0.1388845443725586,Complete,2026-07-09T23:04:49.468871
+9,more demand,Higher job volume,"job_limit=10, advex_job_count=10, reship_job_count=10, production_job_count=10",1617.706180912686,0.16677069664001465,Complete,2026-07-09T23:04:49.635642
+10,more demand and +1 all,Higher job volume plus extra resources,"job_limit=10, advex_job_count=10, reship_job_count=10, production_job_count=10, all resources x2",1427.1929931436223,0.15983796119689941,Complete,2026-07-09T23:04:49.795480
