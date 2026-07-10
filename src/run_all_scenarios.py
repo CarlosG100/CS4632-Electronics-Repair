@@ -1,6 +1,9 @@
+import csv
 import os
 import time
+from datetime import datetime
 
+from electronics_repair_sim.cli_prompts import ask_custom_parameters, ask_yes_no
 from electronics_repair_sim.models import ScenarioConfig
 from electronics_repair_sim.simpy_runner import get_results_folder, run_basic_fifo_simulation
 
@@ -128,7 +131,7 @@ def print_run_summary_table(run_records):
 
 def clear_old_results():
     results_folder = get_results_folder()
-    file_names = ["config.csv", "summary.csv", "events.csv", "time.csv"]
+    file_names = ["config.csv", "summary.csv", "events.csv", "time.csv", "master_index.csv"]
 
     for file_name in file_names:
         file_path = os.path.join(results_folder, file_name)
@@ -136,10 +139,40 @@ def clear_old_results():
             os.remove(file_path)
 
 
+def export_master_index_csv(run_records, file_path):
+    field_names = [
+        "run_number", "scenario", "purpose", "key_parameters",
+        "simulated_hours", "execution_seconds", "status", "generated_at",
+    ]
+
+    with open(file_path, "w", newline="") as csv_file:
+        writer = csv.DictWriter(csv_file, fieldnames=field_names)
+        writer.writeheader()
+
+        for record in run_records:
+            writer.writerow(record)
+
+
+def ask_to_customize_scenarios(scenarios):
+    if not ask_yes_no("Do you want to set custom parameters for these scenarios"):
+        return scenarios
+
+    scenario_number = 1
+    for scenario in scenarios:
+        if ask_yes_no("Customize scenario " + str(scenario_number) + " - " + scenario["purpose"]):
+            scenario["config"] = ask_custom_parameters(scenario["config"])
+            scenario["key_parameters"] = "customized"
+
+        scenario_number += 1
+
+    return scenarios
+
+
 def run_all_scenarios():
     clear_old_results()
 
     scenarios = make_scenarios()
+    scenarios = ask_to_customize_scenarios(scenarios)
     run_records = []
 
     run_number = 1
@@ -163,11 +196,13 @@ def run_all_scenarios():
 
         record = {
             "run_number": run_number,
+            "scenario": config.name,
             "purpose": scenario["purpose"],
             "key_parameters": scenario["key_parameters"],
             "simulated_hours": simulated_hours,
             "execution_seconds": execution_seconds,
             "status": status,
+            "generated_at": datetime.now().isoformat(),
         }
         run_records.append(record)
 
@@ -177,6 +212,10 @@ def run_all_scenarios():
     print("Run summary")
     print("-----------")
     print_run_summary_table(run_records)
+
+    results_folder = get_results_folder()
+    master_index_path = os.path.join(results_folder, "master_index.csv")
+    export_master_index_csv(run_records, master_index_path)
 
 
 if __name__ == "__main__":

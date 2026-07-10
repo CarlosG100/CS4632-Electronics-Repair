@@ -1,6 +1,5 @@
 import csv
 import os
-from datetime import datetime
 
 
 class SimulationMetrics:
@@ -104,9 +103,9 @@ class SimulationMetrics:
 
         return self.count_completed_jobs() / total_sim_time
 
-    def export_events_csv(self, file_path, scenario_name):
+    def export_events_csv(self, file_path, scenario_name, generated_at):
         field_names = [
-            "scenario", "job_id", "source", "capability", "outcome", "start_time", "finish_time",
+            "scenario", "generated_at", "job_id", "source", "capability", "outcome", "start_time", "finish_time",
             "wait_time", "turnaround_time", "service_time", "technician", "station",
             "interrupted_count",
         ]
@@ -122,11 +121,12 @@ class SimulationMetrics:
             for record in self.completed_jobs:
                 row = dict(record)
                 row["scenario"] = scenario_name
+                row["generated_at"] = generated_at
                 writer.writerow(row)
 
-    def save_queue_history_csv(self, file_path, scenario_name):
+    def save_queue_history_csv(self, file_path, scenario_name, generated_at):
         field_names = [
-            "scenario", "sim_time", "tech_queue_length", "station_queue_length",
+            "scenario", "generated_at", "sim_time", "tech_queue_length", "station_queue_length",
             "techs_busy", "techs_idle", "stations_busy", "stations_idle",
         ]
 
@@ -141,12 +141,13 @@ class SimulationMetrics:
             for row in self.queue_history:
                 row_with_scenario = dict(row)
                 row_with_scenario["scenario"] = scenario_name
+                row_with_scenario["generated_at"] = generated_at
                 writer.writerow(row_with_scenario)
 
-    def export_summary_csv(self, file_path, technicians, stations, total_sim_time, scenario_name):
+    def export_summary_csv(self, file_path, technicians, stations, total_sim_time, scenario_name, generated_at):
         new_row = {
             "scenario": scenario_name,
-            "generated_at": datetime.now().isoformat(),
+            "generated_at": generated_at,
             "total_sim_time": total_sim_time,
             "completed_jobs": self.count_completed_jobs(),
             "average_wait_time": self.calculate_average_wait_time(),

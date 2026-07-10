@@ -164,9 +164,10 @@ def validate_config(config):
         raise ValueError("You need at least one station.")
 
 
-def export_config_csv(config, file_path):
+def export_config_csv(config, file_path, generated_at):
     new_row = {
         "scenario": config.name,
+        "generated_at": generated_at,
         "general_technicians": config.general_technicians,
         "specialty_technicians": config.specialty_technicians,
         "general_stations": config.general_stations,

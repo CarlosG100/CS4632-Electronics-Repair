@@ -1,5 +1,6 @@
 import os
 import random
+from datetime import datetime
 
 import simpy
 
@@ -355,15 +356,17 @@ def run_basic_fifo_simulation(config):
 
     results_folder = get_results_folder()
 
+    generated_at = datetime.now().isoformat()
+
     events_path = os.path.join(results_folder, "events.csv")
     summary_path = os.path.join(results_folder, "summary.csv")
     config_path = os.path.join(results_folder, "config.csv")
     timeseries_path = os.path.join(results_folder, "time.csv")
 
-    metrics.export_events_csv(events_path, config.name)
-    metrics.export_summary_csv(summary_path, technicians, stations, total_sim_time, config.name)
-    export_config_csv(config, config_path)
-    metrics.save_queue_history_csv(timeseries_path, config.name)
+    metrics.export_events_csv(events_path, config.name, generated_at)
+    metrics.export_summary_csv(summary_path, technicians, stations, total_sim_time, config.name, generated_at)
+    export_config_csv(config, config_path, generated_at)
+    metrics.save_queue_history_csv(timeseries_path, config.name, generated_at)
 
     print("Results saved to:", ".\\results")
 
