@@ -28,6 +28,26 @@ OUTCOME_RTV = "rtv"
 OUTCOME_RESHIPPED = "reshipped"
 
 
+HOURS_PER_DAY = 24
+DAY_NAMES = ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday", "Sunday"]
+
+
+def format_sim_time_as_day_time(sim_time):
+    day_number = int(sim_time // HOURS_PER_DAY)
+    day_of_week = day_number % 7
+    day_name = DAY_NAMES[day_of_week]
+
+    hour_of_day = sim_time % HOURS_PER_DAY
+    hour = int(hour_of_day)
+    minute = int(round((hour_of_day - hour) * 60))
+
+    if minute == 60:
+        hour += 1
+        minute = 0
+
+    return "Day " + str(day_number) + " - " + day_name + " " + format(hour, "02d") + ":" + format(minute, "02d")
+
+
 # S&OP values that require specialty equipment.
 SPECIALTY_SOP_PREFIXES = [
     "TSTAT",

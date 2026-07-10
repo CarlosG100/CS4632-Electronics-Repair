@@ -1,6 +1,8 @@
 import csv
 import os
 
+from electronics_repair_sim.models import format_sim_time_as_day_time
+
 
 class SimulationMetrics:
     def __init__(self):
@@ -8,9 +10,10 @@ class SimulationMetrics:
         self.queue_history = []
         self.event_log = []
 
-    def record_event(self, sim_time, job_id, source, event_type, technician="", station="", remaining_time="", outcome="", wait_time="", turnaround_time="", service_time=""):
+    def record_event(self, sim_time, day_time, job_id, source, event_type, technician="", station="", remaining_time="", outcome="", wait_time="", turnaround_time="", service_time=""):
         row = {
             "sim_time": sim_time,
+            "day_time": day_time,
             "job_id": job_id,
             "source": source,
             "event_type": event_type,
@@ -25,9 +28,10 @@ class SimulationMetrics:
 
         self.event_log.append(row)
 
-    def add_queue_snapshot(self, sim_time, tech_queue_length, station_queue_length, techs_busy, techs_idle, stations_busy, stations_idle):
+    def add_queue_snapshot(self, sim_time, day_time, tech_queue_length, station_queue_length, techs_busy, techs_idle, stations_busy, stations_idle):
         row = {
             "sim_time": sim_time,
+            "day_time": day_time,
             "tech_queue_length": tech_queue_length,
             "station_queue_length": station_queue_length,
             "techs_busy": techs_busy,
@@ -60,7 +64,8 @@ class SimulationMetrics:
         self.completed_jobs.append(record)
 
         self.record_event(
-            job.finish_time, job.job_id, job.source, "finished", technician.tech_id, station.station_id, 0, job.outcome,
+            job.finish_time, format_sim_time_as_day_time(job.finish_time), job.job_id, job.source, "finished",
+            technician.tech_id, station.station_id, 0, job.outcome,
             wait_time, turnaround_time, job.service_time,
         )
 
@@ -129,7 +134,7 @@ class SimulationMetrics:
     def export_events_csv(self, file_path, scenario_name, generated_at):
 
         field_names = [
-            "scenario", "generated_at", "sim_time", "job_id", "source", "event_type",
+            "scenario", "generated_at", "sim_time", "day_time", "job_id", "source", "event_type",
             "technician", "station", "remaining_time", "outcome",
             "wait_time", "turnaround_time", "service_time",
         ]
@@ -150,7 +155,7 @@ class SimulationMetrics:
 
     def save_queue_history_csv(self, file_path, scenario_name, generated_at):
         field_names = [
-            "scenario", "generated_at", "sim_time", "tech_queue_length", "station_queue_length",
+            "scenario", "generated_at", "sim_time", "day_time", "tech_queue_length", "station_queue_length",
             "techs_busy", "techs_idle", "stations_busy", "stations_idle",
         ]
 

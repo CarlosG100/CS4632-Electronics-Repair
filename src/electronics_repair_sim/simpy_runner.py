@@ -6,7 +6,7 @@ import simpy
 
 from electronics_repair_sim.create_jobs import build_all_job_models, make_production_job, make_reship_job, make_synthetic_job
 from electronics_repair_sim.metrics import SimulationMetrics
-from electronics_repair_sim.models import CAPABILITY_SPECIALTY, SOURCE_ADVEX, SOURCE_RESHIP, SOURCE_RMA, export_config_csv, validate_config
+from electronics_repair_sim.models import CAPABILITY_SPECIALTY, SOURCE_ADVEX, SOURCE_RESHIP, SOURCE_RMA, export_config_csv, format_sim_time_as_day_time, validate_config
 from electronics_repair_sim.resources import create_stations, create_technicians
 
 
@@ -121,7 +121,7 @@ def repair_job(env, job, tech_resource, station_resource, technicians, stations,
                     started_this_attempt = True
 
                     print("Time", format(env.now, ".2f") + ":", job.job_id, "started on", tech.tech_id, "and", station.station_id)
-                    metrics.record_event(env.now, job.job_id, job.source, "started", tech.tech_id, station.station_id)
+                    metrics.record_event(env.now, format_sim_time_as_day_time(env.now), job.job_id, job.source, "started", tech.tech_id, station.station_id)
 
                     while job.remaining_time > 0:
                         if not is_business_hours(env.now):
@@ -141,7 +141,7 @@ def repair_job(env, job, tech_resource, station_resource, technicians, stations,
                         if job.remaining_time > 0:
                             wait_hours = get_next_business_start(env.now) - env.now
                             print("Time", format(env.now, ".2f") + ":", job.job_id, "paused for the day, remaining time", format(job.remaining_time, ".2f"))
-                            metrics.record_event(env.now, job.job_id, job.source, "paused", tech.tech_id, station.station_id, job.remaining_time)
+                            metrics.record_event(env.now, format_sim_time_as_day_time(env.now), job.job_id, job.source, "paused", tech.tech_id, station.station_id, job.remaining_time)
                             yield env.timeout(wait_hours)
 
                     job.finish_time = env.now
@@ -170,10 +170,10 @@ def repair_job(env, job, tech_resource, station_resource, technicians, stations,
                     station.current_job_id = None
 
                 print("Time", format(env.now, ".2f") + ":", job.job_id, "interrupted, remaining time", format(job.remaining_time, ".2f"))
-                metrics.record_event(env.now, job.job_id, job.source, "interrupted", tech_id, station_id, job.remaining_time)
+                metrics.record_event(env.now, format_sim_time_as_day_time(env.now), job.job_id, job.source, "interrupted", tech_id, station_id, job.remaining_time)
             else:
                 print("Time", format(env.now, ".2f") + ":", job.job_id, "bumped before it could start")
-                metrics.record_event(env.now, job.job_id, job.source, "bumped", remaining_time=job.remaining_time)
+                metrics.record_event(env.now, format_sim_time_as_day_time(env.now), job.job_id, job.source, "bumped", remaining_time=job.remaining_time)
 
 
 def synthetic_job_arrival_process(env, model, id_prefix, source, general_tech_resource, specialty_tech_resource, general_station_resource, specialty_station_resource, technicians, stations, metrics, preempt, job_count):
@@ -201,7 +201,7 @@ def synthetic_job_arrival_process(env, model, id_prefix, source, general_tech_re
         )
 
         print("Time", format(env.now, ".2f") + ":", job.job_id, "arrived")
-        metrics.record_event(env.now, job.job_id, job.source, "arrived")
+        metrics.record_event(env.now, format_sim_time_as_day_time(env.now), job.job_id, job.source, "arrived")
 
         env.process(repair_job(env, job, tech_resource, station_resource, technicians, stations, metrics, preempt))
 
@@ -231,7 +231,7 @@ def reship_arrival_process(env, model, general_tech_resource, specialty_tech_res
         )
 
         print("Time", format(env.now, ".2f") + ":", job.job_id, "arrived")
-        metrics.record_event(env.now, job.job_id, job.source, "arrived")
+        metrics.record_event(env.now, format_sim_time_as_day_time(env.now), job.job_id, job.source, "arrived")
 
         env.process(repair_job(env, job, tech_resource, station_resource, technicians, stations, metrics, preempt))
 
@@ -256,7 +256,7 @@ def production_arrival_process(env, avg_interarrival_hours, rtv_probability, tec
         job_number += 1
 
         print("Time", format(env.now, ".2f") + ":", job.job_id, "new production failure arrived")
-        metrics.record_event(env.now, job.job_id, job.source, "arrived")
+        metrics.record_event(env.now, format_sim_time_as_day_time(env.now), job.job_id, job.source, "arrived")
 
         env.process(repair_job(env, job, tech_resource, station_resource, technicians, stations, metrics, config.allow_preemption))
 
@@ -286,6 +286,7 @@ def watch_queues(env, general_tech_resource, specialty_tech_resource, general_st
 
         metrics.add_queue_snapshot(
             env.now,
+            format_sim_time_as_day_time(env.now),
             tech_queue_length,
             station_queue_length,
             techs_busy,
