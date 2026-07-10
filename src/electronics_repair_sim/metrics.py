@@ -8,7 +8,7 @@ class SimulationMetrics:
         self.queue_history = []
         self.event_log = []
 
-    def record_event(self, sim_time, job_id, source, event_type, technician="", station="", remaining_time="", outcome=""):
+    def record_event(self, sim_time, job_id, source, event_type, technician="", station="", remaining_time="", outcome="", wait_time="", turnaround_time="", service_time=""):
         row = {
             "sim_time": sim_time,
             "job_id": job_id,
@@ -18,6 +18,9 @@ class SimulationMetrics:
             "station": station,
             "remaining_time": remaining_time,
             "outcome": outcome,
+            "wait_time": wait_time,
+            "turnaround_time": turnaround_time,
+            "service_time": service_time,
         }
 
         self.event_log.append(row)
@@ -56,7 +59,10 @@ class SimulationMetrics:
 
         self.completed_jobs.append(record)
 
-        self.record_event(job.finish_time, job.job_id, job.source, "finished", technician.tech_id, station.station_id, 0, job.outcome)
+        self.record_event(
+            job.finish_time, job.job_id, job.source, "finished", technician.tech_id, station.station_id, 0, job.outcome,
+            wait_time, turnaround_time, job.service_time,
+        )
 
     def count_completed_jobs(self):
         return len(self.completed_jobs)
@@ -125,6 +131,7 @@ class SimulationMetrics:
         field_names = [
             "scenario", "generated_at", "sim_time", "job_id", "source", "event_type",
             "technician", "station", "remaining_time", "outcome",
+            "wait_time", "turnaround_time", "service_time",
         ]
 
         file_already_exists = os.path.exists(file_path)
