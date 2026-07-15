@@ -1,8 +1,8 @@
-import csv
 import os
 import time
 from datetime import datetime
 
+from electronics_repair_sim.analysis import write_rows_to_csv
 from electronics_repair_sim.cli_prompts import ask_custom_parameters, ask_yes_no
 from electronics_repair_sim.models import ScenarioConfig
 from electronics_repair_sim.simpy_runner import get_results_folder, run_basic_fifo_simulation
@@ -64,22 +64,16 @@ def make_scenarios():
 
     heavier_load = ScenarioConfig()
     heavier_load.name = "more demand"
-    heavier_load.job_limit = 10
-    heavier_load.advex_job_count = 10
-    heavier_load.reship_job_count = 10
-    heavier_load.production_job_count = 10
+    heavier_load.simulation_period_hours = 2160
     scenarios.append({
         "config": heavier_load,
         "purpose": "Higher job volume",
-        "key_parameters": "job_limit=10, advex_job_count=10, reship_job_count=10, production_job_count=10",
+        "key_parameters": "simulation_period_hours=2160 (90 days instead of 30)",
     })
 
     heavier_load_extra_resources = ScenarioConfig()
     heavier_load_extra_resources.name = "more demand and +1 all"
-    heavier_load_extra_resources.job_limit = 10
-    heavier_load_extra_resources.advex_job_count = 10
-    heavier_load_extra_resources.reship_job_count = 10
-    heavier_load_extra_resources.production_job_count = 10
+    heavier_load_extra_resources.simulation_period_hours = 2160
     heavier_load_extra_resources.general_technicians = 2
     heavier_load_extra_resources.specialty_technicians = 2
     heavier_load_extra_resources.general_stations = 2
@@ -87,7 +81,7 @@ def make_scenarios():
     scenarios.append({
         "config": heavier_load_extra_resources,
         "purpose": "Higher job volume plus extra resources",
-        "key_parameters": "job_limit=10, advex_job_count=10, reship_job_count=10, production_job_count=10, all resources x2",
+        "key_parameters": "simulation_period_hours=2160 (90 days), all resources x2",
     })
 
     return scenarios
@@ -137,20 +131,6 @@ def clear_old_results():
         file_path = os.path.join(results_folder, file_name)
         if os.path.exists(file_path):
             os.remove(file_path)
-
-
-def export_master_index_csv(run_records, file_path):
-    field_names = [
-        "run_number", "scenario", "purpose", "key_parameters",
-        "simulated_hours", "execution_seconds", "status", "generated_at",
-    ]
-
-    with open(file_path, "w", newline="") as csv_file:
-        writer = csv.DictWriter(csv_file, fieldnames=field_names)
-        writer.writeheader()
-
-        for record in run_records:
-            writer.writerow(record)
 
 
 def ask_to_customize_scenarios(scenarios):
@@ -215,7 +195,12 @@ def run_all_scenarios():
 
     results_folder = get_results_folder()
     master_index_path = os.path.join(results_folder, "master_index.csv")
-    export_master_index_csv(run_records, master_index_path)
+
+    field_names = [
+        "run_number", "scenario", "purpose", "key_parameters",
+        "simulated_hours", "execution_seconds", "status", "generated_at",
+    ]
+    write_rows_to_csv(run_records, field_names, master_index_path)
 
 
 if __name__ == "__main__":

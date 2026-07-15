@@ -312,3 +312,26 @@ def build_all_job_models(config):
     production_rtv_probability = get_production_rtv_probability(production_rows)
 
     return rma_model, advex_model, reship_model, production_avg_interarrival_hours, production_rtv_probability
+
+
+def calculate_job_count_from_period(period_hours, avg_interarrival_hours):
+    if avg_interarrival_hours <= 0:
+        return 0
+
+    return round(period_hours / avg_interarrival_hours)
+
+
+def apply_period_based_job_counts(config, rma_model, advex_model, reship_model, production_avg_interarrival_hours):
+    if config.job_limit is None:
+        config.job_limit = calculate_job_count_from_period(config.simulation_period_hours, rma_model["avg_interarrival_hours"])
+
+    if config.advex_job_count is None:
+        config.advex_job_count = calculate_job_count_from_period(config.simulation_period_hours, advex_model["avg_interarrival_hours"])
+
+    if config.reship_job_count is None:
+        config.reship_job_count = calculate_job_count_from_period(config.simulation_period_hours, reship_model["avg_interarrival_hours"])
+
+    if config.production_job_count is None:
+        config.production_job_count = calculate_job_count_from_period(config.simulation_period_hours, production_avg_interarrival_hours)
+
+    return config

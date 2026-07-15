@@ -4,9 +4,9 @@ from datetime import datetime
 
 import simpy
 
-from electronics_repair_sim.create_jobs import build_all_job_models, make_production_job, make_reship_job, make_synthetic_job
+from electronics_repair_sim.create_jobs import apply_period_based_job_counts, build_all_job_models, make_production_job, make_reship_job, make_synthetic_job
 from electronics_repair_sim.metrics import SimulationMetrics
-from electronics_repair_sim.models import CAPABILITY_SPECIALTY, SOURCE_ADVEX, SOURCE_RESHIP, SOURCE_RMA, export_config_csv, format_sim_time_as_day_time, validate_config
+from electronics_repair_sim.models import CAPABILITY_GENERAL, CAPABILITY_SPECIALTY, SOURCE_ADVEX, SOURCE_RESHIP, SOURCE_RMA, export_config_csv, format_sim_time_as_day_time, get_project_folder, validate_config
 from electronics_repair_sim.resources import create_stations, create_technicians
 
 
@@ -48,11 +48,7 @@ def get_next_business_start(sim_time):
 
 
 def get_results_folder():
-    this_file = os.path.abspath(__file__)
-    sim_folder = os.path.dirname(this_file)
-    src_folder = os.path.dirname(sim_folder)
-    project_folder = os.path.dirname(src_folder)
-    results_folder = os.path.join(project_folder, "results")
+    results_folder = os.path.join(get_project_folder(), "results")
 
     if not os.path.exists(results_folder):
         os.makedirs(results_folder)
@@ -60,27 +56,58 @@ def get_results_folder():
     return results_folder
 
 
-def find_free_tech(job, technicians):
-    # go through the list and return the first free tech that can work this job
+def find_free_tech(capability, technicians):
     for tech in technicians:
-        if tech.can_work(job) and tech.current_job_id is None:
+        if tech.capability == capability and tech.current_job_id is None:
             return tech
     return None
 
 
-def find_free_station(job, stations):
-    # go through the list and return the first free station that can handle this job
+def find_free_station(capability, stations):
     for station in stations:
-        if station.can_handle(job) and station.current_job_id is None:
+        if station.capability == capability and station.current_job_id is None:
             return station
     return None
 
 
-def pick_resources(job, general_tech_resource, specialty_tech_resource, general_station_resource, specialty_station_resource):
-    # return the right pair of resources based on job capability
+def specialty_techs_exist(technicians):
+    for tech in technicians:
+        if tech.capability == CAPABILITY_SPECIALTY:
+            return True
+    return False
+
+
+def specialty_stations_exist(stations):
+    for station in stations:
+        if station.capability == CAPABILITY_SPECIALTY:
+            return True
+    return False
+
+
+def choose_tech_resource(job, general_tech_resource, specialty_tech_resource, technicians):
     if job.capability == CAPABILITY_SPECIALTY:
-        return specialty_tech_resource, specialty_station_resource
-    return general_tech_resource, general_station_resource
+        return specialty_tech_resource, CAPABILITY_SPECIALTY
+
+    general_is_free = general_tech_resource.count < general_tech_resource.capacity
+    specialty_exists = specialty_techs_exist(technicians)
+
+    if general_is_free or not specialty_exists:
+        return general_tech_resource, CAPABILITY_GENERAL
+
+    return specialty_tech_resource, CAPABILITY_SPECIALTY
+
+
+def choose_station_resource(job, general_station_resource, specialty_station_resource, stations):
+    if job.capability == CAPABILITY_SPECIALTY:
+        return specialty_station_resource, CAPABILITY_SPECIALTY
+
+    general_is_free = general_station_resource.count < general_station_resource.capacity
+    specialty_exists = specialty_stations_exist(stations)
+
+    if general_is_free or not specialty_exists:
+        return general_station_resource, CAPABILITY_GENERAL
+
+    return specialty_station_resource, CAPABILITY_SPECIALTY
 
 
 def get_resource_priority(job):
@@ -89,7 +116,7 @@ def get_resource_priority(job):
     return 0
 
 
-def repair_job(env, job, tech_resource, station_resource, technicians, stations, metrics, preempt):
+def repair_job(env, job, general_tech_resource, specialty_tech_resource, general_station_resource, specialty_station_resource, technicians, stations, metrics, preempt):
     while True:
         if not is_business_hours(env.now):
             wait_hours = get_next_business_start(env.now) - env.now
@@ -103,15 +130,26 @@ def repair_job(env, job, tech_resource, station_resource, technicians, stations,
         started_this_attempt = False
         resource_priority = get_resource_priority(job)
 
+        tech_resource, tech_capability = choose_tech_resource(job, general_tech_resource, specialty_tech_resource, technicians)
+        station_resource, station_capability = choose_station_resource(job, general_station_resource, specialty_station_resource, stations)
+
+        tech_priority = resource_priority
+        if tech_capability != job.capability:
+            tech_priority = 0
+
+        station_priority = resource_priority
+        if station_capability != job.capability:
+            station_priority = 0
+
         try:
-            with tech_resource.request(priority=resource_priority, preempt=preempt) as tech_req:
+            with tech_resource.request(priority=tech_priority, preempt=preempt) as tech_req:
                 yield tech_req
 
-                with station_resource.request(priority=resource_priority, preempt=preempt) as station_req:
+                with station_resource.request(priority=station_priority, preempt=preempt) as station_req:
                     yield station_req
 
-                    tech = find_free_tech(job, technicians)
-                    station = find_free_station(job, stations)
+                    tech = find_free_tech(tech_capability, technicians)
+                    station = find_free_station(station_capability, stations)
 
                     if job.start_time is None:
                         job.start_time = env.now
@@ -196,14 +234,13 @@ def synthetic_job_arrival_process(env, model, id_prefix, source, general_tech_re
         job.sim_arrival_time = env.now
         job_number += 1
 
-        tech_resource, station_resource = pick_resources(
-            job, general_tech_resource, specialty_tech_resource, general_station_resource, specialty_station_resource
-        )
-
         print("Time", format(env.now, ".2f") + ":", job.job_id, "arrived")
         metrics.record_event(env.now, format_sim_time_as_day_time(env.now), job.job_id, job.source, "arrived")
 
-        env.process(repair_job(env, job, tech_resource, station_resource, technicians, stations, metrics, preempt))
+        env.process(repair_job(
+            env, job, general_tech_resource, specialty_tech_resource, general_station_resource, specialty_station_resource,
+            technicians, stations, metrics, preempt,
+        ))
 
 
 def reship_arrival_process(env, model, general_tech_resource, specialty_tech_resource, general_station_resource, specialty_station_resource, technicians, stations, metrics, preempt, job_count):
@@ -226,17 +263,16 @@ def reship_arrival_process(env, model, general_tech_resource, specialty_tech_res
         job.sim_arrival_time = env.now
         job_number += 1
 
-        tech_resource, station_resource = pick_resources(
-            job, general_tech_resource, specialty_tech_resource, general_station_resource, specialty_station_resource
-        )
-
         print("Time", format(env.now, ".2f") + ":", job.job_id, "arrived")
         metrics.record_event(env.now, format_sim_time_as_day_time(env.now), job.job_id, job.source, "arrived")
 
-        env.process(repair_job(env, job, tech_resource, station_resource, technicians, stations, metrics, preempt))
+        env.process(repair_job(
+            env, job, general_tech_resource, specialty_tech_resource, general_station_resource, specialty_station_resource,
+            technicians, stations, metrics, preempt,
+        ))
 
 
-def production_arrival_process(env, avg_interarrival_hours, rtv_probability, tech_resource, station_resource, technicians, stations, metrics, config, job_count):
+def production_arrival_process(env, avg_interarrival_hours, rtv_probability, general_tech_resource, specialty_tech_resource, general_station_resource, specialty_station_resource, technicians, stations, metrics, config, job_count):
     job_number = 1
 
     while job_number <= job_count:
@@ -258,7 +294,10 @@ def production_arrival_process(env, avg_interarrival_hours, rtv_probability, tec
         print("Time", format(env.now, ".2f") + ":", job.job_id, "new production failure arrived")
         metrics.record_event(env.now, format_sim_time_as_day_time(env.now), job.job_id, job.source, "arrived")
 
-        env.process(repair_job(env, job, tech_resource, station_resource, technicians, stations, metrics, config.allow_preemption))
+        env.process(repair_job(
+            env, job, general_tech_resource, specialty_tech_resource, general_station_resource, specialty_station_resource,
+            technicians, stations, metrics, config.allow_preemption,
+        ))
 
 
 def watch_queues(env, general_tech_resource, specialty_tech_resource, general_station_resource, specialty_station_resource, technicians, stations, metrics, gap_hours, limit):
@@ -299,7 +338,7 @@ def watch_queues(env, general_tech_resource, specialty_tech_resource, general_st
         yield env.timeout(gap_hours)
 
 
-def run_basic_fifo_simulation(config):
+def run_basic_fifo_simulation(config, export_results=True):
     validate_config(config)
 
     env = simpy.Environment()
@@ -317,12 +356,15 @@ def run_basic_fifo_simulation(config):
 
     rma_model, advex_model, reship_model, production_avg_interarrival_hours, production_rtv_probability = build_all_job_models(config)
 
+    config = apply_period_based_job_counts(config, rma_model, advex_model, reship_model, production_avg_interarrival_hours)
+
     print("Scenario:", config.name)
     print("General technicians:", config.general_technicians)
     print("Specialty technicians:", config.specialty_technicians)
     print("General stations:", config.general_stations)
     print("Specialty stations:", config.specialty_stations)
     print("Allow preemption:", config.allow_preemption)
+    print("Simulation period (hours):", config.simulation_period_hours)
     print("RMA job limit:", config.job_limit)
     print("AdvEx job count:", config.advex_job_count)
     print("Reship job count:", config.reship_job_count)
@@ -349,8 +391,8 @@ def run_basic_fifo_simulation(config):
 
     env.process(production_arrival_process(
         env, production_avg_interarrival_hours, production_rtv_probability,
-        general_tech_resource, general_station_resource, technicians, stations, metrics,
-        config, config.production_job_count,
+        general_tech_resource, specialty_tech_resource, general_station_resource, specialty_station_resource,
+        technicians, stations, metrics, config, config.production_job_count,
     ))
 
     env.process(watch_queues(
@@ -367,21 +409,22 @@ def run_basic_fifo_simulation(config):
 
     print_utilization(technicians, stations, total_sim_time)
 
-    results_folder = get_results_folder()
+    if export_results:
+        results_folder = get_results_folder()
 
-    generated_at = datetime.now().isoformat()
+        generated_at = datetime.now().isoformat()
 
-    events_path = os.path.join(results_folder, "events.csv")
-    summary_path = os.path.join(results_folder, "summary.csv")
-    config_path = os.path.join(results_folder, "config.csv")
-    timeseries_path = os.path.join(results_folder, "time.csv")
+        events_path = os.path.join(results_folder, "events.csv")
+        summary_path = os.path.join(results_folder, "summary.csv")
+        config_path = os.path.join(results_folder, "config.csv")
+        timeseries_path = os.path.join(results_folder, "time.csv")
 
-    metrics.export_events_csv(events_path, config.name, generated_at)
-    metrics.export_summary_csv(summary_path, technicians, stations, total_sim_time, config.name, generated_at)
-    export_config_csv(config, config_path, generated_at)
-    metrics.save_queue_history_csv(timeseries_path, config.name, generated_at)
+        metrics.export_events_csv(events_path, config.name, generated_at)
+        metrics.export_summary_csv(summary_path, technicians, stations, total_sim_time, config.name, generated_at)
+        export_config_csv(config, config_path, generated_at)
+        metrics.save_queue_history_csv(timeseries_path, config.name, generated_at)
 
-    print("Results saved to:", ".\\results")
+        print("Results saved to:", ".\\results")
 
     return metrics
 

@@ -1,6 +1,8 @@
 import csv
 import os
 
+from electronics_repair_sim.models import get_project_folder
+
 
 # File names for the cleaned project CSV data.
 RMA_PARENT_FILE = "rma_parent_jobs.csv"
@@ -9,12 +11,7 @@ PRODUCTION_FILE = "production_issue_jobs.csv"
 
 
 def get_data_folder():
-    # figure out where the data folder is based on where this file is
-    this_file = os.path.abspath(__file__)
-    sim_folder = os.path.dirname(this_file)
-    src_folder = os.path.dirname(sim_folder)
-    project_folder = os.path.dirname(src_folder)
-    return os.path.join(project_folder, "data")
+    return os.path.join(get_project_folder(), "data")
 
 
 def read_csv_file(file_name):

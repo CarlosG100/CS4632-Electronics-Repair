@@ -2,6 +2,13 @@ import csv
 import os
 
 
+def get_project_folder():
+    this_file = os.path.abspath(__file__)
+    sim_folder = os.path.dirname(this_file)
+    src_folder = os.path.dirname(sim_folder)
+    return os.path.dirname(src_folder)
+
+
 # Job sources from my project scope.
 SOURCE_RMA = "Customer RMA"
 SOURCE_ADVEX = "Advance Exchange"
@@ -94,13 +101,6 @@ class Technician:
         self.current_job_id = None
         self.busy_time = 0.0
 
-    def can_work(self, job):
-        # General jobs can be worked by anyone.
-        # Specialty jobs need a specialty-capable technician.
-        if job.capability == CAPABILITY_GENERAL:
-            return True
-        return self.capability == CAPABILITY_SPECIALTY
-
 
 class Station:
     # A station is the station needed for a job.
@@ -109,13 +109,6 @@ class Station:
         self.capability = capability
         self.current_job_id = None
         self.busy_time = 0.0
-
-    def can_handle(self, job):
-        # General jobs can use any station.
-        # Specialty jobs need a specialty-capable station.
-        if job.capability == CAPABILITY_GENERAL:
-            return True
-        return self.capability == CAPABILITY_SPECIALTY
 
 
 class ScenarioConfig:
@@ -131,17 +124,17 @@ class ScenarioConfig:
         self.general_stations = 1
         self.specialty_stations = 1
 
-        # how many new/simulated Customer RMA jobs to generate this run
-        self.job_limit = 3
+        self.simulation_period_hours = 720
+        self.job_limit = None
 
-        # how many new/simulated AdvEx jobs to generate this run
-        self.advex_job_count = 3
+        # how many new/simulated AdvEx jobs to generate this run (None = auto)
+        self.advex_job_count = None
 
-        # how many new/simulated reship jobs to generate this run
-        self.reship_job_count = 3
+        # how many new/simulated reship jobs to generate this run (None = auto)
+        self.reship_job_count = None
 
-        # how many new/simulated production failures to generate this run
-        self.production_job_count = 3
+        # how many new/simulated production failures to generate this run (None = auto)
+        self.production_job_count = None
 
         # used to seed python's random module so results can be reproduced
         self.random_seed = 42
@@ -165,14 +158,18 @@ def validate_config(config):
         raise ValueError("general_stations cannot be negative")
     if config.specialty_stations < 0:
         raise ValueError("specialty_stations cannot be negative")
-    if config.job_limit < 0:
+
+    if config.job_limit is not None and config.job_limit < 0:
         raise ValueError("job_limit cannot be negative")
-    if config.advex_job_count < 0:
+    if config.advex_job_count is not None and config.advex_job_count < 0:
         raise ValueError("advex_job_count cannot be negative")
-    if config.reship_job_count < 0:
+    if config.reship_job_count is not None and config.reship_job_count < 0:
         raise ValueError("reship_job_count cannot be negative")
-    if config.production_job_count < 0:
+    if config.production_job_count is not None and config.production_job_count < 0:
         raise ValueError("production_job_count cannot be negative")
+
+    if config.simulation_period_hours < 0:
+        raise ValueError("simulation_period_hours cannot be negative")
     if config.snapshot_gap_hours < 0:
         raise ValueError("snapshot_gap_hours cannot be negative")
     if config.snapshot_limit < 0:
@@ -187,11 +184,11 @@ def validate_config(config):
 def export_config_csv(config, file_path, generated_at):
     new_row = {
         "scenario": config.name,
-        "generated_at": generated_at,
         "general_technicians": config.general_technicians,
         "specialty_technicians": config.specialty_technicians,
         "general_stations": config.general_stations,
         "specialty_stations": config.specialty_stations,
+        "simulation_period_hours": config.simulation_period_hours,
         "job_limit": config.job_limit,
         "advex_job_count": config.advex_job_count,
         "reship_job_count": config.reship_job_count,
@@ -200,6 +197,7 @@ def export_config_csv(config, file_path, generated_at):
         "snapshot_gap_hours": config.snapshot_gap_hours,
         "snapshot_limit": config.snapshot_limit,
         "allow_preemption": config.allow_preemption,
+        "generated_at": generated_at,
     }
 
     existing_rows = []

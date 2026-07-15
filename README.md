@@ -8,9 +8,9 @@ Summer 2026
 
 This project is a discrete-event simulation of the electronics manufacturing support department where I work. The department repairs PCBs and HVAC and refrigeration controller units.
 
-Work comes from customer RMAs, advance exchanges, reships, and production-line failures. The department has two technicians and two test stations. Urgent production failures, advance exchanges, and reships can interrupt a customer RMA repair already in progress. The department only works business hours (7:00 AM to 3:30 PM, Monday through Friday), so a job that arrives or is still being worked on outside those hours just waits or pauses until the next business day.
+Work comes from customer RMAs, advance exchanges, reships, and production-line failures. The department has technicians and stations split into general and specialty capability. Specialty technicians and stations can also do general work, and will pick up a general job if every general technician/station is busy - but only a specialty technician or station can do specialty work, and a general job borrowing specialty capacity can't be bumped by an incoming specialty job on that borrowed resource. Urgent production failures, advance exchanges, and reships can interrupt a customer RMA repair already in progress. The department only works business hours (7:00 AM to 3:30 PM, Monday through Friday), so a job that arrives or is still being worked on outside those hours just waits or pauses until the next business day.
 
-The main events are when a job arrives, a technician starts or finishes work, a repair is interrupted, and a job receives its final outcome. A job can be repaired, scrapped, returned to the vendor, or reshipped. The simulation measures turnaround time, waiting time, queue length, technician and station use, throughput, interruptions, and repair outcomes. Historical work data is used for the simulation inputs.
+The main events are when a job arrives, a technician starts or finishes work, a repair is interrupted, and a job receives its final outcome. A job can be repaired, scrapped, returned to the vendor, or reshipped. The simulation measures turnaround time, waiting time, queue length, technician and station use, throughput, interruptions, and repair outcomes. Historical work data is used for the simulation inputs, and job volume per source is figured out from a chosen simulation period (in hours) using each source's real historical arrival rate, instead of a hard-coded job count.
 
 ## Project Structure
 
@@ -23,7 +23,7 @@ The main events are when a job arrives, a technician starts or finishes work, a 
 
 ## Project Status
 
-The simulation is fully implemented and runs complete scenarios end to end, from live random job arrivals through repair, interruption, and completion, with results exported to CSV.
+The simulation is fully implemented and runs complete scenarios end to end, from live random job arrivals through repair, interruption, and completion, with results exported to CSV. Work is now on M4 analysis: sensitivity/parameter testing, replicated statistical runs, and validation.
 
 Implemented so far:
 
@@ -33,14 +33,17 @@ Implemented so far:
 - historical data used to build random-arrival job models for Customer RMA, AdvEx, and reship
 - production failures generated as random urgent jobs
 - live random arrivals for all four job sources
-- technician and station resource matching by capability
+- job counts per source figured out automatically from a chosen simulation period (in hours) and each source's real historical arrival rate.
+- general jobs prefer general technicians/stations, but will use an idle specialty technician/station if every general one is busy; specialty jobs only ever use specialty technicians/stations
+- a general job borrowing specialty capacity can't be preempted by an incoming specialty job on that borrowed resource.
 - two-tier preemption: production, AdvEx, and reship jobs can interrupt an in-progress Customer RMA repair, but never interrupt each other
 - business hours (7 AM - 3:30 PM, Monday - Friday) for both job arrivals and repair work, with in-progress jobs pausing overnight/over the weekend and picking back up where they left off
 - full metrics collection: wait time, turnaround time, queue length over time, technician/station utilization, throughput, interruption counts
 - CSV export for events, summary stats, time queue snapshots, and scenario config
 - a scenario runner that varies technician counts, station counts, preemption, and job volume across 10 runs, and records both simulated duration and real execution time per run to a master index file
-- parameter prompt that ask if you want to set custom parameters and walk through them one at a time if you say yes
-- a validation script with automated checks (FIFO order, priority order, config validation, no double-booking, wait/turnaround consistency, preemption behavior)
+- a parameter update that changes one parameter at a time against a baseline and reports sensitivity
+- a replication that reruns the same scenario many times with different random seeds and reports mean, standard deviation, min, max, and a 95% confidence interval per metric
+- interactive prompts that ask if you want to set custom parameters and walk through them one at a time.
 
 ## Setup
 
@@ -110,7 +113,7 @@ python src\print_simpy_run.py
 ```
 
 This runs one full scenario with live random arrivals, business hours, and
-preemption, then prints the simulation metrics for every completed job.
+preemption, then prints the simulation metrics for every completed job. 
 
 **This is the main script for the project - run this one to generate the full
 set of results:**
@@ -120,9 +123,27 @@ python src\run_all_scenarios.py
 ```
 
 Runs 10 scenarios that vary technician counts, station counts, preemption,
-and job volume, then prints a run summary table with simulated duration and
-real execution time for each run. It also asks if you want to set custom
-parameters for the scenarios before running.
+and job volume, then prints a run summary table with simulated duration.
+
+To test how one parameter at a time affects the results:
+
+```cmd
+python src\parameterUpdate.py
+```
+
+Runs a baseline first, then lets you pick how many additional runs to do -
+each one changes a single parameter to a new value and compares it back to
+that same baseline, including a sensitivity score.
+
+To see how much results vary from randomness alone:
+
+```cmd
+python src\replicate.py
+```
+
+Reruns the same scenario 30 times with different random seeds and reports
+mean, standard deviation, min, max, and a 95% confidence interval for wait
+time, turnaround time, and throughput.
 
 To run the validation checks:
 
@@ -130,16 +151,21 @@ To run the validation checks:
 python src\validate_simulation.py
 ```
 
+This runs 7 automated checks against the simulation, including FIFO order,
+priority order, config validation, no technician double-booking, wait/turnaround
+consistency, and preemption behavior.
+
 ## Architecture Overview
 
-- `models.py` has the main classes for jobs, technicians, stations, and scenario settings, plus config validation and config CSV export.
+- `models.py` has the main classes for jobs, technicians, stations, and scenario settings, plus config validation, config CSV export, and the shared day/time and project-folder helpers.
 - `csv_parser.py` reads the CSV data.
 - `input_analysis.py` prints early estimates from the closed RMA data.
 - `job_rules.py` maps CSV values into simulation rules.
-- `create_jobs.py` builds the random-arrival job models from historical CSV data and generates new synthetic jobs (Customer RMA, AdvEx, reship, production) for a running simulation.
+- `create_jobs.py` builds the random-arrival job models from historical CSV data, generates new synthetic jobs (Customer RMA, AdvEx, reship, production) for a running simulation, and figures out job counts per source from the simulation period.
 - `resources.py` creates SimPy technician and station resources.
-- `cli_prompts.py` has the shared prompt (yes/no questions and parameter entry) used by `print_simpy_run.py` and `run_all_scenarios.py`.
-- `simpy_runner.py` runs the live simulation: job arrival processes, the repair work loop with preemption and business-hours handling, and the queue-watching process.
+- `cli_prompts.py` has the prompts used across the runs.
+- `analysis.py` has helpers for runs that run many scenarios in a row 
+- `simpy_runner.py` runs the live simulation: job arrival processes, resource selection, the repair work loop with preemption and business-hours handling, and the queue-watching process.
 - `metrics.py` records the event log and completed-job results, and exports the CSV result files.
 
 ## UML Mapping
@@ -158,8 +184,8 @@ The M1 `activity_diagram.png` shows the work flow. Customer RMAs arrive, wait
 for an available technician and station, then get repaired and recorded. The
 direct-request path for advance exchanges, production failures, and reships
 is also implemented, with priority-based preemption instead of a pre-sorted
-queue - a production failure, AdvEx, or reship can now interrupt an
-in-progress Customer RMA repair, matching the real department behavior.
+queue - a production failure, AdvEx, or reship can interrupt an in-progress
+Customer RMA repair, matching the real department behavior.
 
 ## Troubleshooting
 

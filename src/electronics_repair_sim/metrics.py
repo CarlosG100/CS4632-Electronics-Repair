@@ -134,9 +134,9 @@ class SimulationMetrics:
     def export_events_csv(self, file_path, scenario_name, generated_at):
 
         field_names = [
-            "scenario", "generated_at", "sim_time", "day_time", "job_id", "source", "event_type",
+            "scenario", "sim_time", "day_time", "job_id", "source", "event_type",
             "technician", "station", "remaining_time", "outcome",
-            "wait_time", "turnaround_time", "service_time",
+            "wait_time", "turnaround_time", "service_time", "generated_at",
         ]
 
         file_already_exists = os.path.exists(file_path)
@@ -155,8 +155,8 @@ class SimulationMetrics:
 
     def save_queue_history_csv(self, file_path, scenario_name, generated_at):
         field_names = [
-            "scenario", "generated_at", "sim_time", "day_time", "tech_queue_length", "station_queue_length",
-            "techs_busy", "techs_idle", "stations_busy", "stations_idle",
+            "scenario", "sim_time", "day_time", "tech_queue_length", "station_queue_length",
+            "techs_busy", "techs_idle", "stations_busy", "stations_idle", "generated_at",
         ]
 
         file_already_exists = os.path.exists(file_path)
@@ -176,7 +176,6 @@ class SimulationMetrics:
     def export_summary_csv(self, file_path, technicians, stations, total_sim_time, scenario_name, generated_at):
         new_row = {
             "scenario": scenario_name,
-            "generated_at": generated_at,
             "total_sim_time": total_sim_time,
             "completed_jobs": self.count_completed_jobs(),
             "average_wait_time": self.calculate_average_wait_time(),
@@ -200,6 +199,8 @@ class SimulationMetrics:
                 percent_busy = 0
             new_row[station.station_id + "_utilization_percent"] = percent_busy
 
+        new_row["generated_at"] = generated_at
+
         existing_rows = []
         existing_field_names = []
 
@@ -214,6 +215,9 @@ class SimulationMetrics:
         for key in new_row:
             if key not in field_names:
                 field_names.append(key)
+
+        field_names.remove("generated_at")
+        field_names.append("generated_at")
 
         with open(file_path, "w", newline="") as csv_file:
             writer = csv.DictWriter(csv_file, fieldnames=field_names, restval="")

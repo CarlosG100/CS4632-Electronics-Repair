@@ -145,12 +145,18 @@ def check_wait_and_turnaround_make_sense():
 
 def check_preemption_interrupts_lower_priority_job():
     config = ScenarioConfig()
+    config.general_technicians = 1
+    config.specialty_technicians = 0
+    config.general_stations = 1
+    config.specialty_stations = 0
     technicians = create_technicians(config)
     stations = create_stations(config)
 
     env = simpy.Environment()
-    tech_resource = simpy.PreemptiveResource(env, capacity=1)
-    station_resource = simpy.PreemptiveResource(env, capacity=1)
+    general_tech_resource = simpy.PreemptiveResource(env, capacity=1)
+    specialty_tech_resource = simpy.PreemptiveResource(env, capacity=1)
+    general_station_resource = simpy.PreemptiveResource(env, capacity=1)
+    specialty_station_resource = simpy.PreemptiveResource(env, capacity=1)
     metrics = SimulationMetrics()
 
     normal_job = Job("NORMAL-TEST", SOURCE_RMA, PRIORITY_NORMAL, "2024-01-01", 10, CAPABILITY_GENERAL)
@@ -159,12 +165,18 @@ def check_preemption_interrupts_lower_priority_job():
     production_job = Job("PROD-TEST", SOURCE_PRODUCTION, PRIORITY_ASAP, None, 2, CAPABILITY_GENERAL)
 
     def start_normal_job():
-        yield env.process(repair_job(env, normal_job, tech_resource, station_resource, technicians, stations, metrics, False))
+        yield env.process(repair_job(
+            env, normal_job, general_tech_resource, specialty_tech_resource, general_station_resource, specialty_station_resource,
+            technicians, stations, metrics, False,
+        ))
 
     def start_production_job():
         yield env.timeout(3)
         production_job.sim_arrival_time = env.now
-        yield env.process(repair_job(env, production_job, tech_resource, station_resource, technicians, stations, metrics, True))
+        yield env.process(repair_job(
+            env, production_job, general_tech_resource, specialty_tech_resource, general_station_resource, specialty_station_resource,
+            technicians, stations, metrics, True,
+        ))
 
     env.process(start_normal_job())
     env.process(start_production_job())
