@@ -1,6 +1,7 @@
 import os
 
 from electronics_repair_sim.analysis import get_key_metrics, run_quiet, write_rows_to_csv
+from electronics_repair_sim.create_jobs import apply_period_based_job_counts, build_all_job_models
 from electronics_repair_sim.models import ScenarioConfig
 from electronics_repair_sim.simpy_runner import get_results_folder
 
@@ -16,6 +17,9 @@ UPDATABLE_PARAMETERS = [
     "reship_job_count",
     "production_job_count",
 ]
+
+NUM_REPLICATIONS_PER_VALUE = 100
+BASE_SEED = 2000
 
 
 def print_baseline(config):
@@ -102,10 +106,63 @@ def apply_parameter_value(config, parameter_name, value):
     return config
 
 
-def run_baseline(baseline_config):
-    metrics = run_quiet(baseline_config)
+def clone_config_with_seed(base_config, seed):
+    config = ScenarioConfig()
+    config.name = base_config.name
+    config.general_technicians = base_config.general_technicians
+    config.specialty_technicians = base_config.specialty_technicians
+    config.general_stations = base_config.general_stations
+    config.specialty_stations = base_config.specialty_stations
+    config.simulation_period_hours = base_config.simulation_period_hours
+    config.job_limit = base_config.job_limit
+    config.advex_job_count = base_config.advex_job_count
+    config.reship_job_count = base_config.reship_job_count
+    config.production_job_count = base_config.production_job_count
+    config.snapshot_gap_hours = base_config.snapshot_gap_hours
+    config.snapshot_limit = base_config.snapshot_limit
+    config.allow_preemption = base_config.allow_preemption
+    config.random_seed = seed
 
-    record = get_key_metrics(metrics)
+    return config
+
+
+def average_metric_records(metric_records):
+    completed_total = 0
+    wait_total = 0
+    turnaround_total = 0
+    throughput_total = 0
+
+    for record in metric_records:
+        completed_total = completed_total + record["completed_jobs"]
+        wait_total = wait_total + record["average_wait_time"]
+        turnaround_total = turnaround_total + record["average_turnaround_time"]
+        throughput_total = throughput_total + record["throughput_jobs_per_hour"]
+
+    count = len(metric_records)
+
+    return {
+        "completed_jobs": completed_total / count,
+        "average_wait_time": wait_total / count,
+        "average_turnaround_time": turnaround_total / count,
+        "throughput_jobs_per_hour": throughput_total / count,
+    }
+
+
+def run_averaged(base_config, num_replications):
+    metric_records = []
+
+    replication_number = 1
+    while replication_number <= num_replications:
+        config = clone_config_with_seed(base_config, BASE_SEED + replication_number)
+        metrics = run_quiet(config)
+        metric_records.append(get_key_metrics(metrics))
+        replication_number += 1
+
+    return average_metric_records(metric_records)
+
+
+def run_baseline(baseline_config):
+    record = run_averaged(baseline_config, NUM_REPLICATIONS_PER_VALUE)
     record["run_number"] = 0
     record["parameter"] = "baseline"
     record["value"] = ""
@@ -114,13 +171,11 @@ def run_baseline(baseline_config):
 
 
 def run_one_change(run_number, parameter_name, value):
-    config = ScenarioConfig()
-    config.name = parameter_name + "=" + str(value)
-    config = apply_parameter_value(config, parameter_name, value)
+    config_template = ScenarioConfig()
+    config_template.name = parameter_name + "=" + str(value)
+    config_template = apply_parameter_value(config_template, parameter_name, value)
 
-    metrics = run_quiet(config)
-
-    record = get_key_metrics(metrics)
+    record = run_averaged(config_template, NUM_REPLICATIONS_PER_VALUE)
     record["run_number"] = run_number
     record["parameter"] = parameter_name
     record["value"] = value
@@ -153,15 +208,15 @@ def add_sensitivity(record, baseline_record, baseline_parameter_value):
 
 def print_results_table(records):
     print()
-    print("Run | Parameter                | Value | Completed | Avg Wait  | Avg Turnaround | Throughput | Wait Sensitivity | Turnaround Sensitivity")
-    print("---------------------------------------------------------------------------------------------------------------------------------------")
+    print("Run | Parameter                | Value | Avg Completed | Avg Wait  | Avg Turnaround | Throughput | Wait Sensitivity | Turnaround Sensitivity")
+    print("---------------------------------------------------------------------------------------------------------------------------------------------")
 
     for record in records:
         print(
             str(record["run_number"]).rjust(3), "|",
             record["parameter"].ljust(24), "|",
             str(record["value"]).rjust(5), "|",
-            str(record["completed_jobs"]).rjust(9), "|",
+            format(record["completed_jobs"], ".1f").rjust(14), "|",
             format(record["average_wait_time"], ".4f").rjust(9), "|",
             format(record["average_turnaround_time"], ".4f").rjust(14), "|",
             format(record["throughput_jobs_per_hour"], ".4f").rjust(10), "|",
@@ -173,7 +228,10 @@ def print_results_table(records):
 def run_parameter_updates():
     baseline_config = ScenarioConfig()
 
-    print("Running baseline...")
+    rma_model, advex_model, reship_model, production_avg_interarrival_hours, _ = build_all_job_models(baseline_config)
+    baseline_config = apply_period_based_job_counts(baseline_config, rma_model, advex_model, reship_model, production_avg_interarrival_hours)
+
+    print("Running baseline (" + str(NUM_REPLICATIONS_PER_VALUE) + " replications)...")
     baseline_record = run_baseline(baseline_config)
 
     print()
@@ -190,10 +248,7 @@ def run_parameter_updates():
 
         baseline_parameter_value = get_parameter_value(baseline_config, parameter_name)
 
-        if run_number == 1:
-            baseline_record["parameter"] = parameter_name
-            baseline_record["value"] = baseline_parameter_value
-
+        print("Running", NUM_REPLICATIONS_PER_VALUE, "replications for", parameter_name, "=", value, "...")
         record = run_one_change(run_number, parameter_name, value)
         record = add_sensitivity(record, baseline_record, baseline_parameter_value)
 

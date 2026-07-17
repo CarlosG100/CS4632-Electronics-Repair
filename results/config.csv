@@ -1,13 +1,12 @@
 scenario,general_technicians,specialty_technicians,general_stations,specialty_stations,simulation_period_hours,job_limit,advex_job_count,reship_job_count,production_job_count,random_seed,snapshot_gap_hours,snapshot_limit,allow_preemption,generated_at
-base run,1,1,1,1,720,28,8,8,19,42,5,200,True,2026-07-15T19:35:44.848382
-extra gen tech,2,1,1,1,720,28,8,8,19,42,5,200,True,2026-07-15T19:35:44.979514
-extra spec tech,1,2,1,1,720,28,8,8,19,42,5,200,True,2026-07-15T19:35:45.122869
-extra gen station,1,1,2,1,720,28,8,8,19,42,5,200,True,2026-07-15T19:35:45.289013
-extra spec station,1,1,1,2,720,28,8,8,19,42,5,200,True,2026-07-15T19:35:45.436049
-+1 of all,2,2,2,2,720,28,8,8,19,42,5,200,True,2026-07-15T19:35:45.592657
-no preemption,1,1,1,1,720,28,8,8,19,42,5,200,False,2026-07-15T19:35:45.754933
-no preemption and +1 spec tech,1,2,1,1,720,28,8,8,19,42,5,200,False,2026-07-15T19:35:45.907548
-more demand,1,1,1,1,2160,85,23,23,57,42,5,200,True,2026-07-15T19:35:46.208253
-more demand and +1 all,2,2,2,2,2160,85,23,23,57,42,5,200,True,2026-07-15T19:35:46.454996
-validation check no preemption,1,1,1,1,720,5,5,5,0,42,5,200,False,2026-07-15T19:37:17.910578
-validation check wait and turnaround,1,1,1,1,720,5,5,5,0,42,5,200,False,2026-07-15T19:37:18.038219
+base run,1,1,1,1,720,28,8,8,19,42,5,200,True,2026-07-16T19:34:27.108097
+Extra Gen Tech/Station,2,1,2,1,720,28,8,8,19,42,5,200,True,2026-07-16T19:34:27.219007
+Extra Spec Tech/Station,1,2,1,2,720,28,8,8,19,42,5,200,True,2026-07-16T19:34:27.350882
+Extra Gen/Spec Tech/Station,2,2,2,2,720,28,8,8,19,42,5,200,True,2026-07-16T19:34:27.478786
+Extra Gen/Spec Tech/Station and doubled Customer RMAs,2,2,2,2,720,56,8,8,19,42,5,200,True,2026-07-16T19:34:27.635608
+100% increase in all,2,2,2,2,1440,56,16,16,38,42,5,200,True,2026-07-16T19:34:27.794394
+100% w/ no preemption,2,2,2,2,1440,56,16,16,38,42,5,200,False,2026-07-16T19:34:27.953797
+No preemption and extra spec,1,2,1,2,720,28,8,8,19,42,5,200,False,2026-07-16T19:34:28.095869
+100% increase in direct jobs with no preemption,1,1,1,1,720,28,16,16,38,42,5,200,False,2026-07-16T19:34:28.269732
+100% increase in direct jobs with preemption,1,1,1,1,720,28,16,16,38,42,5,200,True,2026-07-16T19:34:28.411609
+"doubled resources, baseline demand",2,2,2,2,720,28,8,8,19,42,5,200,True,2026-07-16T21:17:22.597711

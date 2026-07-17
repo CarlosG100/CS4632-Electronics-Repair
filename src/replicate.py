@@ -8,7 +8,7 @@ from electronics_repair_sim.simpy_runner import get_results_folder
 
 
 
-NUM_REPLICATIONS = 30
+NUM_REPLICATIONS = 100
 
 
 BASE_SEED = 1000

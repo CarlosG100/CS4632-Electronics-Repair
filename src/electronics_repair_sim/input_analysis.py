@@ -48,7 +48,7 @@ def get_interarrival_hours(dates):
 
     for index in range(1, len(dates)):
         time_difference = dates[index] - dates[index - 1]
-        hours = time_difference.total_seconds() / 3600  # divide by 3600 to convert seconds to hours
+        hours = time_difference.total_seconds() / 3600 
 
         if hours >= 0:
             interarrival_hours.append(hours)
@@ -113,7 +113,7 @@ def print_percent_counts(title, counts):
 
 
 def print_input_estimates():
-    # use CSV data to estimate early simulation inputs.
+
     rma_parents, rma_units, production_jobs = load_all_csv_data()
 
     rma_request_dates = get_sorted_dates(rma_parents, "request_date")

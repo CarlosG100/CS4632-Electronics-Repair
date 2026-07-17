@@ -1,11 +1,11 @@
 run_number,scenario,purpose,key_parameters,simulated_hours,execution_seconds,status,generated_at
-1,base run,Baseline,Default values,2293.8598081336627,0.1427149772644043,Complete,2026-07-15T19:35:44.855375
-2,extra gen tech,Extra general technician,general_technicians=2,1407.3437780886966,0.14416146278381348,Complete,2026-07-15T19:35:44.999537
-3,extra spec tech,Extra specialty technician,specialty_technicians=2,1407.3437780886966,0.1413402557373047,Complete,2026-07-15T19:35:45.141877
-4,extra gen station,Extra general station,general_stations=2,1407.3437780886966,0.16514158248901367,Complete,2026-07-15T19:35:45.307018
-5,extra spec station,Extra specialty station,specialty_stations=2,1430.0858359349843,0.15175080299377441,Complete,2026-07-15T19:35:45.460281
-6,+1 of all,Extra of everything,"general_technicians=2, specialty_technicians=2, general_stations=2, specialty_stations=2",1407.3437780886966,0.1524064540863037,Complete,2026-07-15T19:35:45.612688
-7,no preemption,No preemption,allow_preemption=False,2288.116981546867,0.1622464656829834,Complete,2026-07-15T19:35:45.774934
-8,no preemption and +1 spec tech,No preemption plus extra specialty tech,"allow_preemption=False, specialty_technicians=2",1407.3437780886966,0.16015982627868652,Complete,2026-07-15T19:35:45.935094
-9,more demand,Higher job volume,simulation_period_hours=2160 (90 days instead of 30),5287.639198308522,0.2982320785522461,Complete,2026-07-15T19:35:46.233326
-10,more demand and +1 all,Higher job volume plus extra resources,"simulation_period_hours=2160 (90 days), all resources x2",3271.8511982571226,0.2511870861053467,Complete,2026-07-15T19:35:46.484513
+1,base run,Baseline,Default values,2293.8598081336627,0.11327147483825684,Complete,2026-07-16T19:34:27.115848
+2,Extra Gen Tech/Station,Extra general technician,customized,1407.3437780886966,0.12504100799560547,Complete,2026-07-16T19:34:27.240888
+3,Extra Spec Tech/Station,Extra specialty technician,customized,1407.3437780886966,0.12569260597229004,Complete,2026-07-16T19:34:27.366581
+4,Extra Gen/Spec Tech/Station,Extra general station,customized,1407.3437780886966,0.12653088569641113,Complete,2026-07-16T19:34:27.493112
+5,Extra Gen/Spec Tech/Station and doubled Customer RMAs,Extra specialty station,customized,3759.2833333333333,0.15854763984680176,Complete,2026-07-16T19:34:27.651660
+6,100% increase in all,Extra of everything,customized,2360.2166666666667,0.16050148010253906,Complete,2026-07-16T19:34:27.812161
+7,100% w/ no preemption,No preemption,customized,2360.2166666666667,0.1735067367553711,Complete,2026-07-16T19:34:27.985668
+8,No preemption and extra spec,No preemption plus extra specialty tech,customized,1407.3437780886966,0.13009142875671387,Complete,2026-07-16T19:34:28.115759
+9,100% increase in direct jobs with no preemption,Higher job volume,customized,2385.6259828089496,0.16972064971923828,Complete,2026-07-16T19:34:28.285480
+10,100% increase in direct jobs with preemption,Higher job volume plus extra resources,customized,2391.368809395745,0.15759968757629395,Complete,2026-07-16T19:34:28.443080
