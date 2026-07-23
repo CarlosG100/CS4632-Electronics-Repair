@@ -17,13 +17,15 @@ The main events are when a job arrives, a technician starts or finishes work, a 
 - `M1/` - M1 proposal PDF, LaTeX source, bibliography, and diagrams
 - `M2/` - M2 report PDF
 - `M3/` - M3 report PDF
+- `M4/` - M4 report PDF
+- `M5/` - M5 final report LaTex
 - `data/` - cleaned CSV files used as project input data
 - `src/` - Python source code for the simulation
-- `results/` - CSV output from simulation runs (created after you run the code)
+- `results/` - CSV output from simulation runs
 
 ## Project Status
 
-The simulation is fully implemented and runs complete scenarios end to end, from live random job arrivals through repair, interruption, and completion, with results exported to CSV. Work is now on M4 analysis: sensitivity/parameter testing, replicated statistical runs, and validation.
+The project is complete through M5.
 
 Implemented so far:
 
@@ -36,14 +38,13 @@ Implemented so far:
 - job counts per source figured out automatically from a chosen simulation period (in hours) and each source's real historical arrival rate.
 - general jobs prefer general technicians/stations, but will use an idle specialty technician/station if every general one is busy; specialty jobs only ever use specialty technicians/stations
 - a general job borrowing specialty capacity can't be preempted by an incoming specialty job on that borrowed resource.
-- two-tier preemption: production, AdvEx, and reship jobs can interrupt an in-progress Customer RMA repair, but never interrupt each other
+- production, AdvEx, and reship jobs can interrupt an in-progress Customer RMA repair, but never interrupt each other
 - business hours (7 AM - 3:30 PM, Monday - Friday) for both job arrivals and repair work, with in-progress jobs pausing overnight/over the weekend and picking back up where they left off
-- full metrics collection: wait time, turnaround time, queue length over time, technician/station utilization, throughput, interruption counts
+- full metrics: wait time, turnaround time, queue length over time, technician/station utilization, throughput, interruption counts
 - CSV export for events, summary stats, time queue snapshots, and scenario config
 - a scenario runner that varies technician counts, station counts, preemption, and job volume across 10 runs, and records both simulated duration and real execution time per run to a master index file
 - a parameter update that changes one parameter at a time against a baseline and reports sensitivity
-- a replication that reruns the same scenario many times with different random seeds and reports mean, standard deviation, min, max, and a 95% confidence interval per metric
-- interactive prompts that ask if you want to set custom parameters and walk through them one at a time.
+- a replication that reruns the same scenario many times with different random seeds and reports mean, standard deviation, min, max, and a 95% confidence interval per metricb
 
 ## Setup
 
@@ -141,7 +142,7 @@ To see how much results vary from randomness alone:
 python src\replicate.py
 ```
 
-Reruns the same scenario 30 times with different random seeds and reports
+Reruns the same scenario 100 times with different random seeds and reports
 mean, standard deviation, min, max, and a 95% confidence interval for wait
 time, turnaround time, and throughput.
 
@@ -170,22 +171,27 @@ consistency, and preemption behavior.
 
 ## UML Mapping
 
-The M1 `class_diagram.png` shows the main planned program parts:
-`RepairDepartment`, `Job`, `Repair`, `Results`, `Technician`, and `Station`.
+M1's original diagrams planned a `RepairDepartment` class with a `Repair` class
+managing an RMA rack. M5 has updated diagrams that match the real code. The M1 diagrams are still in `M1/` for reference,
+but the M5 ones are the accurate picture of the current architecture.
 
-- `Job` maps to the `Job` class in `models.py`.
-- `Technician` maps to the `Technician` class in `models.py`.
-- `Station` maps to the `Station` class in `models.py`.
-- `RepairDepartment` is split across `resources.py` and `simpy_runner.py`.
-- `Repair` is represented by the `repair_job` SimPy process in `simpy_runner.py`.
-- `Results` maps to `metrics.py`.
+- `Job`, `Technician`, `Station`, and `ScenarioConfig` are the data classes in
+  `models.py`.
+- `SimulationMetrics` in `metrics.py` records the event log, completed jobs,
+  and queue snapshots.
+- `create_jobs.py` builds the historical job models and generates new jobs
+  during a run.
+- `csv_parser.py`, `input_analysis.py`, and `job_rules.py` feed historical
+  data into `create_jobs.py`.
+- `resources.py` builds the technician and station lists.
+- `simpy_runner.py` is where the actual control logic lives. Its functions work directly
+  with four SimPy `PreemptiveResource` pools (general/specialty technicians,
+  general/specialty stations).
 
-The M1 `activity_diagram.png` shows the work flow. Customer RMAs arrive, wait
-for an available technician and station, then get repaired and recorded. The
-direct-request path for advance exchanges, production failures, and reships
-is also implemented, with priority-based preemption instead of a pre-sorted
-queue - a production failure, AdvEx, or reship can interrupt an in-progress
-Customer RMA repair, matching the real department behavior.
+`M5/activity_diagram.png` shows a job moving through arrival, technician
+selection, station selection, service, and possible interruption, including
+the general/specialty borrowing rule and the queueing that happens if even
+the borrowed resource is busy.
 
 ## Troubleshooting
 
@@ -196,6 +202,3 @@ Customer RMA repair, matching the real department behavior.
 ```cmd
 python -m pip install -r requirements.txt
 ```
-
-- If a results CSV file is open in Excel or another program, close it before
-  running the simulation again

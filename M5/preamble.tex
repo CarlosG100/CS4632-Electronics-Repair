@@ -1,0 +1,79 @@
+% preamble.tex
+\geometry{letterpaper, top=2.2in, headheight=1.7in}
+\date{}
+
+\makeatletter
+
+\def\fulltitle#1{\def\@fulltitle{#1}}
+\def\runningtitle#1{\def\@runningtitle{#1}}
+\def\runningauthor#1{\def\@runningauthor{#1}}
+\def\affiliation#1{\def\@affiliation{#1}}
+\def\department#1{\def\@department{#1}}
+\def\memoid#1{\def\@memoid{#1}}
+\def\theyear#1{\def\@theyear{#1}}
+\def\mydate#1{\def\@mydate{#1}}
+
+\runningtitle{Course Project Report}
+\author{Student Name}
+\runningauthor{Student Name}
+\affiliation{Kennesaw State University}
+\department{College of Computing and Software Engineering}
+\memoid{CS 4632 Project}
+\theyear{2026}
+\mydate{June 11, 2026}
+
+\def\displaymydate{\@mydate}
+\def\displaytheyear{\@theyear}
+\def\displaymemoid{\@memoid}
+\def\displaydepartment{\@department}
+\def\displayaffiliation{\@affiliation}
+\def\displayrunningauthor{\@runningauthor}
+\def\displayrunningtitle{\@runningtitle}
+
+\makeatother
+
+\makeatletter
+\patchcmd{\@zfancyhead}{\fancy@reset}{\f@nch@reset}{}{}
+\patchcmd{\@set@em@up}{\f@ncyolh}{\f@nch@olh}{}{}
+\patchcmd{\@set@em@up}{\f@ncyolh}{\f@nch@olh}{}{}
+\patchcmd{\@set@em@up}{\f@ncyorh}{\f@nch@orh}{}{}
+\makeatother
+
+\pagestyle{fancy}
+\renewcommand{\headrulewidth}{0pt}
+
+\fancypagestyle{firstpage}
+{
+    \fancyhf{}
+    \fancyhead{%
+        \begin{center}
+            \textsc{\displayaffiliation}\\
+            \textsc{\displaydepartment}
+        \end{center}
+        \vspace*{0.5in}
+        \displaymemoid
+        \hfill
+        \displaymydate
+    }
+    \fancyfoot[L]{\footnotesize \textbf{\textsc{\displayaffiliation} -- \displaytheyear}}
+}
+\fancyhead[EL]{\small \displayrunningauthor}
+\fancyhead[ER]{\small Page \thepage}
+\fancyhead[OL]{\small Page \thepage}
+\fancyhead[OR]{\small \displayrunningtitle}
+
+\chead{}
+\lfoot{}
+\cfoot{}
+\rfoot{}
+
+\providecommand{\keywords}[1]{\noindent \textbf{Keywords:} #1}
+
+\renewcommand{\familydefault}{\sfdefault}
+\setlength{\parskip}{0.7em}
+\setlength{\parindent}{0pt}
+\abslabeldelim{:}
+\setlength{\abstitleskip}{-\absparindent}
+
+\pretitle{\Large \begin{center}}
+\posttitle{\\[2ex] \Large \textbf{by}\end{center}}
